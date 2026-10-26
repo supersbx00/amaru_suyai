@@ -1,0 +1,68 @@
+{
+  "$GMObject": "",
+  "%Name": "obj_animal_gaviota",
+  "eventList": [
+    {
+      "$GMEvent": "v1",
+      "%Name": "",
+      "collisionObjectId": null,
+      "eventNum": 0,
+      "eventType": 0,
+      "isDnD": false,
+      "name": "",
+      "resourceType": "GMEvent",
+      "resourceVersion": "2.0"
+    },
+    {
+      "$GMEvent": "v1",
+      "%Name": "",
+      "collisionObjectId": null,
+      "eventNum": 0,
+      "eventType": 3,
+      "isDnD": false,
+      "name": "",
+      "resourceType": "GMEvent",
+      "resourceVersion": "2.0"
+    }
+  ],
+  "managed": true,
+  "name": "obj_animal_gaviota",
+  "overriddenProperties": [],
+  "parent": {
+    "name": "Objects",
+    "path": "folders/03_Mundo_Rooms/Objects.yy"
+  },
+  "parentObjectId": null,
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 0,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": true,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 0,
+  "physicsShapePoints": [
+    {
+      "x": 400.0,
+      "y": 230.0
+    },
+    {
+      "x": 504.0,
+      "y": 504.0
+    }
+  ],
+  "physicsStartAwake": true,
+  "properties": [],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
+  "solid": false,
+  "spriteId": {
+    "name": "spr_animal_gaviota",
+    "path": "sprites/spr_animal_gaviota/spr_animal_gaviota.yy"
+  },
+  "spriteMaskId": null,
+  "visible": true
+}

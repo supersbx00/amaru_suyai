@@ -1,0 +1,97 @@
+global.win = win;
+
+if (obj_player_battle.barHealth < 20)
+    truco = 1;
+
+if (enemigosCantidad == 0)
+{
+    win = 1;
+    
+    if (audio_is_playing(snd_battle))
+    {
+        audio_stop_sound(snd_battle);
+        audio_play_sound(snd_win, 10, true);
+    }
+    
+    global.enable_player = 0;
+    global.enable_battle = 0;
+    obj_player_battle.phy_active = 0;
+    enemigosCantidad = -1;
+    
+    if (global.tipo_enemigo == "espiritu_luna")
+    {
+        global.espiritu_luna = 1;
+        alarm[1] = 30;
+    }
+    else if (global.tipo_enemigo == "espiritu_agua")
+    {
+        global.espiritu_agua = 1;
+        alarm[1] = 30;
+    }
+    else if (global.tipo_enemigo == "espiritu_fuego")
+    {
+        global.espiritu_fuego = 1;
+        alarm[1] = 30;
+    }
+    else if (global.tipo_enemigo == "khoru")
+    {
+        global.khoru = 1;
+        alarm[1] = 30;
+    }
+    else
+    {
+        alarm[0] = 30;
+    }
+}
+
+if (instance_number(obj_dialogo_premio) != 0)
+    dialogo = 1;
+
+if (dialogo == 1 && alarm_trigger == 1)
+{
+    if (instance_number(obj_dialogo_premio) == 0)
+    {
+        if (!ds_list_empty(obj_game.escena_grabada))
+        {
+            alarm[2] = 60;
+            alarm_trigger = 0;
+        }
+    }
+}
+
+if (obj_player_battle.barHealth <= 0 || obj_enemigo.barHealth <= 0)
+{
+    phase1 = 0;
+    phase2 = 0;
+    phase3 = 1;
+}
+
+if (phase3)
+{
+    if (obj_player_battle.barHealth <= 0 && alarm_trigger == 1)
+    {
+        obj_player_battle.sprite_index = spr_amaru_battle_defeat;
+        obj_player_battle.enable_battle = 0;
+        obj_player_battle.enable_player = 0;
+        
+        if (audio_is_playing(snd_battle))
+        {
+            audio_stop_sound(snd_battle);
+            audio_play_sound(snd_defeat, 10, true);
+        }
+        
+        defeat = 1;
+        alarm_trigger = 0;
+        alarm[3] = 150;
+    }
+    
+    if (obj_enemigo.barHealth <= 0)
+    {
+        obj_enemigo.sprite_index = spr_enemigo_battle_defeat;
+        obj_enemigo.barHealth = 0;
+        obj_enemigo.phy_active = 0;
+    }
+}
+
+depth = -1 * room_height;
+script_execute(scr_anulacion);

@@ -1,0 +1,8 @@
+
+
+# Basura local de GameMaker / IDE
+*.yyz
+*.user
+.vs/
+openspec
+_recuperado

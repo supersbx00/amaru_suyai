@@ -1,0 +1,10 @@
+mensaje = "";
+texto[0] = "Junquillo:#Planta de pantano que crece en suelos humedos.";
+texto[1] = "Puede alcanzar 40 cm de alto sirviendo como refugios #principalmente para aves e insectos.";
+texto[2] = "Sus tallos fueron recolectados como materia prima #para elaborar diferentes tipos de cordelerías y esteras.";
+numero = 0;
+final = 3;
+alarm[0] = 3;
+x = __view_get(0, 0) + 640;
+y = __view_get(1, 0) + 640;
+event_inherited();

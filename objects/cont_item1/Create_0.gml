@@ -1,0 +1,15 @@
+cont_agua = 0;
+cont_fuego = 0;
+cont_luna = 0;
+randomize();
+itemSapawnRate1 = 20 * room_speed;
+itemTimeDif1 = 5 * room_speed;
+alarm[0] = itemSapawnRate1 + random_range(-itemTimeDif1, itemTimeDif1);
+randomize();
+itemSapawnRate2 = 15 * room_speed;
+itemTimeDif2 = 5 * room_speed;
+alarm[1] = itemSapawnRate2 + random_range(-itemTimeDif2, itemTimeDif2);
+randomize();
+itemSapawnRate3 = 10 * room_speed;
+itemTimeDif3 = 5 * room_speed;
+alarm[2] = itemSapawnRate3 + random_range(-itemTimeDif3, itemTimeDif3);

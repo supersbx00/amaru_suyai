@@ -1,0 +1,11 @@
+mensaje = "";
+texto[0] = "Las cuevas de Anzota:#son una formación natural geológica que data del jurásico# y  fueron talladas por el agua.";
+texto[1] = "Las cuevas son un lugar adecuado para brindar protección# a los pobladores, siendo un punto estratégico# para la supervivencia... ";
+texto[1] = "donde la lucha por la comida se centraba en el mar.";
+numero = 0;
+final = 2;
+alarm[0] = 3;
+complete = 0;
+x = __view_get(0, 0) + 640;
+y = __view_get(1, 0) + 640;
+event_inherited();

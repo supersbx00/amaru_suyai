@@ -1,0 +1,1 @@
+barHealth = 40;

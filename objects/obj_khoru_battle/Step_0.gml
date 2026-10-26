@@ -1,0 +1,171 @@
+var id1 = id;
+
+if (!player_cardBreaked && !player_danho)
+{
+    if (velocidad == 0)
+    {
+        if (barHealth <= 100)
+        {
+            alarma = 3;
+            alarma_combo = 30;
+            velocidad = 6;
+            event_user(1);
+        }
+        else
+        {
+            velocidad = 4;
+            event_user(1);
+        }
+    }
+}
+else
+{
+    velocidad = 0;
+    event_user(1);
+}
+
+if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
+{
+    randomize();
+    tipo_ataque = choose("normal", "combo");
+    sprite = choose(20, 16, 18);
+    
+    if (sprite == 20)
+    {
+        typeCombo = "luna";
+        tipo = "especial_luna";
+    }
+    else if (sprite == 16)
+    {
+        typeCombo = "agua";
+        tipo = "especial_agua";
+    }
+    else if (sprite == 18)
+    {
+        typeCombo = "fuego";
+        tipo = "especial_fuego";
+    }
+    
+    with (instance_create(x, y, obj_card))
+    {
+        if (id1.tipo_ataque == "normal")
+        {
+            randomize();
+            image_index = irandom_range(5, 9);
+            sprite_index = id1.sprite;
+            card_inDeck[0] = sprite_index;
+            card_inDeck[1] = image_index;
+            card_inDeck[2] = image_index;
+            card_inDeck[3] = "ataque";
+            global.v_enemy = image_index;
+            id1.danho = card_inDeck[1];
+            id1.cartaUsada = card_inDeck;
+            id1.ataque = card_inDeck[1];
+            id1.danho = card_inDeck[1];
+            id1.alarm[0] = 10;
+        }
+        else if (id1.tipo_ataque == "combo")
+        {
+            for (var i = 0; i < 3; i++)
+            {
+                randomize();
+                image_index = irandom_range(5, 9);
+                sprite_index = id1.sprite;
+                card_inDeck[0] = sprite_index;
+                card_inDeck[1] = image_index;
+                card_inDeck[2] = image_index;
+                card_inDeck[3] = "ataque";
+                id1.cartaUsada = card_inDeck;
+                id1.ataque = card_inDeck[1];
+                id1.comboCard_value += card_inDeck[1];
+                ds_list_add(id1.ComboArray, id1.cartaUsada);
+            }
+            
+            if (ds_list_size(id1.ComboArray) == 3)
+            {
+                comboCarta_aux[0] = 14;
+                comboCarta_aux[1] = id1.comboCard_value;
+                comboCarta_aux[2] = id1.comboCard_value;
+                global.v_enemy = id1.comboCard_value;
+                comboCarta_aux[3] = id1.typeCombo;
+                id1.cartaUsada = comboCarta_aux;
+                
+                with (id1)
+                {
+                    if (!player_cardBreaked && !player_danho)
+                        script_execute(scr_combo_enemy, cartaUsada);
+                }
+            }
+        }
+        
+        instance_destroy();
+    }
+    
+    alarm[11] = 30;
+    escoger = 1;
+}
+
+if (!player_cardBreaked && !player_danho)
+{
+    if (my_path != -1 && barHealth > 0)
+    {
+        dir = point_direction(my_target.x, my_target.y, phy_position_x, phy_position_y);
+        dist = point_distance(my_target.x, my_target.y, phy_position_x, phy_position_y);
+        dx = lengthdir_x(velocidad, dir);
+        dy = lengthdir_y(velocidad, dir);
+        hspd = dx;
+        vspd = dy;
+        phy_position_x -= dx;
+        phy_position_y -= dy;
+        
+        if (dist > 32)
+        {
+            phy_position_x = my_target.x;
+            phy_position_y = my_target.y;
+        }
+        
+        global.count = 0;
+    }
+}
+
+if (hspd != 0 || vspd != 0)
+    image_speed = 0.3;
+
+if (barHealth <= 0)
+{
+    my_path = -1;
+    hspd = 0;
+    vspd = 0;
+    barHealth = 0;
+    phy_active = 0;
+    sprite_index = spr_khoru_defeat;
+    obj_battleController.enemigosCantidad -= 1;
+    image_speed = 0.3;
+}
+
+if (player_cardBreaked && !alarmTrigger)
+{
+    cartaUsada = undefined;
+    hspd = 0;
+    vspd = 0;
+    alarmTrigger = 1;
+    global.v_enemy = 0;
+    alarm[10] = 75;
+    sprite_index = spr_khoru_CardBreaker;
+}
+
+if (anulable && !alarmTrigger)
+{
+    global.v_enemy = 1;
+    can_atk = 0;
+    alarmTrigger = 1;
+    alarm[5] = 30;
+}
+else if (player_danho && !alarm_danho)
+{
+    cartaUsada = undefined;
+    hspd = 0;
+    vspd = 0;
+    alarm_danho = 1;
+    alarm[10] = 10;
+}

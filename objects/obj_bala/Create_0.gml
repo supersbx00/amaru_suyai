@@ -1,0 +1,2 @@
+creador = "";
+ataque = "";

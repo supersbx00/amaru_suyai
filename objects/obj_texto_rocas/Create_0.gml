@@ -1,0 +1,10 @@
+mensaje = "";
+texto[0] = "ROCAS: #Servía como visión panorámica y amplia";
+texto[1] = "para el entorno a la obtención de recursos alimenticios #(aves, mamíferos marinos, etc.)";
+numero = 0;
+final = 2;
+alarm[0] = 3;
+complete = 0;
+x = __view_get(0, 0) + 640;
+y = __view_get(1, 0) + 640;
+event_inherited();

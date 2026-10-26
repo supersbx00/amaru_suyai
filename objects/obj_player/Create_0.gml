@@ -1,0 +1,17 @@
+dist = 1000;
+image_speed = 0.3;
+hspd = 0;
+vspd = 0;
+enable_player = 0;
+enable_battle = 0;
+desactivado = 0;
+state = scr_player_move;
+player_x = 0;
+player_y = 0;
+load = obj_game.load;
+ignorado = 0;
+battle_begin = 0;
+k_left = 0;
+k_right = 0;
+k_up = 0;
+k_dow = 0;

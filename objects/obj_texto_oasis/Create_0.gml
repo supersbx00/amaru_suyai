@@ -1,0 +1,10 @@
+mensaje = "";
+texto[0] = "Oasis: #Recurso de abundante agua dulce ubicada en las costas del Humedal,";
+texto[1] = "Sirvió para la atracción de aves en el lugar y el mejoramiento #de algunas técnicas agricolas";
+numero = 0;
+final = 2;
+alarm[0] = 3;
+complete = 0;
+x = __view_get(0, 0) + 640;
+y = __view_get(1, 0) + 640;
+event_inherited();

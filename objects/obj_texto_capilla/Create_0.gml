@@ -1,0 +1,10 @@
+mensaje = "";
+texto[0] = "La capilla: #Campamento que cumplía la función económica y ritual donde se #realizaban las ceremonias en torno al proceso de iniciación";
+texto[1] = "de joven a adulto. Esto se simbolizaba a través de un faldellín que #reflejaba el proceso de cambio que se generaba en el individuo.";
+texto[2] = "El faldellín era confeccionado a través de fibra vegetal #y en algunas ocasiones con fibra de camélido y #cubría la parte púbica de los miembros del grupo chinchorro.";
+numero = 0;
+final = 3;
+alarm[0] = 3;
+x = __view_get(0, 0) + 32;
+y = __view_get(1, 0) + 32;
+event_inherited();

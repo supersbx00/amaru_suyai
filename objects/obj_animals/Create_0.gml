@@ -1,0 +1,1 @@
+tiempoSpawn = 90;

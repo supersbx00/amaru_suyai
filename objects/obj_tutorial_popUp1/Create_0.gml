@@ -1,0 +1,11 @@
+count = 0;
+tutorial_popUp = 0;
+valor_popUp = "atacar";
+valor[0] = "atacar";
+valor[1] = "recargar";
+valor[2] = "cardbreak";
+valor[3] = "null card";
+valor[4] = "rotar mazo";
+valor[5] = "combo";
+valor[6] = "curar";
+valor[7] = "orbe";
