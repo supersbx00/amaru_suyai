@@ -311,6 +311,7 @@ depth = -1;
 
 if (menuOptions == "Recetas")
 {
+    draw_set_color(c_black);
     draw_sprite(spr_receta_tituloReceta, 1, __view_get(0, 0) + 40, __view_get(1, 0) + 40);
     draw_sprite(spr_receta_baseRecetaMaterial, 1, __view_get(0, 0) + 40, __view_get(1, 0) + 130);
     draw_sprite_ext(spr_receta_baseCarta, 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 200, __view_get(1, 0) + 130, 0.97, 1, 0, c_white, 1);
@@ -533,12 +534,12 @@ if (instance_exists(obj_control_tutorial))
         
         if (menuOptions == "Recetas")
         {
-            draw_sprite(spr_principalGlobo, 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 250, __view_get(1, 0) + 20);
+            draw_sprite_ext(spr_principalGlobo, 1, __view_get(0, 0) + 400, __view_get(1, 0) + 20, 0.9, 1, 0, c_white, 1);
             
             if (ds_list_size(obj_morral.morralCards) == 0)
-                scr_text("Aqui podremos crear cartas que te ayudaran durante tu aventura#Como ves, para crear cartas necesitaremos cierta cantidad de#materiales", 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 180, __view_get(1, 0) + 20);
+                scr_text("Aqui podremos crear cartas que te ayudaran durante tu aventura#Como ves, para crear cartas necesitaremos cierta cantidad de#materiales", 1, __view_get(0, 0) + 877, __view_get(1, 0) + 76, 660, true);
             else
-                scr_text("Has creado tu primera carta, para verla, retrocede con X y ve al#menu Ver Cartas", 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 180, __view_get(1, 0) + 20);
+                scr_text("Has creado tu primera carta, para verla, retrocede con X y ve al#menu Ver Cartas", 1, __view_get(0, 0) + 877, __view_get(1, 0) + 76, 660, true);
         }
         
         if (menuOptions == "Editar mazo")

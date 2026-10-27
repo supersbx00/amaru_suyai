@@ -24,5 +24,8 @@ if (centrado)
     dy = y - (string_height_ext(string_hash_to_newline(text), sep, maxlength) / 2);
 }
 
+var prev_color = draw_get_color();
+draw_set_color(c_black);
 draw_text_ext(dx, dy, string_hash_to_newline(print), sep, maxlength);
+draw_set_color(prev_color);
 draw_set_alpha(1);

@@ -2,27 +2,27 @@ function scr_asignaSprite_segunNombre() {
 switch (argument0)
 {
     case "Huesos de ave":
-        sprite = 63;
+        sprite = spr_huesoAve;
         break;
     
     case "Fibra vegetal":
-        sprite = 66;
+        sprite = spr_fibraVegetal;
         break;
     
     case "Madera":
-        sprite = 64;
+        sprite = spr_madera;
         break;
     
     case "Choros":
-        sprite = 67;
+        sprite = spr_choritos;
         break;
     
     case "C. lobo de mar":
-        sprite = 68;
+        sprite = spr_costillasLobo;
         break;
     
     case "Piedras":
-        sprite = 69;
+        sprite = spr_piedras;
         break;
     
     default:
