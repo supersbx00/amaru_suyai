@@ -2,10 +2,10 @@
   "$GMSprite":"v2",
   "%Name":"spr_loadGame",
   "bboxMode":0,
-  "bbox_bottom":73,
-  "bbox_left":60,
-  "bbox_right":341,
-  "bbox_top":13,
+  "bbox_bottom":74,
+  "bbox_left":58,
+  "bbox_right":342,
+  "bbox_top":11,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -24,9 +24,9 @@
   "name":"spr_loadGame",
   "nineSlice":null,
   "origin":4,
-  "parent": {
-    "name": "02_Nucleo_Partida",
-    "path": "folders/Sprites/02_Nucleo_Partida.yy"
+  "parent":{
+    "name":"02_Nucleo_Partida",
+    "path":"folders/Sprites/02_Nucleo_Partida.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -70,7 +70,9 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"e5eb62ba-77b7-56ba-a463-dce6386f3489","path":"sprites/spr_loadGame/spr_loadGame.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"2037ee81-520d-5fbf-9c07-09985c224680","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e5eb62ba-77b7-56ba-a463-dce6386f3489","path":"sprites/spr_loadGame/spr_loadGame.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2037ee81-520d-5fbf-9c07-09985c224680","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
