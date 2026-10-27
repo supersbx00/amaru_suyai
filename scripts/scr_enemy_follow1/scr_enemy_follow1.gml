@@ -36,6 +36,6 @@ if (dist <= 250 && dist > 100 && count == 0)
 }
 else
 {
-    state = 53;
+    state = scr_start1;
 }
 }

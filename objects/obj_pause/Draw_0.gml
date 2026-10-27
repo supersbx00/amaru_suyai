@@ -159,7 +159,8 @@ if (menuOptions == "Editar mazo")
             if (auxCardDeck != undefined)
             {
                 draw_sprite_ext(spr_baseCarta, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 400) + (106 * j), __view_get(1, 0) + 224 + (140 * i), 0.5, 0.5, 1, c_white, 1);
-                draw_sprite_ext(auxCardDeck[0], auxCardDeck[2], ((__view_get(0, 0) + __view_get(2, 0)) - 400) + (106 * j), __view_get(1, 0) + 224 + (140 * i), 1.5, 1.5, 1, c_white, 1);
+                var sprCardDeck = (auxCardDeck[0] == 13) ? spr_noCard : auxCardDeck[0];
+                draw_sprite_ext(sprCardDeck, auxCardDeck[2], ((__view_get(0, 0) + __view_get(2, 0)) - 400) + (106 * j), __view_get(1, 0) + 224 + (140 * i), 1.5, 1.5, 1, c_white, 1);
                 puntero++;
             }
             else
@@ -238,7 +239,10 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
     {
         var drawCard = select;
         var auxCopys = drawCard[2];
-        draw_sprite_ext(scr_return_hdCard(drawCard[0]), 0, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160, __view_get(1, 0) + 192, 0.4, 0.4, 0, c_white, 1);
+        var sprHdCard = scr_return_hdCard(drawCard[0]);
+
+        if (sprHdCard != -1)
+            draw_sprite_ext(sprHdCard, 0, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160, __view_get(1, 0) + 192, 0.4, 0.4, 0, c_white, 1);
         
         if (addRemove_card == "add")
         {
@@ -355,7 +359,10 @@ if (menuOptions == "Recetas")
     
     if (select != undefined && select[10])
     {
-        draw_sprite_ext(scr_return_hdCard(select[0]), 0, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160, __view_get(1, 0) + 175, 0.75, 0.75, 0, c_white, 1);
+        var sprHdReceta = scr_return_hdCard(select[0]);
+
+        if (sprHdReceta != -1)
+            draw_sprite_ext(sprHdReceta, 0, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160, __view_get(1, 0) + 175, 0.75, 0.75, 0, c_white, 1);
         script_execute(scr_recetas_MaterialesNecesarios, select[1], (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 210, select[4]);
         script_execute(scr_recetas_MaterialesNecesarios, select[2], __view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 210, select[5]);
         script_execute(scr_recetas_MaterialesNecesarios, select[3], (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 60, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, select[6]);
@@ -422,7 +429,7 @@ if (menuOptions == "Memorin")
         draw_sprite(spr_diario_florafauna, 1, __view_get(0, 0) + 390, __view_get(1, 0) + 30);
     }
     
-    script_execute(scr_lista_logros_memorin());
+    scr_lista_logros_memorin();
 }
 
 draw_set_alpha(1);
@@ -554,7 +561,7 @@ if (instance_exists(obj_control_tutorial))
                 }
                 else
                 {
-                    scr_text("Genial! ahora salgamos del menú, solo debes apretar 'Espacio'", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                    scr_text("Genial! ahora salgamos del menú, solo debes apretar 'Enter'", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
                 }
             }
             
@@ -563,7 +570,7 @@ if (instance_exists(obj_control_tutorial))
                 if (obj_morral.mazo_seleccionado[4] < 5)
                     scr_text("Tenemos que agregar las cartas al mazo hasta que sean 5#Llevas " + string(obj_morral.mazo_seleccionado[4]) + " carta(s)", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
                 else
-                    scr_text("Genial! ahora salgamos del menú apretando 'Espacio' ", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                    scr_text("Genial! ahora salgamos del menú apretando 'Enter' ", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
             }
         }
     }

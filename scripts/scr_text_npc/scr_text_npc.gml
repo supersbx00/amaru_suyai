@@ -206,7 +206,8 @@ switch (npc)
         {
             texto[0] = "(Durante el juego cada herramienta es representada con una carta).#(Esta nos permite combatir al enemigo y asi poder derrotarlo).#(Cada carta tiene una característica especial).";
             texto[1] = "Tenemos que poner a prueba tus habilidades.#¡Manos a la obra!";
-            texto[2] = "Y no olvides, añadir las herramientas que te acabo de entregar. #( si no equipas un número mínimo de 5 cartas en tu mazo#no podrás combatir)";
+            texto[2] = "Te acabo de entregar 4 cartas de Arpón de hueso ya hechas.#Se suman a tu carta en el inventario.";
+            texto[3] = "Agrégalas a tu mazo desde 'Editar mazo'.#( si no equipas un número mínimo de 5 cartas en tu mazo#no podrás combatir)";
             break;
         }
         

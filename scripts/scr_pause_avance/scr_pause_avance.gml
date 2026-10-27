@@ -9,54 +9,62 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
         {
             var auxEmpty_space = ds_list_find_value(obj_morral.mazo_seleccionado[2], posCursor);
             
-            if (auxEmpty_space[0] == 13)
+            if (auxEmpty_space[0] == 13 && saveType >= 0 && saveType < ds_list_size(obj_morral.morralCards))
             {
-                var auxData_card = select;
-                
-                with (instance_create(x, y, obj_card))
+                // Se lee la carta desde el inventario (no desde select): con copy-on-write select puede quedar desactualizado
+                var auxData_card = ds_list_find_value(obj_morral.morralCards, saveType);
+                var auxData_copys = auxData_card[2];
+
+                if (instance_exists(obj_text))
                 {
-                    data_card_deck[0] = auxData_card[0];
-                    data_card_deck[1] = obj_pause.saveValue;
-                    data_card_deck[2] = obj_pause.saveValue;
-                    data_card_deck[3] = auxData_card[3];
-                    data_card_deck[4] = obj_pause.calculoCP;
-                    data_card_deck[5] = auxData_card[5];
-                    data_card_deck[6] = auxData_card[6];
-                    
-                    if ((data_card_deck[4] + obj_morral.mazo_seleccionado[3]) <= obj_morral.cp_limit)
+                    with (obj_text)
+                        instance_destroy();
+                }
+
+                if (auxData_copys[saveValue] > 0)
+                {
+                    with (instance_create(x, y, obj_card))
                     {
-                        ds_list_replace(obj_morral.mazo_seleccionado[2], obj_pause.posCursor, data_card_deck);
-                        obj_morral.mazo[4, obj_morral.mazo_seleccionado[0]] += 1;
-                        obj_morral.cantidadCartas -= 1;
-                        obj_morral.mazo[2, obj_morral.mazo_seleccionado[0]] += data_card_deck[4];
-                        var auxInventory_pos = ds_list_find_index(obj_morral.morralCards, auxData_card);
-                        if (auxInventory_pos != -1)
+                        data_card_deck[0] = auxData_card[0];
+                        data_card_deck[1] = obj_pause.saveValue;
+                        data_card_deck[2] = obj_pause.saveValue;
+                        data_card_deck[3] = auxData_card[3];
+                        data_card_deck[4] = obj_pause.calculoCP;
+                        data_card_deck[5] = auxData_card[5];
+                        data_card_deck[6] = auxData_card[6];
+
+                        if ((data_card_deck[4] + obj_morral.mazo_seleccionado[3]) <= obj_morral.cp_limit)
                         {
+                            ds_list_replace(obj_morral.mazo_seleccionado[2], obj_pause.posCursor, data_card_deck);
+                            obj_morral.mazo[4, obj_morral.mazo_seleccionado[0]] += 1;
+                            obj_morral.cantidadCartas -= 1;
+                            obj_morral.mazo[2, obj_morral.mazo_seleccionado[0]] += data_card_deck[4];
                             var auxInventory = auxData_card;
                             var auxInventory_copys = auxInventory[2];
                             auxInventory_copys[obj_pause.saveValue] -= 1;
                             auxInventory[2] = auxInventory_copys;
-                            ds_list_replace(obj_morral.morralCards, auxInventory_pos, auxInventory);
+                            ds_list_replace(obj_morral.morralCards, obj_pause.saveType, auxInventory);
+                            obj_pause.select = auxInventory;
                         }
+                        else
+                        {
+                            scr_text("No se puede agregar, limite de CP alcanzado", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 70);
+                        }
+
+                        instance_destroy();
                     }
-                    else
-                    {
-                        scr_text("No se puede agregar, limite de CP alcanzado", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 70);
-                    }
-                    
-                    instance_destroy();
+                }
+                else
+                {
+                    scr_text("No quedan copias de esa carta con ese valor", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 70);
                 }
             }
-            
+
             editDeck_phase = "cardInventory";
-            
-            if (instance_exists(obj_text))
-            {
-                with (obj_text)
-                    instance_destroy();
-            }
-            
+            posCursor = saveType;
             io_clear();
+            // Termina la pulsación aquí para no caer al bloque "cardInventory" con datos de esta misma pulsación
+            exit;
         }
         
         if (editDeck_phase == "cardCopy")

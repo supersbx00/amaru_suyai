@@ -334,14 +334,10 @@ if (instance_exists(obj_pause))
     
     if (paso == 11 && !trigger)
     {
-        if (obj_pause.menuOptions == "Recetas" && push)
+        if (ds_list_size(obj_morral.morralCards) > 0)
         {
-            if (ds_list_size(obj_morral.morralCards) > 0)
-            {
-                io_clear();
-                trigger = 1;
-                alarm[0] = 10;
-            }
+            trigger = 1;
+            alarm[0] = 10;
         }
     }
     

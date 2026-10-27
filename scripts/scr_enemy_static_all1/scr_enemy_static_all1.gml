@@ -17,5 +17,5 @@ if ((playery > enemyy && playerx < enemyx) && dist > 250)
 if ((playery < enemyy && playerx > enemyx) && dist > 250)
     sprite_index = spr_tojone_back_stand;
 else if (dist < 250)
-    state = 53;
+    state = scr_start1;
 }

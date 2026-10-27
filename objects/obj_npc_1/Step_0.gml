@@ -24,7 +24,7 @@ if (dist <= 100)
     {
         global.escena = 1;
         global.anciana = 1;
-        script_execute(scr_go_to_room(3));
+        scr_go_to_room(3);
         enable_room = 0;
     }
 }

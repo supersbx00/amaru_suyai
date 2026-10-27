@@ -65,7 +65,7 @@ if (obj_player.hspd == 0 && obj_player.vspd == 0 && dist < 100)
                 global.escena = 1;
                 global.tipo_enemigo = argument[0];
                 global.ide = id;
-                script_execute(scr_go_to_room(5));
+                scr_go_to_room(5);
             }
         }
         else
@@ -76,7 +76,7 @@ if (obj_player.hspd == 0 && obj_player.vspd == 0 && dist < 100)
             {
                 global.escena = 1;
                 global.tipo_enemigo = argument[0];
-                script_execute(scr_go_to_room(4));
+                scr_go_to_room(4);
                 obj_player.enable_player = 1;
             }
         }
@@ -84,6 +84,6 @@ if (obj_player.hspd == 0 && obj_player.vspd == 0 && dist < 100)
 }
 else if (dist >= 100)
 {
-    state = 53;
+    state = scr_start1;
 }
 }
