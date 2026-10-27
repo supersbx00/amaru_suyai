@@ -544,33 +544,33 @@ if (instance_exists(obj_control_tutorial))
         if (menuOptions == "Editar mazo")
         {
             draw_sprite(spr_spiritu_ori, -1, (__view_get(0, 0) + __view_get(2, 0)) - 20, (__view_get(1, 0) + __view_get(3, 0)) - 10);
-            draw_sprite(spr_principalGlobo, 1, __view_get(0, 0) + 400, __view_get(1, 0) + 10);
+            draw_sprite_ext(spr_principalGlobo, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 20, 0.95, 1, 0, c_white, 1);
             
             if (obj_control_tutorial.paso >= 12 && obj_control_tutorial.paso <= 14)
             {
                 if (obj_morral.mazo_seleccionado[4] == 0)
                 {
                     if (editDeck_phase == "cardInventory")
-                        scr_text("Puedes elegir entre los distintos tipos de cartas que hayas creado o# conseguido, seleccionemos nuestra carta presionando la tecla 'Z'", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                        scr_text("Puedes elegir entre los distintos tipos de cartas que hayas creado o# conseguido, seleccionemos nuestra carta presionando la tecla 'Z'", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                     
                     if (editDeck_phase == "cardCopy")
-                        scr_text("Debemos elegir el valor de nuestra carta, mientras mayor valor, mas fuerte es# pero a la vez, tiene mayor Card Point (CP),#zagreguemos la carta a nuestro mazo", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                        scr_text("Debemos elegir el valor de nuestra carta, mientras mayor valor, mas fuerte es# pero a la vez, tiene mayor Card Point (CP),#zagreguemos la carta a nuestro mazo", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                     
                     if (editDeck_phase == "cardDeck")
-                        scr_text("Podemos ubicar la carta en cualquier espacio vacio.# Los mazos tienen un limite, tanto de cartas como de CP", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                        scr_text("Podemos ubicar la carta en cualquier espacio vacio.# Los mazos tienen un limite, tanto de cartas como de CP", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                 }
                 else
                 {
-                    scr_text("Genial! ahora salgamos del menú, solo debes apretar 'Enter'", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                    scr_text("Genial! ahora salgamos del menú, solo debes apretar 'Enter'", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                 }
             }
             
             if (obj_control_tutorial.paso >= 15)
             {
                 if (obj_morral.mazo_seleccionado[4] < 5)
-                    scr_text("Tenemos que agregar las cartas al mazo hasta que sean 5#Llevas " + string(obj_morral.mazo_seleccionado[4]) + " carta(s)", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                    scr_text("Tenemos que agregar las cartas al mazo hasta que sean 5#Llevas " + string(obj_morral.mazo_seleccionado[4]) + " carta(s)", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                 else
-                    scr_text("Genial! ahora salgamos del menú apretando 'Enter' ", 1, __view_get(0, 0) + 430, __view_get(1, 0) + 20);
+                    scr_text("Genial! ahora salgamos del menú apretando 'Enter' ", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
             }
         }
     }

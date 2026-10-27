@@ -6,7 +6,8 @@ if (!instance_exists(obj_text))
     with (txt)
     {
         padding = 16;
-        maxlength = __view_get(2, 0);
+        maxlength = (argument_count > 4) ? argument4 : __view_get(2, 0);
+        centrado = (argument_count > 5) ? argument5 : false;
         text = argument0;
         spd = argument1;
         font = 0;

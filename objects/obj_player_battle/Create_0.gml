@@ -1,4 +1,5 @@
 personaje_sprite = "Amaru";
+phy_fixed_rotation = 1;
 combo = 0;
 breaker = 0;
 color = 16777215;
