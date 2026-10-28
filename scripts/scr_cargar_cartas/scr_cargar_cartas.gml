@@ -13,7 +13,7 @@ for (var j = 0; j < aux_cantidadCartas; j++)
         card_morral[4] = "NO CP";
         card_morral[5] = "No name";
         card_morral[6] = "No description";
-        scr_asignaValores_segunCarta(card_morral);
+        scr_asignaValores_segunCarta();
         var aux_cardMorral = card_morral[2];
         
         for (var k = 0; k < 10; k++)

@@ -28,7 +28,7 @@ with (obj_morral)
                     card_morral[4] = "NO CP";
                     card_morral[5] = "No name";
                     card_morral[6] = "No description";
-                    scr_asignaValores_segunCarta(card_morral);
+                    scr_asignaValores_segunCarta();
                     card_morral[4] = round(card_morral[4] + (card_morral[1] * 0.8));
                     var aux_listaMazo = obj_morral.mazo[1, i];
                     ds_list_replace(aux_listaMazo, j, card_morral);

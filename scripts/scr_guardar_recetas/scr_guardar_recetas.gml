@@ -1,4 +1,8 @@
 function scr_guardar_recetas() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 ini_open("recetas.ini");
 
 for (var i = 0; i < ds_list_size(obj_morral.recipeBook); i++)

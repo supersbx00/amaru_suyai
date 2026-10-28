@@ -1,5 +1,9 @@
 push = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
 
+// Clic izquierdo sobre una opción del menú de pausa cuenta como Z (obj_pause aún no lo consumió: este objeto corre antes)
+if (global.mouse_click && instance_exists(obj_pause) && obj_pause.mouse_objetivo != -1)
+    push = 1;
+
 if (paso == 7)
 {
     while (instance_number(obj_materiales) < 5 && cantidad_materiales == 5)

@@ -1,15 +1,15 @@
-function scr_text() {
+function scr_text(_texto, _spd, _x, _y, _ancho = undefined, _centrado = false) {
 if (!instance_exists(obj_text))
 {
-    txt = instance_create(argument2, argument3, obj_text);
+    txt = instance_create(_x, _y, obj_text);
     
     with (txt)
     {
         padding = 16;
-        maxlength = (argument_count > 4) ? argument4 : __view_get(2, 0);
-        centrado = (argument_count > 5) ? argument5 : false;
-        text = argument0;
-        spd = argument1;
+        maxlength = (_ancho == undefined) ? __view_get(2, 0) : _ancho;
+        centrado = _centrado;
+        text = _texto;
+        spd = _spd;
         font = 0;
         text_length = string_length(text);
         font_size = font_get_size(font);

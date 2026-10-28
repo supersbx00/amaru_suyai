@@ -205,7 +205,7 @@ global.__objectNames[99] = "obj_cerebro";
 global.__objectNames[100] = "obj_room_controller";
 global.__objectNames[101] = "obj_generate";
 global.__objectNames[102] = "obj_desp";
-var len = array_length_1d(global.__objectDepths);
+var len = array_length(global.__objectDepths);
 global.__objectID2Depth = [];
 
 for (var i = 0; i < len; i++)

@@ -1,4 +1,8 @@
 function scr_guardar_cuarto() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 if (menuOptions == "Guardar")
 {
     if (file_exists("Escenario.ini"))

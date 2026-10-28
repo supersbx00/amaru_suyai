@@ -1,4 +1,8 @@
 function scr_guardar_logros() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 if (file_exists("logros.ini"))
     file_delete("logros.ini");
 

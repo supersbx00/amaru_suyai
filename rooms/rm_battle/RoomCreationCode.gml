@@ -24,6 +24,6 @@ if (global.tipo_enemigo == "khoru")
 
 if (!instance_exists(obj_control_tutorial))
 {
-    instance_create(x, y, cont_item);
-    instance_create(x, y, cont_item1);
+    instance_create(0, 0, cont_item);
+    instance_create(0, 0, cont_item1);
 }

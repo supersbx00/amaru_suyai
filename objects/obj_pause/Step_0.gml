@@ -10,6 +10,7 @@ push_left = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, g
 push_right = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr);
 push_lb = keyboard_check_pressed(ord("A")) || gamepad_button_check_pressed(0, gp_shoulderl);
 push_rb = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0, gp_shoulderr);
+scr_pause_mouse();
 
 if (push_sabias && global.enable_battle == 0 && global.pause == 0 && !instance_exists(obj_dialogo) && !instance_exists(obj_control_tutorial))
 {
@@ -34,6 +35,8 @@ if (push_lb)
 
 if (!global.pause)
     exit;
+
+var move = 0;
 
 if (menuOptions == "Principal" && !instance_exists(obj_popUp))
 {
@@ -80,9 +83,9 @@ if (menuOptions == "Principal" && !instance_exists(obj_popUp))
         else
         {
             if (posCursor < 0)
-                posCursor = array_length_1d(menu) - 1;
+                posCursor = array_length(menu) - 1;
             
-            if (posCursor > (array_length_1d(menu) - 1))
+            if (posCursor > (array_length(menu) - 1))
                 posCursor = 0;
         }
     }
@@ -94,7 +97,7 @@ if (menuOptions == "Principal" && !instance_exists(obj_popUp))
         scr_menu();
 }
 
-var move = 0;
+move = 0;
 
 if (menuOptions == "Ver cartas")
 {
@@ -396,18 +399,23 @@ if (real(image_index) >= 5)
 
 if (menuOptions == "Guardar")
 {
-    script_execute(scr_guardar_item);
-    script_execute(scr_guardar_cartas);
-    script_execute(scr_guardar_mazo);
-    script_execute(scr_guardar_cuarto);
-    script_execute(scr_guardar_logros);
-    script_execute(scr_guardar_recetas);
-    script_execute(scr_guardar_datos);
-    ini_open("datosJuego.ini");
-    ini_write_real("puntaje jugador", "valor", global.puntaje_total_descrasheo);
-    ini_close();
-    menuOptions = "Principal";
+    // Modo prueba ("Momificar"): no se escribe nada en disco
+    if (!global.modo_prueba)
+    {
+        script_execute(scr_guardar_item);
+        script_execute(scr_guardar_cartas);
+        script_execute(scr_guardar_mazo);
+        script_execute(scr_guardar_cuarto);
+        script_execute(scr_guardar_logros);
+        script_execute(scr_guardar_recetas);
+        script_execute(scr_guardar_datos);
+        ini_open("datosJuego.ini");
+        ini_write_real("puntaje jugador", "valor", global.puntaje_total_descrasheo);
+        ini_close();
+        
+        with (instance_create(__view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2), obj_popUp))
+            valorTexto = "guardar";
+    }
     
-    with (instance_create(__view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2), obj_popUp))
-        valorTexto = "guardar";
+    menuOptions = "Principal";
 }

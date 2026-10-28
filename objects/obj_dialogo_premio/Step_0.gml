@@ -5,8 +5,8 @@ else
 
 script_execute(scr_text_step);
 depth = -1 * room_height;
-scr_text_npc(npc);
-final = array_length_1d(texto);
+scr_text_npc();
+final = array_length(texto);
 
 if (instance_exists(obj_player))
 {

@@ -7,13 +7,13 @@ if (global.zona < 2)
     global.zona = 2;
 
 if (!instance_exists(obj_generate))
-    instance_create(x, y, obj_generate);
+    instance_create(0, 0, obj_generate);
 
 if (!instance_exists(obj_pause))
-    instance_create(x, y, obj_pause);
+    instance_create(0, 0, obj_pause);
 
 if (!instance_exists(obj_room_controller))
-    instance_create(x, y, obj_room_controller);
+    instance_create(0, 0, obj_room_controller);
 
 if (instance_exists(obj_control_tutorial))
 {

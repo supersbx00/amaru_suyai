@@ -39,12 +39,12 @@ var array_layers = layer_get_all();
 
 if (instance_exists(obj_tutorial_popup_2))
 {
-    for (var p = 0; p < array_length_1d(layer_get_all()); p++)
+    for (var p = 0; p < array_length(layer_get_all()); p++)
         layer_set_visible(array_layers[p], 0);
 }
 else
 {
-    for (var p = 0; p < array_length_1d(layer_get_all()); p++)
+    for (var p = 0; p < array_length(layer_get_all()); p++)
         layer_set_visible(array_layers[p], 1);
 }
 
@@ -54,17 +54,17 @@ if (instance_exists(obj_pause))
     
     if (global.pause == 1)
     {
-        for (var p = 0; p < array_length_1d(layer_get_all()); p++)
+        for (var p = 0; p < array_length(layer_get_all()); p++)
             layer_set_visible(array_layers[p], 0);
     }
     else if (instance_exists(obj_sabias))
     {
-        for (var p = 0; p < array_length_1d(layer_get_all()); p++)
+        for (var p = 0; p < array_length(layer_get_all()); p++)
             layer_set_visible(array_layers[p], 0);
     }
     else
     {
-        for (var p = 0; p < array_length_1d(layer_get_all()); p++)
+        for (var p = 0; p < array_length(layer_get_all()); p++)
             layer_set_visible(array_layers[p], 1);
     }
 }
@@ -151,6 +151,132 @@ if (room == rm_menu)
                 
                 obj_morral.cantidadCartas += 1;
                 instance_destroy();
+            }
+        }
+    }
+}
+
+// Textos de ayuda del menú de pausa. Van en Step y no en Draw: durante la pausa se ocultan
+// todas las capas (ver arriba), incluida la de obj_game, y su Draw deja de ejecutarse.
+if (instance_exists(obj_pause))
+{
+    with (obj_pause)
+    {
+        if (menuOptions == "Principal")
+        {
+            if (instance_exists(obj_control_tutorial))
+            {
+                if (obj_control_tutorial.tutorialOn)
+                {
+                    var textoPaso = undefined;
+                    
+                    // Paso 10 con "Inventario": el mismo texto que pone obj_pause/Draw_0, para que no compitan
+                    if (obj_control_tutorial.paso == 10 && posCursor == 0)
+                        textoPaso = "Ya podemos ver nuestras cartas!! ";
+                    else if (obj_control_tutorial.paso == 12)
+                        textoPaso = "¡Muy bien! Ahora entra a 'Ver cartas' para agregar#tu nueva carta al mazo";
+                    else if (obj_control_tutorial.paso == 13 || obj_control_tutorial.paso == 14)
+                        textoPaso = "¡Genial! Presiona 'Enter' para salir del menú";
+                    
+                    if (textoPaso != undefined)
+                    {
+                        // Si quedó un texto de otro paso u opción, se rehace con el del paso actual
+                        if (instance_exists(obj_text) && obj_text.text != textoPaso)
+                        {
+                            with (obj_text)
+                                instance_destroy();
+                        }
+                        
+                        scr_text(textoPaso, 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    }
+                    else switch (posCursor)
+                    {
+                        case 0:
+                            scr_text("En el inventario se guardan todos los materiales que has recogido durante tu aventura#Para acceder a el solo debes presionar 'Z'", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                            break;
+                        
+                        case 1:
+                            scr_text("Aqui puedes ver las cartas que hayas conseguido o fabricado", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                            break;
+                        
+                        case 2:
+                            scr_text("En recetas puedes crear cartas con los materiales que hayas recogido", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                            break;
+                        
+                        default:
+                            scr_text("ERROR 404", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                switch (posCursor)
+                {
+                    case 0:
+                        scr_text("En el inventario se guardan todos los materiales que has recogido durante tu aventura", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                    
+                    case 1:
+                        scr_text("Aqui puedes ver las cartas que hayas conseguido o fabricado", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                    
+                    case 2:
+                        scr_text("En recetas puedes crear cartas con los materiales que hayas recogido", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                    
+                    case 3:
+                        scr_text("Guarda tu partida para descansar un rato", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                    
+                    case 4:
+                        scr_text("Muestra informacion de cosas importantes con las que has interactuado", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                    
+                    default:
+                        scr_text("ERROR 404", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                        break;
+                }
+            }
+        }
+    }
+}
+
+if (instance_exists(obj_pause))
+{
+    with (obj_pause)
+    {
+        if (menuOptions == "Ver cartas")
+        {
+            switch (posCursor)
+            {
+                case 0:
+                    if (!instance_exists(obj_control_tutorial))
+                        scr_text("Aqui puedes agregar y/o quitar cartas al mazo actual", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    else
+                        scr_text("Agregaremos la carta construida al mazo actual, tenemos 3 mazos para crear estrategias,# pero eso lo hablaremos mas adelante", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    
+                    break;
+                
+                case 1:
+                    scr_text("Selecciona uno de los tres mazos que tienes a disposición", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    break;
+                
+                case 2:
+                    scr_text("Retira todas las cartas del mazo seleccionado", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    break;
+                
+                case 3:
+                    scr_text("Cambia el nombre de tus mazos para reconocerlos mas fácil", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    break;
+                
+                case 4:
+                    scr_text("Borra las cartas que tengas de más o no necesites", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    break;
+                
+                default:
+                    scr_text("ERROR 404", 0.7, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                    break;
             }
         }
     }

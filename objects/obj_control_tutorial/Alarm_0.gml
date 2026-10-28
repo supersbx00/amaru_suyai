@@ -149,7 +149,6 @@ switch (paso)
         ds_list_insert(obj_game.cambio_escena, 0, temp);
         scr_go_to_room(temp[2]);
         exit;
-        break;
     
     default:
         break;

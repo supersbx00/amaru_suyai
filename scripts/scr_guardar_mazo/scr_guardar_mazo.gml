@@ -1,4 +1,8 @@
 function scr_guardar_mazo() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 if (file_exists("saveDeck.ini"))
     file_delete("saveDeck.ini");
 

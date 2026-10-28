@@ -7,7 +7,7 @@ if (global.zona < 3)
 
 if (!instance_exists(obj_player))
 {
-    with (instance_create(x, y, obj_player))
+    with (instance_create(0, 0, obj_player))
     {
         player_x = 128;
         player_y = 416;
@@ -16,13 +16,13 @@ if (!instance_exists(obj_player))
 }
 
 if (!instance_exists(obj_generate))
-    instance_create(x, y, obj_generate);
+    instance_create(0, 0, obj_generate);
 
 if (!instance_exists(obj_pause))
-    instance_create(x, y, obj_pause);
+    instance_create(0, 0, obj_pause);
 
 if (!instance_exists(obj_room_controller))
-    instance_create(x, y, obj_room_controller);
+    instance_create(0, 0, obj_room_controller);
 
 if (!instance_exists(obj_room_controller))
-    instance_create(x, y, obj_room_controller);
+    instance_create(0, 0, obj_room_controller);

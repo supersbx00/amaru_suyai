@@ -22,7 +22,7 @@ if (menuOptions == "Principal")
         }
         else
         {
-            for (var i = 0; i < (array_length_1d(menu) - 2); i++)
+            for (var i = 0; i < (array_length(menu) - 2); i++)
             {
                 draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
                 draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menu[i])));
@@ -31,7 +31,7 @@ if (menuOptions == "Principal")
     }
     else
     {
-        for (var i = 0; i < array_length_1d(menu); i++)
+        for (var i = 0; i < array_length(menu); i++)
         {
             draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
             draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menu[i])));
@@ -54,7 +54,7 @@ if (menuOptions == "Inventario")
 {
     draw_set_halign(fa_left);
     draw_set_font(description);
-    draw_set_color(c_white);
+    draw_set_color(c_black);
     draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, string_hash_to_newline("Material: " + string(select[1])));
     draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 70, string_hash_to_newline("Descripcion: " + string(select[2])));
     draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 440, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, string_hash_to_newline("Cantidad: " + string(select[3])));
@@ -106,7 +106,7 @@ if (menuOptions == "Ver cartas")
         draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + 60, 0.5, 0.5, 1, c_white, 1);
         draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + 60, string_hash_to_newline(string(menuDeck[0])));
         
-        for (var i = 1; i < array_length_1d(menuDeck); i++)
+        for (var i = 1; i < array_length(menuDeck); i++)
             draw_sprite_ext(spr_proximamente, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
     }
 }
@@ -176,17 +176,17 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
 {
     draw_set_font(general);
     draw_set_alpha(1);
-    draw_text(__view_get(0, 0) + 128, __view_get(1, 0) + 32, string_hash_to_newline(string(menuOptions)));
+    draw_set_color(c_black);
+    draw_text(__view_get(0, 0) + 60, __view_get(1, 0) + 32, string_hash_to_newline(string(menuOptions)));
     draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 138, string_hash_to_newline("Cartas en Inv: "));
     draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 160, string_hash_to_newline(string(obj_morral.cantidadCartas) + "/" + string(obj_morral.limite_inventario)));
     
     if (menuOptions == "Editar mazo")
     {
-        draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 64, string_hash_to_newline("Mazo equipado: " + string(obj_morral.mazo_seleccionado[1])));
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 480, __view_get(1, 0) + 138, string_hash_to_newline("Cartas Deck: "));
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 480, __view_get(1, 0) + 160, string_hash_to_newline(string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit)));
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 300, __view_get(1, 0) + 138, string_hash_to_newline("CP Deck: "));
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 300, __view_get(1, 0) + 160, string_hash_to_newline(string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit)));
+        draw_text(__view_get(0, 0) + 60, __view_get(1, 0) + 64, string_hash_to_newline("Mazo equipado: " + string(obj_morral.mazo_seleccionado[1])));
+        // En una línea y bajo el globo del tutorial (que llega hasta y≈147); la cuadrícula empieza en y≈206
+        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 300, __view_get(1, 0) + 165, string_hash_to_newline("CP Deck: " + string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit)));
+        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 480, __view_get(1, 0) + 165, string_hash_to_newline("Cartas Deck: " + string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit)));
     }
 }
 
@@ -523,13 +523,13 @@ if (instance_exists(obj_control_tutorial))
     if (obj_control_tutorial.tutorialOn)
     {
         if (menuOptions == "Principal" && obj_control_tutorial.paso == 10 && posCursor == 0)
-            scr_text("Ya podemos ver nuestras cartas!! ", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 30);
+            scr_text("Ya podemos ver nuestras cartas!! ", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
         
         if (menuOptions == "Inventario")
         {
             draw_sprite(spr_spiritu_ori, -1, (__view_get(0, 0) + __view_get(2, 0)) - 20, (__view_get(1, 0) + __view_get(3, 0)) - 30);
             draw_sprite(spr_principalGlobo, 1, __view_get(0, 0) + 60, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 60);
-            scr_text("Aqui podemos ver los materiales recogidos y una breve descripcion de ellos#Para retroceder al menu anterior, presionar 'X'", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 90);
+            scr_text("Aqui podemos ver los materiales recogidos y una breve descripcion de ellos#Para retroceder al menu anterior, presionar 'X'", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 116, 720, true);
         }
         
         if (menuOptions == "Recetas")

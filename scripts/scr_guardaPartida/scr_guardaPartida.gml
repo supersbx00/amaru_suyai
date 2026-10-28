@@ -1,4 +1,8 @@
 function scr_guardaPartida() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 script_execute(scr_guardar_item);
 script_execute(scr_guardar_cartas);
 script_execute(scr_guardar_mazo);

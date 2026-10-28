@@ -1,4 +1,8 @@
 function scr_guardar_cartas() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 if (file_exists("saveCards.ini"))
 {
     file_delete("saveCards.ini");

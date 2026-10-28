@@ -1,6 +1,6 @@
 if (global.numero >= 7)
 {
-    if (mouse_check_button_pressed(mb_left) && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length_1d(inventario) * 64) + 67))
+    if (mouse_check_button_pressed(mb_left) && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length(inventario) * 64) + 67))
     {
         var posicion_h = (mouse_y - 16) div 67;
         click = 0;
@@ -20,7 +20,7 @@ if (global.numero >= 7)
             {
                 var posicion_h;
                 
-                if (mouse_x < 80 && mouse_y < ((array_length_1d(inventario) * 16) + 67) && mouse_y > 0)
+                if (mouse_x < 80 && mouse_y < ((array_length(inventario) * 16) + 67) && mouse_y > 0)
                     posicion_h = (mouse_y - 16) div 67;
                 else
                     posicion_h = guardar_h;
@@ -32,7 +32,7 @@ if (global.numero >= 7)
                 }
                 else
                 {
-                    for (var i = 0; i < array_length_1d(inventario); i++)
+                    for (var i = 0; i < array_length(inventario); i++)
                     {
                         if (inventario[i] == 0)
                         {
@@ -117,7 +117,7 @@ if (global.numero >= 7)
             show_debug_message("objetofuera=" + string(objetofuera));
         }
         
-        if (mouse_x < 80 && mouse_y < ((array_length_1d(inventario) * 67) + 16) && mouse_y > 0 && objetofuera != -4)
+        if (mouse_x < 80 && mouse_y < ((array_length(inventario) * 67) + 16) && mouse_y > 0 && objetofuera != -4)
         {
             with (objetofuera)
                 instance_destroy();

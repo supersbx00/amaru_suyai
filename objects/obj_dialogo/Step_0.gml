@@ -5,7 +5,7 @@ else
 
 script_execute(scr_text_step);
 scr_text_npc();
-final = array_length_1d(texto);
+final = array_length(texto);
 
 if (instance_exists(obj_player))
 {

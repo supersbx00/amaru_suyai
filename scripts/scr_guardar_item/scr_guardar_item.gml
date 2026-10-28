@@ -1,4 +1,8 @@
 function scr_guardar_item() {
+// Modo prueba ("Momificar"): no se escribe nada en disco
+if (global.modo_prueba)
+    exit;
+
 if (file_exists("saveItems.ini"))
 {
     file_delete("saveItems.ini");
