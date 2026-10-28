@@ -19,6 +19,15 @@ if (paso == 7)
     }
 }
 
+// Respaldo: si se vuelve de la batalla con las ayudas a medias (pasos 18-24), salta al evento de Wanku y Khoru
+if (paso >= 18 && paso < 25 && room == rm_tutorial_test)
+{
+    global.cinematica = 1;
+    paso = 25;
+    trigger = 0;
+    alarm[0] = -1; // que ninguna ayuda pendiente lo adelante al 26
+}
+
 if (paso == 16)
 {
     if (!instance_exists(obj_enemigo_normal) && instance_exists(obj_player))

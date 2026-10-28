@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":6.6352835,
   "exportDir":"",
   "name":"sound_wind",
   "parent":{

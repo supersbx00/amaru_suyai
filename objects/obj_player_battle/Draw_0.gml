@@ -18,48 +18,20 @@ carta_mid = ds_list_find_value(playerDeck, apunta_mid);
 carta_der = ds_list_find_value(playerDeck, apunta_der);
 carta_mde = ds_list_find_value(playerDeck, apunta_mde);
 
-if (ds_list_size(playerDeck) > 3)
-{
-    if (carta_izq != undefined)
-    {
-        if (carta_izq[0] != 15)
-            draw_sprite_ext(carta_izq[0], carta_izq[1], -30, 608, 1.5, 1.5, 0, c_white, 0.8);
-        else
-            draw_sprite_ext(carta_izq[0], recuperaCartas / vecesRecuperarCartas, -30, 608, 1.5, 1.5, 0, c_white, 0.8);
-    }
-}
+// Mano: la carta de recarga anima su llenado; al terminar una recarga las cartas regresan girando (orden = turno de llegada)
+if (ds_list_size(playerDeck) > 3 && carta_izq != undefined)
+    scr_carta_mano_dibujar(carta_izq, -30, 608, 0.8, 0);
 
-if (ds_list_size(playerDeck) > 2)
-{
-    if (carta_mde != undefined)
-    {
-        if (carta_mde[0] != 15)
-            draw_sprite_ext(carta_mde[0], carta_mde[1], 98, 662, 1.5, 1.5, 0, c_white, 0.6);
-        else
-            draw_sprite_ext(carta_mde[0], recuperaCartas / vecesRecuperarCartas, 98, 662, 1.5, 1.5, 0, c_white, 0.6);
-    }
-}
+if (ds_list_size(playerDeck) > 2 && carta_mde != undefined)
+    scr_carta_mano_dibujar(carta_mde, 98, 662, 0.6, 1);
 
-if (ds_list_size(playerDeck) > 1)
-{
-    if (carta_der != undefined)
-    {
-        if (carta_der[0] != 15)
-            draw_sprite_ext(carta_der[0], carta_der[1], 81, 642, 1.5, 1.5, 0, c_white, 0.8);
-        else
-            draw_sprite_ext(carta_der[0], recuperaCartas / vecesRecuperarCartas, 81, 642, 1.5, 1.5, 0, c_white, 0.8);
-    }
-}
+if (ds_list_size(playerDeck) > 1 && carta_der != undefined)
+    scr_carta_mano_dibujar(carta_der, 81, 642, 0.8, 2);
 
 if (ds_list_size(playerDeck) > 0)
 {
     if (carta_mid != undefined)
-    {
-        if (carta_mid[0] != 15)
-            draw_sprite_ext(carta_mid[0], carta_mid[1], 52, 617, 1.5, 1.5, 0, c_white, 1);
-        else
-            draw_sprite_ext(carta_mid[0], recuperaCartas / vecesRecuperarCartas, 52, 617, 1.5, 1.5, 0, c_white, 1);
-    }
+        scr_carta_mano_dibujar(carta_mid, 52, 617, 1, 3);
 }
 else
 {
@@ -72,13 +44,16 @@ if (popUp_on)
     {
         if (carta_mid != undefined)
         {
-            if (carta_mid[0] != 15)
+            if (carta_mid[0] != spr_chargCards)
                 draw_sprite_ext(carta_mid[0], carta_mid[1], 40, room_height / 4, 3, 3, 0, c_white, 1);
             else
                 draw_sprite_ext(carta_mid[0], recuperaCartas / vecesRecuperarCartas, 60, room_height / 4, 3, 3, 0, c_white, 1);
         }
     }
 }
+
+if (anim_regreso > 0)
+    anim_regreso -= 1;
 
 primero = ds_list_find_value(colaCartas, 0);
 
@@ -129,24 +104,28 @@ if (anulable)
 if (player_cardBreaked && barHealth > 0)
     draw_sprite_ext(spr_paralizado, 0, 650, 80, 1, 1, 0, c_white, 1);
 
-if (go_agua < 2 || go_fuego < 2 || go_luna < 2)
+// Contadores de espíritus (llamas con número) y botón del ataque ancestral: no se muestran en el tutorial
+if (!instance_exists(obj_control_tutorial))
 {
-    if (!ancestral)
+    if (go_agua < 2 || go_fuego < 2 || go_luna < 2)
     {
-        draw_set_color(c_white);
-        draw_sprite(spr_go_agua_min, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
-        draw_text(__view_get(0, 0) + 337, __view_get(1, 0) + 40, string_hash_to_newline(string(go_agua)));
-        draw_sprite(spr_go_fuego_min, 1, __view_get(0, 0) + 380, __view_get(1, 0) + 40);
-        draw_text(__view_get(0, 0) + 377, __view_get(1, 0) + 40, string_hash_to_newline(string(go_fuego)));
-        draw_sprite(spr_go_luna_min, 1, __view_get(0, 0) + 420, __view_get(1, 0) + 40);
-        draw_text(__view_get(0, 0) + 415, __view_get(1, 0) + 40, string_hash_to_newline(string(go_luna)));
+        if (!ancestral)
+        {
+            draw_set_color(c_white);
+            draw_sprite(spr_go_agua_min, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
+            draw_text(__view_get(0, 0) + 337, __view_get(1, 0) + 40, string_hash_to_newline(string(go_agua)));
+            draw_sprite(spr_go_fuego_min, 1, __view_get(0, 0) + 380, __view_get(1, 0) + 40);
+            draw_text(__view_get(0, 0) + 377, __view_get(1, 0) + 40, string_hash_to_newline(string(go_fuego)));
+            draw_sprite(spr_go_luna_min, 1, __view_get(0, 0) + 420, __view_get(1, 0) + 40);
+            draw_text(__view_get(0, 0) + 415, __view_get(1, 0) + 40, string_hash_to_newline(string(go_luna)));
+        }
     }
-}
-else if (gamepad_is_connected(0))
-{
-    draw_sprite(spr_button_B, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
-}
-else
-{
-    draw_sprite(spr_button_C, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
+    else if (gamepad_is_connected(0))
+    {
+        draw_sprite(spr_button_B, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
+    }
+    else
+    {
+        draw_sprite(spr_button_C, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
+    }
 }

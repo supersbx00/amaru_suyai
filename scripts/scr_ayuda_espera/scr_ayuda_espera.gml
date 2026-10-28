@@ -11,8 +11,18 @@ ayuda_anim = 0;
 }
 
 // Llamar una vez por Step: descuenta la espera y devuelve 1 si el jugador avanza la página
-// (clic sobre el ícono en ix, iy o Back del gamepad), solo cuando la espera terminó.
+// (clic sobre el ícono en ix, iy, Back del gamepad o Espacio), solo cuando la espera terminó.
 function scr_ayuda_puede_avanzar(ix, iy) {
+// obj_game está desactivado: si el cursor se ocultó por usar el teclado (p. ej. rotar cartas con E/Q), vuelve al mover o pulsar el mouse
+var wx = window_mouse_get_x();
+var wy = window_mouse_get_y();
+
+if (wx != global.mouse_wx_prev || wy != global.mouse_wy_prev || mouse_check_button_pressed(mb_any))
+    cursor_sprite = spr_cursor1;
+
+global.mouse_wx_prev = wx;
+global.mouse_wy_prev = wy;
+
 if (ayuda_espera > 0)
 {
     ayuda_espera -= 1;
@@ -23,6 +33,14 @@ ayuda_anim += 1;
 
 if (gamepad_button_check_pressed(0, gp_select))
     return 1;
+
+// Espacio: respaldo oculto por si el mouse falla (no aparece en los sprites).
+// Se limpia para que obj_pause/obj_pauseBattle no reabran la ayuda con la misma pulsación.
+if (keyboard_check_pressed(vk_space))
+{
+    keyboard_clear(vk_space);
+    return 1;
+}
 
 return mouse_check_button_pressed(mb_left) && point_distance(mouse_x, mouse_y, ix, iy) <= AYUDA_ICONO_RADIO;
 }

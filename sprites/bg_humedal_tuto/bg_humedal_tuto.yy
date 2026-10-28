@@ -24,9 +24,9 @@
   "name":"bg_humedal_tuto",
   "nineSlice":null,
   "origin":0,
-  "parent": {
-    "name": "03_Mundo_Rooms",
-    "path": "folders/Sprites/03_Mundo_Rooms.yy"
+  "parent":{
+    "name":"03_Mundo_Rooms",
+    "path":"folders/Sprites/03_Mundo_Rooms.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -70,7 +70,9 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"426ea152-48b4-5404-ab79-003043c9830e","path":"sprites/bg_humedal_tuto/bg_humedal_tuto.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"e93ed2b5-9898-5825-a091-59fee094389d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"426ea152-48b4-5404-ab79-003043c9830e","path":"sprites/bg_humedal_tuto/bg_humedal_tuto.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e93ed2b5-9898-5825-a091-59fee094389d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -4,7 +4,7 @@ global.ataque_player1 = cartaPlayer;
 ataque = cartaPlayer[2];
 danho = cartaPlayer[1];
 
-if (cartaPlayer[0] == 4)
+if (cartaPlayer[0] == spr_cardsNull) // carta null: paraliza al enemigo (antes índice GMS1 4)
 {
     obj_enemigo.player_cardBreaked = 1;
     obj_enemigo.anulable = 0;

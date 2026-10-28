@@ -1,3 +1,11 @@
+// Tutorial: el enemigo no puede caer antes de terminar las ayudas de batalla (paso 25);
+// si muriera antes, se volvería a la sala con el tutorial a medias (Wanku invisible, sin evento con Khoru)
+if (instance_exists(obj_control_tutorial) && obj_control_tutorial.paso < 25 && instance_exists(obj_enemigo))
+{
+    if (obj_enemigo.barHealth < 1)
+        obj_enemigo.barHealth = 1;
+}
+
 if (instance_exists(obj_enemigo) && count_total == 0)
 {
     total = obj_enemigo.barHealth;

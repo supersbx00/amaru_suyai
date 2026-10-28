@@ -101,7 +101,7 @@ if (other.barHealth > 0 && barHealth > 0)
                 
                 with (instance_create(x, y, obj_card))
                 {
-                    comboCarta_aux[0] = 14;
+                    comboCarta_aux[0] = spr_deck_combo; // el frame es el valor del combo (antes índice GMS1 14)
                     comboCarta_aux[1] = id1.comboCard_value;
                     comboCarta_aux[2] = id1.comboCard_value;
                     comboCarta_aux[3] = id1.typeCombo;

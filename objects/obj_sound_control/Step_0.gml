@@ -3,7 +3,7 @@ if (room == rm_final_morro)
     if (audio_is_playing(snd_background) && count == 0)
     {
         audio_stop_sound(snd_background);
-        sound = 4;
+        sound = snd_final; // antes índice GMS1 4
         audio_play_sound(sound, 10, true);
         count = 1;
     }

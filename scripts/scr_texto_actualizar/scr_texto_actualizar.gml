@@ -43,3 +43,14 @@ global.texto_confirmar = global.texto_abierto && (tecla || clic) && global.texto
 if (global.texto_confirmar)
     global.texto_enfriamiento = TEXTO_ENFRIAMIENTO;
 }
+
+// Ícono animado de clic izquierdo sobre spr_cuadro_dialogo, donde el texto dice "PRESIONA [ícono] PARA CONTINUAR".
+// spr: sprite del cuadro (con gamepad es la versión xbox y no lleva ícono); px, py, escala: como se dibujó el cuadro.
+function scr_texto_icono_clic(spr, px, py, escala) {
+if (spr != spr_cuadro_dialogo)
+    return;
+
+var frame = floor(current_time / 133) mod sprite_get_number(spr_boton_clic);
+var tam = 0.66 * escala;
+draw_sprite_ext(spr_boton_clic, frame, px + (193 * escala), py + (92 * escala), tam, tam, 0, c_white, 1);
+}

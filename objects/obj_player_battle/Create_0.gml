@@ -21,6 +21,7 @@ comparaCarta3 = undefined;
 apuntador = 0;
 vecesRecuperarCartas = 1;
 recuperaCartas = 0;
+anim_regreso = 0; // frames que faltan de la animación de regreso de cartas (scr_recuperarCartas)
 cartaUsada = undefined;
 
 for (var i = 0; i < 30; i++)

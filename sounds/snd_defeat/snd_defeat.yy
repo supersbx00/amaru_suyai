@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":98.692,
+  "duration":98.69168,
   "exportDir":"",
   "name":"snd_defeat",
   "parent":{

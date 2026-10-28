@@ -282,6 +282,7 @@ if (menuOptions == "Editar mazo")
     draw_set_color(c_black);
     draw_set_font(little);
     draw_sprite_ext(spr_cuadro_dialogo, 0, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5, 0.5, 0, c_white, 1);
+    scr_texto_icono_clic(spr_cuadro_dialogo, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5);
     draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 198, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, string_hash_to_newline("Presiona 'Z' para añadir carta al mazo#Presiona 'X' para retroceder#Presiona 'A' para añadir cartas#Presiona 'S' para retirar cartas"));
 }
 
@@ -435,28 +436,31 @@ if (menuOptions == "Memorin")
 
 draw_set_alpha(1);
 
+// Flecha de selección: vaivén horizontal hacia la opción que señala (apunta a la izquierda)
+var flecha_dx = -4 * (1 + sin(current_time / 140));
+
 if (menuOptions == "Principal")
-    draw_sprite(spr_cursor, 0, __view_get(0, 0) + 270, __view_get(1, 0) + 30 + ((posCursor + 1) * 64));
+    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 270, __view_get(1, 0) + 30 + ((posCursor + 1) * 64));
 
 if (menuOptions == "Ver cartas")
-    draw_sprite(spr_cursor, 0, __view_get(0, 0) + 290, __view_get(1, 0) + 30 + ((posCursor + 1) * 64));
+    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 290, __view_get(1, 0) + 30 + ((posCursor + 1) * 64));
 
 if (menuOptions == "Inventario")
-    draw_sprite(spr_cursor, 0, __view_get(0, 0) + 270 + ((posCursor - (4 * floor(posCursor / 4))) * 125), __view_get(1, 0) + 270 + (130 * floor(posCursor / 4)));
+    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 270 + ((posCursor - (4 * floor(posCursor / 4))) * 125), __view_get(1, 0) + 270 + (130 * floor(posCursor / 4)));
 
 if (menuOptions == "Recetas")
-    draw_sprite(spr_cursor, 0, __view_get(0, 0) + 350, __view_get(1, 0) + 180 + (30 * posCursor));
+    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 350, __view_get(1, 0) + 180 + (30 * posCursor));
 
 if (menuOptions == "Memorin")
 {
     if (posCursor >= visorRange_max_diario)
-        draw_sprite(spr_cursor, 0, __view_get(0, 0) + 500, __view_get(1, 0) + 150 + 450);
+        draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 500, __view_get(1, 0) + 150 + 450);
     else
-        draw_sprite(spr_cursor, 0, __view_get(0, 0) + 500, __view_get(1, 0) + 150 + (90 * (posCursor - visorRange_min_diario)));
+        draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 500, __view_get(1, 0) + 150 + (90 * (posCursor - visorRange_min_diario)));
 }
 
 if (menuOptions == "Equipar mazo" || menuOptions == "Limpiar mazo" || menuOptions == "Renombrar mazo")
-    draw_sprite(spr_cursor, 0, __view_get(0, 0) + (__view_get(2, 0) / 4) + (posCursor * 380) + 60, __view_get(1, 0) + (__view_get(3, 0) / 2) + 160);
+    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + (__view_get(2, 0) / 4) + (posCursor * 380) + 60, __view_get(1, 0) + (__view_get(3, 0) / 2) + 160);
 
 draw_set_alpha(1);
 
@@ -469,40 +473,40 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
         if (editDeck_phase == "cardInventory")
         {
             if (posCursor < 3)
-                draw_sprite(spr_cursor, 0, __view_get(0, 0) + 200 + (posCursor * 106), __view_get(1, 0) + 300);
+                draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 200 + (posCursor * 106), __view_get(1, 0) + 300);
             else
-                draw_sprite(spr_cursor, 0, __view_get(0, 0) + 200 + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 300 + (140 * floor(posCursor / 3)));
+                draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 200 + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 300 + (140 * floor(posCursor / 3)));
         }
         
         if (editDeck_phase == "cardCopy")
         {
             if (posCursor < 5)
-                draw_sprite(spr_cursor, 0, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 20, __view_get(1, 0) + (__view_get(3, 0) / 2) + 10 + (posCursor * 42));
+                draw_sprite(spr_cursor, 0, flecha_dx + (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 20, __view_get(1, 0) + (__view_get(3, 0) / 2) + 10 + (posCursor * 42));
             else
-                draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 20) + 96, __view_get(1, 0) + (__view_get(3, 0) / 2) + 10 + ((posCursor - 5) * 42));
+                draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 20) + 96, __view_get(1, 0) + (__view_get(3, 0) / 2) + 10 + ((posCursor - 5) * 42));
         }
         
         if (editDeck_phase == "cardDeck")
         {
             if (posCursor >= visorRange_min && posCursor < (visorRange_min + 3))
-                draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 294);
+                draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 294);
             else if (posCursor >= (visorRange_min + 3) && posCursor <= (visorRange_max - 3))
-                draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 434);
+                draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 434);
             else if (posCursor > (visorRange_max - 3) && posCursor <= visorRange_max)
-                draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 574);
+                draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 574);
         }
     }
     else if (posCursor >= visorRange_min && posCursor < (visorRange_min + 3))
     {
-        draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 294);
+        draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 294);
     }
     else if (posCursor >= (visorRange_min + 3) && posCursor <= (visorRange_max - 3))
     {
-        draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 434);
+        draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 434);
     }
     else if (posCursor > (visorRange_max - 3) && posCursor <= visorRange_max)
     {
-        draw_sprite(spr_cursor, 0, ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 574);
+        draw_sprite(spr_cursor, 0, flecha_dx + ((__view_get(0, 0) + __view_get(2, 0)) - 300) + ((posCursor - (3 * floor(posCursor / 3))) * 106), __view_get(1, 0) + 574);
     }
 }
 
