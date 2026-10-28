@@ -7,8 +7,18 @@ global.mouse_click = 0;
 global.mouse_atras = 0;
 global.mouse_movido = 0;
 global.mouse_enfriamiento = 0;
-global.mouse_x_prev = mouse_x;
-global.mouse_y_prev = mouse_y;
+// Posición del mouse en la ventana (no en la sala: la cámara moviéndose no cuenta como mover el mouse)
+global.mouse_wx_prev = window_mouse_get_x();
+global.mouse_wy_prev = window_mouse_get_y();
+// Cursor de piedra (el de la momia) en todo el juego, en vez del de Windows
+window_set_cursor(cr_none);
+cursor_sprite = spr_cursor1;
+global.texto_abierto = 0;
+global.texto_confirmar = 0;
+global.texto_enfriamiento = 0;
+global.z_virtual = 0;
+global.z_virtual_pendiente = 0;
+global.pause = 0; // antes solo lo creaba obj_pause; scr_amaru_clic lo lee en salas donde aún no existe
 totalJugado[0] = 0;
 totalJugado[1] = 0;
 global.dist = 1320;

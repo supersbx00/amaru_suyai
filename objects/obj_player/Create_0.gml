@@ -6,6 +6,16 @@ enable_player = 0;
 enable_battle = 0;
 desactivado = 0;
 state = scr_player_move;
+// Movimiento con clic (scr_amaru_clic / scr_player_move)
+destino_activo = 0;
+destino_x = 0;
+destino_y = 0;
+objetivo = noone;
+radio = 100;
+tramo = 0;
+atasco_frames = 0;
+pos_prev_x = 0;
+pos_prev_y = 0;
 player_x = 0;
 player_y = 0;
 load = obj_game.load;

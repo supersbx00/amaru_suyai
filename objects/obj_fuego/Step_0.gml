@@ -1,6 +1,6 @@
 dist = point_distance(x, y, obj_player.x, obj_player.y);
 image_speed = 0.3;
-push = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
+push = scr_tecla_z();
 
 if (dist <= 100)
 {
@@ -32,7 +32,7 @@ if (dist <= 100)
         }
     }
     
-    if (keyboard_check_pressed(ord("Z")) && global.espiritu_fuego == 1 && count == 4)
+    if (scr_tecla_z() && global.espiritu_fuego == 1 && count == 4)
     {
         if (!instance_exists(obj_dialogo))
         {

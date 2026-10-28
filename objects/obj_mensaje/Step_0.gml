@@ -1,7 +1,8 @@
 var condicion = 0;
 var forzar_avanzar = 0;
 push_enter = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_face3);
-push_cont = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
+// Z, gamepad o clic sobre el cuadro, con anti-spam (scr_texto_actualizar)
+push_cont = global.texto_confirmar;
 
 switch (global.numero)
 {
@@ -105,8 +106,9 @@ if ((push_cont && global.numero < final) || forzar_avanzar)
         
         mensaje = "";
     }
-    else
+    else if (forzar_avanzar)
     {
+        // Solo el puzzle completa el texto al instante; el jugador no puede saltárselo mientras se escribe
         mensaje = texto[global.numero];
     }
 }

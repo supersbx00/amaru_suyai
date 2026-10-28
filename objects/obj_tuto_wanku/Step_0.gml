@@ -1,5 +1,5 @@
 image_alpha = upAlpha;
-push = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
+push = scr_tecla_z();
 
 if (obj_control_tutorial.paso == 2)
 {

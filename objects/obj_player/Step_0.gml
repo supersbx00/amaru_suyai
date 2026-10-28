@@ -23,7 +23,15 @@ else
 }
 
 if (enable_player == 0 && enable_battle == 0)
+{
+    scr_amaru_clic();
     script_execute(state);
+}
+else
+{
+    // Diálogo, cinemática o batalla: se olvida el destino del clic
+    destino_activo = 0;
+}
 
 depth = -y;
 

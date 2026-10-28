@@ -1,6 +1,6 @@
 dist = point_distance(x, y, obj_player.x, obj_player.y);
 image_speed = 0.3;
-push_button = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
+push_button = scr_tecla_z();
 
 if (dist <= 100)
 {
