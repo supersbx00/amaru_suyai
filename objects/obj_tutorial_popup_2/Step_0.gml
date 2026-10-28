@@ -1,4 +1,5 @@
-push = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_select);
+// Clic izquierdo o Back avanzan la ayuda (lectura directa: obj_game queda desactivado mientras la ayuda está abierta)
+push = mouse_check_button_pressed(mb_left) || gamepad_button_check_pressed(0, gp_select);
 image_speed = 0;
 
 if (!tutorial_popUp)
@@ -19,6 +20,7 @@ if (count > 2)
 {
     instance_activate_all();
     global.pause = 0;
+    global.mouse_click = 0; // el clic que cierra la ayuda no debe lanzar una carta
     instance_destroy();
 }
 

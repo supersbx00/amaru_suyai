@@ -1,4 +1,4 @@
-boton_ancestral = keyboard_check_pressed(ord("C")) || gamepad_button_check_pressed(0, gp_face2);
+boton_ancestral = keyboard_check_pressed(ord("F")) || gamepad_button_check_pressed(0, gp_face2);
 
 if (global.enable_battle == 0 && global.enable_player == 0)
     exit;
@@ -18,8 +18,11 @@ if (global.transicion == 0 && add == 0 && trigger_teclado == 1)
 
 if (add == 1)
 {
-    addCard = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
-    addComboCard = keyboard_check_pressed(ord("X")) || gamepad_button_check_pressed(0, gp_face3);
+    // Clic izquierdo = usar carta, clic derecho = combo (un clic por acción, con el enfriamiento de scr_mouse_actualizar)
+    addCard = global.mouse_click || gamepad_button_check_pressed(0, gp_face1);
+    addComboCard = global.mouse_atras || gamepad_button_check_pressed(0, gp_face3);
+    global.mouse_click = 0;
+    global.mouse_atras = 0;
 }
 
 var id1 = id;
@@ -43,7 +46,7 @@ if (other.barHealth > 0 && barHealth > 0)
                 }
                 
                 script_execute(scr_batalla_ia, cartaUsada);
-                alarm[11] = 60;
+                alarm[11] = 15;
                 ds_list_delete(playerDeck, apuntador);
             }
         }
@@ -122,14 +125,14 @@ if (other.barHealth > 0 && barHealth > 0)
             {
                 cartaUsada = ds_list_find_value(playerDeck, apuntador);
                 script_execute(scr_batalla_ia, cartaUsada);
-                alarm[11] = 60;
+                alarm[11] = 15;
                 ds_list_delete(playerDeck, apuntador);
             }
         }
     }
 }
 
-recuperar = keyboard_check(ord("Z")) || gamepad_button_check(0, gp_face1);
+recuperar = mouse_check_button(mb_left) || keyboard_check(ord("R")) || gamepad_button_check(0, gp_face1);
 
 if (recuperar && can_atk && obj_enemigo.barHealth > 0 && barHealth > 0)
 {
@@ -172,13 +175,34 @@ if (anulable && !alarmTrigger && barHealth > 0)
     alarm[5] = 30;
 }
 
-rotaIzq = keyboard_check_pressed(ord("A")) || gamepad_button_check_pressed(0, gp_shoulderl);
-rotaDer = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0, gp_shoulderr);
+// Rueda arriba / E = carta siguiente, rueda abajo / Q = anterior
+// La rueda rota como máximo una carta cada rueda_sensibilidad frames; las teclas no tienen esa espera
+var rueda_arriba = 0;
+var rueda_abajo = 0;
+
+if (rueda_espera > 0)
+    rueda_espera -= 1;
+else
+{
+    rueda_arriba = mouse_wheel_up();
+    rueda_abajo = mouse_wheel_down();
+    
+    if (rueda_arriba || rueda_abajo)
+        rueda_espera = rueda_sensibilidad;
+}
+
+rotaIzq = rueda_arriba || keyboard_check_pressed(ord("E")) || gamepad_button_check_pressed(0, gp_shoulderl);
+rotaDer = rueda_abajo || keyboard_check_pressed(ord("Q")) || gamepad_button_check_pressed(0, gp_shoulderr);
 
 if (!instance_exists(obj_control_tutorial))
     scr_rotarCartas(rotaIzq, rotaDer);
-else if (obj_control_tutorial.paso >= 23)
+else if (obj_control_tutorial.paso >= 22)
+{
     scr_rotarCartas(rotaIzq, rotaDer);
+    
+    if (rotaIzq || rotaDer)
+        tutorial_rotado = 1;
+}
 
 if (boton_ancestral && can_atk)
 {

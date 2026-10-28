@@ -199,6 +199,7 @@ switch (npc)
             texto[0] = "Espiritu : MUERE MUERE MUERE";
             texto[1] = "Wanku : ¿Pero que?!, Que espiritu mas violento,#será que...no puede ser..., Esquiva sus ataques!!";
             texto[2] = "Wanku : Contrataca haciendo uso de tus herramientas!.";
+            texto[3] = "MUÉVETE CON W A S D.  ATACA CON CLIC IZQUIERDO.#CAMBIA DE CARTA CON LA RUEDA DEL MOUSE.#CON JOYSTICK XBOX: ANÁLOGO L, BOTÓN A Y LB / RB.";
             break;
         }
         

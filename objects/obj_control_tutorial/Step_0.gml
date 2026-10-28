@@ -49,7 +49,7 @@ if (paso == 19)
     }
 }
 
-if (paso == 22)
+if (paso == 21)
 {
     if (!instance_exists(obj_tutorial_popUp))
     {
@@ -57,7 +57,7 @@ if (paso == 22)
         id_popup = instance_create(x, y, obj_tutorial_popUp);
         
         with (id_popup)
-            valor_popUp = "cardbreak";
+            valor_popUp = "rotar mazo";
     }
 }
 
@@ -69,7 +69,7 @@ if (paso == 23)
         id_popup = instance_create(x, y, obj_tutorial_popUp);
         
         with (id_popup)
-            valor_popUp = "null card";
+            valor_popUp = "cardbreak";
     }
 }
 
@@ -81,7 +81,7 @@ if (paso == 24)
         id_popup = instance_create(x, y, obj_tutorial_popUp);
         
         with (id_popup)
-            valor_popUp = "rotar mazo";
+            valor_popUp = "null card";
     }
 }
 
@@ -380,7 +380,8 @@ if (paso == 20 && !trigger)
 {
     if (room == rm_battle_tutorial)
     {
-        if (obj_enemigo.barHealth <= 65)
+        // Avanza con el primer arpón que impacta al enemigo (empieza con 100 de vida)
+        if (obj_enemigo.barHealth < 100)
         {
             trigger = 1;
             alarm[0] = 10;
@@ -388,12 +389,13 @@ if (paso == 20 && !trigger)
     }
 }
 
-if (paso == 21 && !trigger)
+// Después de la ayuda de rotar mazo, espera a que el jugador rote una vez
+if (paso == 22 && !trigger)
 {
-    if (room == rm_battle_tutorial)
+    if (room == rm_battle_tutorial && obj_player_battle.tutorial_rotado)
     {
         trigger = 1;
-        alarm[0] = 280;
+        alarm[0] = 10;
     }
 }
 

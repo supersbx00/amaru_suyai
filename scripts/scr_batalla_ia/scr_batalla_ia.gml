@@ -18,7 +18,7 @@ if (cartaPlayer[3] == "rojo")
         {
             tipo = "normal";
             can_atk = 0;
-            alarm[0] = 10;
+            alarm[0] = 4;
             alarmTrigger = 1;
         }
     }

@@ -90,3 +90,6 @@ trigger_teclado = 1;
 ancestral = 0;
 create_ancestral = 0;
 sprite_personaje = 91;
+rueda_sensibilidad = 6; // frames mínimos entre dos rotaciones con la rueda del mouse
+rueda_espera = 0;
+tutorial_rotado = 0;

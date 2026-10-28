@@ -4,7 +4,7 @@ if (!player_cardBreaked)
     sprite_index = spr_amaru_battle_atk;
 }
 
-p_hspd = 20;
+p_hspd = 30;
 hspd = 0;
 vspd = 0;
 global.proyectil_1 = 1;
