@@ -32,6 +32,8 @@ if (confirmar)
     if (estado == "nuevo")
     {
         global.modo_prueba = 0;
+        global.suyai_unida = 0;
+        global.personaje = "amaru";
         scr_go_to_room(1);
         script_execute(scr_recetas);
         script_execute(scr_lista_logros);

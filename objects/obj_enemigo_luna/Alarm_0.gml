@@ -6,9 +6,9 @@ if (barHealth > 0)
     image_speed = 0.3;
     
     if (barHealth < 50)
-        p_hspd = -20;
+        p_hspd = -27;
     else
-        p_hspd = -15;
+        p_hspd = -22;
     
     hspd = 0;
     vspd = 0;

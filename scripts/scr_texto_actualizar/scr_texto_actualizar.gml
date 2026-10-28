@@ -7,6 +7,7 @@ function scr_texto_actualizar() {
 // global.z_virtual: Z que genera Amaru al llegar a un NPC clicado; la ven todos los objetos este frame.
 global.z_virtual = global.z_virtual_pendiente;
 global.z_virtual_pendiente = 0;
+global.frame_actual += 1;
 
 if (global.texto_enfriamiento > 0)
     global.texto_enfriamiento -= 1;

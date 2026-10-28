@@ -33,7 +33,7 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
             id1.danho = card_inDeck[1];
             id1.cartaUsada = card_inDeck;
             id1.ataque = card_inDeck[1];
-            id1.alarm[0] = 10;
+            id1.alarm[0] = 6;
         }
         else if (id1.tipo_ataque == "combo")
         {
@@ -75,7 +75,7 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
         instance_destroy();
     }
     
-    alarm[11] = 60;
+    alarm[11] = scr_enemigo_espera();
     escoger = 1;
 }
 
@@ -83,21 +83,7 @@ if (!player_cardBreaked && !player_danho)
 {
     if (my_path != -1 && barHealth > 0)
     {
-        dir = point_direction(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dist = point_distance(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dx = lengthdir_x(4, dir);
-        dy = lengthdir_y(4, dir);
-        hspd = dx;
-        vspd = dy;
-        phy_position_x -= dx;
-        phy_position_y -= dy;
-        
-        if (dist > 32)
-        {
-            phy_position_x = my_target.x;
-            phy_position_y = my_target.y;
-        }
-        
+        scr_enemigo_mover();
         global.count = 0;
     }
 }

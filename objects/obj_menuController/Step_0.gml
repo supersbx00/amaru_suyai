@@ -69,6 +69,7 @@ else
                 // Sala de pruebas: sin confirmación, sin preparar partida nueva (scr_recetas borra los guardados) y sin guardar nada
                 // El cursor se queda en "Momificar" durante el fundido (no vuelve a "Nueva partida")
                 global.modo_prueba = 1;
+                global.personaje = "amaru"; // la prueba empieza con Amaru (Suyai se une en rm_momificar)
                 scr_go_to_room(rm_momificar);
                 exit;
             

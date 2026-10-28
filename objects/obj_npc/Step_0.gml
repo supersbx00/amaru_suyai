@@ -54,4 +54,15 @@ with (obj_npc)
     {
         count = 0;
     }
+    
+    // Al terminar la presentación en rm_humedal, Suyai se une como acompañante desde aquí
+    if (room == rm_humedal && blessed && !global.suyai_unida && !instance_exists(obj_dialogo))
+    {
+        global.suyai_unida = 1;
+        
+        if (!instance_exists(obj_companero))
+            instance_create(x, y, obj_companero);
+        
+        instance_destroy();
+    }
 }

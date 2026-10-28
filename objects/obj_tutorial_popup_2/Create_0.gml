@@ -4,3 +4,4 @@ valor_popUp = "inventario";
 valor[0] = "inventario";
 valor[1] = "recetas";
 valor[2] = "cartas";
+scr_ayuda_espera_reiniciar();

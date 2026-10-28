@@ -24,6 +24,10 @@ else
 
 if (enable_player == 0 && enable_battle == 0)
 {
+    // Cambio de personaje con Tab o botón Y (el clic sobre el acompañante lo maneja scr_amaru_clic)
+    if (!global.pause && (keyboard_check_pressed(vk_tab) || gamepad_button_check_pressed(0, gp_face4)))
+        scr_cambiar_personaje();
+    
     scr_amaru_clic();
     script_execute(state);
 }

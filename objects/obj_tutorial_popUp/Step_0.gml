@@ -1,5 +1,5 @@
-// Clic izquierdo o Back avanzan la ayuda (lectura directa: obj_game queda desactivado mientras la ayuda está abierta)
-push = mouse_check_button_pressed(mb_left) || gamepad_button_check_pressed(0, gp_select);
+// Clic sobre el ícono o Back avanzan la ayuda, solo tras la espera (lectura directa: obj_game queda desactivado mientras la ayuda está abierta)
+push = scr_ayuda_puede_avanzar(scr_ayuda_icono_x(sprite_index, x), scr_ayuda_icono_y(sprite_index, y));
 
 if (!tutorial_popUp && global.pause == 0)
 {

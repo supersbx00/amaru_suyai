@@ -9,3 +9,4 @@ valor[4] = "rotar mazo";
 valor[5] = "combo";
 valor[6] = "curar";
 valor[7] = "orbe";
+scr_ayuda_espera_reiniciar();

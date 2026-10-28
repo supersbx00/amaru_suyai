@@ -114,6 +114,7 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
         instance_destroy();
     }
     
+    alarma_combo = scr_enemigo_espera();
     alarm[11] = alarma_combo;
     id1.count = id1.count + 1;
     escoger = 1;
@@ -123,21 +124,7 @@ if (!player_cardBreaked && !player_danho)
 {
     if (my_path != -1 && barHealth > 0)
     {
-        dir = point_direction(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dist = point_distance(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dx = lengthdir_x(velocidad, dir);
-        dy = lengthdir_y(velocidad, dir);
-        hspd = dx;
-        vspd = dy;
-        phy_position_x -= dx;
-        phy_position_y -= dy;
-        
-        if (dist > 32)
-        {
-            phy_position_x = my_target.x;
-            phy_position_y = my_target.y;
-        }
-        
+        scr_enemigo_mover();
         global.count = 0;
     }
 }

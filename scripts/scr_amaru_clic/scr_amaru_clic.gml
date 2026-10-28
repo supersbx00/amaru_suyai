@@ -6,6 +6,33 @@ if (!global.mouse_click || global.pause)
 
 global.mouse_click = 0;
 
+// Clic sobre el ícono de cambio del acompañante: cambio de personaje (no se camina hasta ahí).
+// Un clic sobre el cuerpo del acompañante es un clic de movimiento normal.
+var clic_en_icono = 0;
+
+with (obj_companero)
+{
+    if (icono_visible && point_distance(mouse_x, mouse_y, icono_x, icono_y) <= icono_radio)
+    {
+        if (icono_presionado == 0)
+            icono_presionado = 4;
+        
+        clic_en_icono = 1;
+    }
+}
+
+if (clic_en_icono)
+    exit;
+
+// Clic sobre el aviso de interacción (sobre la cabeza): es una Z, Amaru no camina
+if (scr_aviso_bajo_mouse())
+{
+    global.z_virtual_pendiente = 1;
+    destino_activo = 0;
+    objetivo = noone;
+    exit;
+}
+
 // Objetos que se activan con Z estando cerca (usan scr_tecla_z); los obj_info_* de radio largo usan 120
 var interactuables = [obj_agua, obj_ayuda, obj_ayuda1, obj_fuego, obj_info_anzota, obj_info_camarones, obj_info_capilla,
     obj_info_capilla1, obj_info_choza, obj_info_junquillo, obj_info_morro, obj_info_oasis, obj_info_rocas, obj_khoru,

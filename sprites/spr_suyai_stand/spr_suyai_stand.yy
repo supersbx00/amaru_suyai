@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent": {
-    "name": "99_Sin_Uso_Revisar",
-    "path": "folders/Sprites/99_Sin_Uso_Revisar.yy"
+    "name": "Suyai",
+    "path": "folders/Sprites/Suyai.yy"
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

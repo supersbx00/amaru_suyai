@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent": {
-    "name": "00_Core",
-    "path": "folders/Sprites/00_Core.yy"
+    "name": "Suyai",
+    "path": "folders/Sprites/Suyai.yy"
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

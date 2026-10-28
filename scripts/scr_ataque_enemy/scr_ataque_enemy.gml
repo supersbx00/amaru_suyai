@@ -25,9 +25,9 @@ if (global.proyectil_2 == 1)
         proyectil_id = instance_create(x + distancia, y, obj_proyectil);
         
         if (proyectil_id.x < (room_width / 2))
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         else
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         
         proyectil_id.image_xscale = scale_x / 2;
         proyectil_id.image_yscale = 0.5;
@@ -40,9 +40,9 @@ if (global.proyectil_2 == 1)
         proyectil_id = instance_create(x + distancia, y, obj_proyectil_ice);
         
         if (proyectil_id.x < (room_width / 2))
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         else
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         
         proyectil_id.image_xscale = scale_x / 2;
         proyectil_id.image_yscale = 0.5;
@@ -55,9 +55,9 @@ if (global.proyectil_2 == 1)
         proyectil_id = instance_create(x + distancia, y, obj_proyectil_ligth);
         
         if (proyectil_id.x < (room_width / 2))
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         else
-            proyectil_id.hspd = -10;
+            proyectil_id.hspd = -15;
         
         proyectil_id.image_xscale = scale_x / 2;
         proyectil_id.image_yscale = 0.5;

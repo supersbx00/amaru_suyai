@@ -14,6 +14,10 @@ if (ds_list_empty(obj_game.cambio_escena))
     }
 }
 
+// Sala de pruebas: Suyai acompaña desde el inicio (el acompañante lo crea obj_player en su Room Start)
+if (global.modo_prueba)
+    global.suyai_unida = 1;
+
 if (global.zona < 2)
     global.zona = 2;
 

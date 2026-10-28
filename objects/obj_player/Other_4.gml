@@ -13,3 +13,7 @@ else if (!ds_list_empty(obj_game.escena_grabada) && global.escena == 1)
 
 phy_position_x = player_x;
 phy_position_y = player_y;
+
+// Suyai unida: el acompañante aparece detrás del jugador en cada sala
+if (global.suyai_unida && !instance_exists(obj_companero))
+    instance_create(player_x - (60 * image_xscale), player_y - 30, obj_companero);

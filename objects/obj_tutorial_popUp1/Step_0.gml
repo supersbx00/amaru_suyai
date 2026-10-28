@@ -1,5 +1,7 @@
-// Clic izquierdo o Back avanzan la ayuda (lectura directa: obj_game queda desactivado mientras la ayuda está abierta)
-push = mouse_check_button_pressed(mb_left) || gamepad_button_check_pressed(0, gp_select);
+// Clic sobre el ícono o Back avanzan la ayuda, solo tras la espera de cada página (lectura directa: obj_game queda desactivado mientras la ayuda está abierta)
+var px = camera_get_view_x(view_camera[0]) + 660;
+var py = camera_get_view_y(view_camera[0]) + 368;
+push = scr_ayuda_puede_avanzar(scr_ayuda_icono_x(sprite_index, px), scr_ayuda_icono_y(sprite_index, py));
 image_speed = 0;
 
 if (!tutorial_popUp && global.pause == 3)
@@ -10,7 +12,10 @@ if (push)
     count += 1;
     
     if (count <= 7)
+    {
         valor_popUp = valor[count];
+        scr_ayuda_espera_reiniciar();
+    }
 }
 
 if (count > 7)

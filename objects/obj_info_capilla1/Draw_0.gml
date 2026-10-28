@@ -2,6 +2,6 @@ draw_self();
 dist = point_distance(x, y, obj_player.x, obj_player.y);
 
 if (dist <= 100)
-    draw_sprite(spr_button_A, 0, obj_player.x, obj_player.y - 104);
+    scr_aviso_interaccion();
 else
     count = 0;

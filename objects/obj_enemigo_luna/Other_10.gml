@@ -1,2 +1,1 @@
-with (my_target)
-    path_start(other.my_path, other.velocidad, other.my_action, 1);
+// El movimiento en batalla ya no usa path: lo hace scr_enemigo_mover desde el Step
