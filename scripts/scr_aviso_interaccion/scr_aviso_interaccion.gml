@@ -15,8 +15,13 @@ else
 global.aviso_frame = global.frame_actual;
 }
 
-// ¿Se vio el aviso en el último frame dibujado y el mouse está sobre él?
+// ¿Se vio el aviso en el último frame dibujado?
+function scr_aviso_visible() {
+return global.aviso_frame >= global.frame_actual - 1;
+}
+
+// ¿El aviso está visible y el mouse está sobre él?
 function scr_aviso_bajo_mouse() {
-return global.aviso_frame >= global.frame_actual - 1
+return scr_aviso_visible()
     && point_distance(mouse_x, mouse_y, obj_player.x, obj_player.y - AVISO_ALTO) <= AVISO_RADIO;
 }

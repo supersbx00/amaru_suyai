@@ -97,10 +97,12 @@ else if (sprite_index == spr_amaru_walk_rightTop)
 
 depth = -y;
 
-// Ícono de cambio: visible con el cursor sobre el acompañante o sobre el ícono, si el jugador puede moverse
+// Ícono de cambio: visible con el cursor sobre el acompañante o sobre el ícono, si el jugador puede moverse.
+// La interacción tiene prioridad: no aparece con el aviso de interacción visible ni yendo hacia un NPC clicado.
 icono_x = x;
 icono_y = y - 80;
-var puede = obj_player.enable_player == 0 && obj_player.enable_battle == 0 && !global.pause && cursor_sprite != -1;
+var interactuando = scr_aviso_visible() || (obj_player.destino_activo && obj_player.objetivo != noone);
+var puede = obj_player.enable_player == 0 && obj_player.enable_battle == 0 && !global.pause && cursor_sprite != -1 && !interactuando;
 var sobre = position_meeting(mouse_x, mouse_y, id) || point_distance(mouse_x, mouse_y, icono_x, icono_y) <= icono_radio;
 icono_visible = (puede && sobre) || icono_presionado > 0;
 
