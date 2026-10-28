@@ -46,6 +46,12 @@ else
     destino_y = mouse_y;
 }
 
+// Marca en el destino (una sola a la vez)
+with (obj_marca_clic)
+    instance_destroy();
+
+instance_create(destino_x, destino_y, obj_marca_clic);
+
 destino_activo = 1;
 tramo = 0;
 atasco_frames = 0;

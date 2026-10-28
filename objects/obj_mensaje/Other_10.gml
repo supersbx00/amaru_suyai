@@ -60,13 +60,7 @@ if (lootChance >= 7)
 
 if (!ds_list_empty(obj_game.escena_grabada))
 {
-    // Modo prueba ("Momificar"): al terminar la momia se vuelve al menú con el juego reiniciado
-    if (global.modo_prueba)
-    {
-        game_restart();
-        exit;
-    }
-    
+    // Vuelve a la sala desde donde se entró (en modo prueba, rm_momificar; los guardados no escriben nada)
     trigerAlarm = 0;
     script_execute(scr_guardar_datos);
     script_execute(scr_guardar_cartas);

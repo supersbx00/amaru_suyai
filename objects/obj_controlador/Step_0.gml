@@ -93,6 +93,13 @@ if (can_snap == global.numero)
             break;
         
         case 11:
+            // Fijar el cráneo: Enter o un clic sobre el cuerpo
+            if (!push_enter && global.mouse_click && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
+            {
+                push_enter = 1;
+                global.mouse_click = 0;
+            }
+            
             if (push_enter)
             {
                 if (!instance_exists(obj_huesos))
