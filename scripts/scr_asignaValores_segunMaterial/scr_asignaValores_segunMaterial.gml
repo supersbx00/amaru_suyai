@@ -53,15 +53,15 @@ switch (sprite_index)
     // Piezas de la momia que se fabrican en Creación (scr_momia_recetas)
     case spr_momia_palo:
         material[0] = sprite_index;
-        material[1] = "Palo amarrado";
-        material[2] = "Palos atados con cuerdas de fibra vegetal#que refuerzan los brazos y las piernas#de la momia.";
+        material[1] = "Maderos de soporte";
+        material[2] = "Maderas atadas con cuerdas de fibra vegetal#que refuerzan los brazos y las piernas#de la momia.";
         material[3] = 1;
         break;
     
     case spr_momia_travesano:
         material[0] = sprite_index;
-        material[1] = "Travesaño amarrado";
-        material[2] = "Palo atado con fibra vegetal que refuerza#los hombros y la cadera de la momia.";
+        material[1] = "Travesaño";
+        material[2] = "Maderas atadas con fibra vegetal que refuerza#los hombros y la cadera de la momia.";
         material[3] = 1;
         break;
     
