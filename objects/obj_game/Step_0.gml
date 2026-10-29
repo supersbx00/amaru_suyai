@@ -17,6 +17,7 @@ if (instance_exists(obj_text))
 
 if (room_get_name(room) != "rm_menu")
 {
+    global.tiempo_juego += 1;
     segJugados += 1;
     
     if (segJugados > 1800)
@@ -34,6 +35,10 @@ if (room_get_name(room) != "rm_menu")
     totalJugado[0] = hrsJugadas;
     totalJugado[1] = minJugados;
 }
+
+// Materiales que aparecen con el tiempo en las salas del mapa (atajo T)
+if (instance_exists(obj_player))
+    scr_materiales_aparecer();
 
 var array_layers = layer_get_all();
 
@@ -80,6 +85,7 @@ if (room == rm_menu)
     if (keyboard_check(ord("W")) && keyboard_check(ord("H")) && keyboard_check_pressed(ord("A")))
     {
         global.puntaje_total_descrasheo += 15;
+        global.materiales_recogidos = {}; // partida nueva: todos los materiales disponibles
         script_execute(scr_recetas);
         script_execute(scr_lista_logros);
         global.escena = 0;

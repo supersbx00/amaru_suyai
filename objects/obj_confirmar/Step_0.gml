@@ -34,6 +34,7 @@ if (confirmar)
         global.modo_prueba = 0;
         global.suyai_unida = 0;
         global.combo_recordado = 0;
+        global.materiales_recogidos = {};
         global.personaje = "amaru";
         scr_go_to_room(1);
         script_execute(scr_recetas);

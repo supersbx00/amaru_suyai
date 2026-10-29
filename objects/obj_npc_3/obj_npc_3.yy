@@ -1,82 +1,46 @@
 {
-  "$GMObject": "",
-  "%Name": "obj_npc_3",
-  "eventList": [
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 0,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 3,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 8,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    }
+  "$GMObject":"",
+  "%Name":"obj_npc_3",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
-  "managed": true,
-  "name": "obj_npc_3",
-  "overriddenProperties": [],
-  "parent": {
-    "name": "Objects",
-    "path": "folders/07_NPCs_Puntaje/Objects.yy"
+  "managed":true,
+  "name":"obj_npc_3",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/07_NPCs_Puntaje/Objects.yy",
   },
-  "parentObjectId": {
-    "name": "obj_zone",
-    "path": "objects/obj_zone/obj_zone.yy"
+  "parentObjectId":{
+    "name":"obj_zone",
+    "path":"objects/obj_zone/obj_zone.yy",
   },
-  "persistent": false,
-  "physicsAngularDamping": 0.1,
-  "physicsDensity": 0.0,
-  "physicsFriction": 0.2,
-  "physicsGroup": 0,
-  "physicsKinematic": false,
-  "physicsLinearDamping": 0.1,
-  "physicsObject": true,
-  "physicsRestitution": 0.1,
-  "physicsSensor": false,
-  "physicsShape": 0,
-  "physicsShapePoints": [
-    {
-      "x": 41.0,
-      "y": 10.0
-    },
-    {
-      "x": 36.0,
-      "y": 68.0
-    }
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.0,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":true,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":0,
+  "physicsShapePoints":[
+    {"x":0.0,"y":0.0,},
+    {"x":-5.0,"y":58.0,},
   ],
-  "physicsStartAwake": true,
-  "properties": [],
-  "resourceType": "GMObject",
-  "resourceVersion": "2.0",
-  "solid": false,
-  "spriteId": {
-    "name": "spr_suyai_npc",
-    "path": "sprites/spr_suyai_npc/spr_suyai_npc.yy"
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_suyai_npc",
+    "path":"sprites/spr_suyai_npc/spr_suyai_npc.yy",
   },
-  "spriteMaskId": null,
-  "visible": true
+  "spriteMaskId":null,
+  "visible":true,
 }

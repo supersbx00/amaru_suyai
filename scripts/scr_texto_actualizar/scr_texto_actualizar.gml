@@ -79,3 +79,27 @@ draw_text_transformed_colour(px, py, texto, s, s, 0, relleno, relleno, relleno, 
 draw_set_font(general);
 draw_set_valign(fa_top);
 }
+
+// Igual que scr_texto_barro pero alineado a la izquierda y arriba en px, py: reemplaza draw_text(px, py, texto)
+// sin mover posiciones (menú de pausa). Deja fa_left / fa_top y la fuente que estaba antes.
+function scr_texto_barro_izq(px, py, texto, escala, alpha) {
+var fuente_antes = draw_get_font();
+var a = clamp(alpha, 0, 1);
+var relleno = make_colour_rgb(84, 10, 6);
+var borde = make_colour_rgb(255, 248, 212);
+var sdf = (global.fnt_barro != -1);
+var s = sdf ? (escala * 0.5) : escala;
+var g = 2.5 * escala;
+var t = string_hash_to_newline(texto);
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(sdf ? global.fnt_barro : general);
+
+for (var ang = 0; ang < 360; ang += 30)
+    draw_text_transformed_colour(px + lengthdir_x(g, ang), py + lengthdir_y(g, ang), t, s, s, 0, borde, borde, borde, borde, a);
+
+draw_text_transformed_colour(px, py, t, s, s, 0, relleno, relleno, relleno, relleno, a);
+
+draw_set_font(fuente_antes);
+}

@@ -17,7 +17,7 @@ if (menuOptions == "Principal")
             for (var i = 0; i < (obj_control_tutorial.paso - 8); i++)
             {
                 draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
-                draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menu[i])));
+                scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), string(menu[i]), 0.9, 1);
             }
         }
         else
@@ -25,7 +25,7 @@ if (menuOptions == "Principal")
             for (var i = 0; i < (array_length(menu) - 2); i++)
             {
                 draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
-                draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menu[i])));
+                scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), string(menu[i]), 0.9, 1);
             }
         }
     }
@@ -34,10 +34,13 @@ if (menuOptions == "Principal")
         for (var i = 0; i < array_length(menu); i++)
         {
             draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
-            draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menu[i])));
+            scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), string(menu[i]), 0.9, 1);
         }
     }
 }
+
+// scr_texto_barro deja el texto centrado; el resto del menú dibuja alineado a la izquierda
+draw_set_halign(fa_left);
 
 if (menuOptions == "Principal")
     draw_sprite_ext(spr_titulo, 0, (__view_get(0, 0) + (__view_get(2, 0) / (4/3))) - 20, __view_get(1, 0) + 110, 1, 1, 0, c_white, 1);
@@ -55,9 +58,11 @@ if (menuOptions == "Inventario")
     draw_set_halign(fa_left);
     draw_set_font(description);
     draw_set_color(c_black);
-    draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, string_hash_to_newline("Material: " + string(select[1])));
+    scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, "Material: " + string(select[1]), 0.8, 1);
+    scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 440, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, "Cantidad: " + string(select[3]), 0.8, 1);
+    // La descripción larga queda con la letra simple
+    draw_set_font(description);
     draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 70, string_hash_to_newline("Descripcion: " + string(select[2])));
-    draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 440, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, string_hash_to_newline("Cantidad: " + string(select[3])));
 }
 
 if (menuOptions == "Inventario")
@@ -89,7 +94,7 @@ if (menuOptions == "Inventario")
 if (menuOptions == "Ver cartas")
 {
     draw_set_alpha(1);
-    draw_text(__view_get(2, 0) / 2, 30, string_hash_to_newline("Ver cartas"));
+    scr_texto_barro_izq(__view_get(2, 0) / 2, 30, "Ver cartas", 0.9, 1);
     draw_set_colour(c_white);
     draw_set_halign(fa_left);
     
@@ -98,17 +103,19 @@ if (menuOptions == "Ver cartas")
         for (var i = 0; i < 1; i++)
         {
             draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
-            draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + ((i + 1) * 60), string_hash_to_newline(string(menuDeck[i])));
+            scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), string(menuDeck[i]), 0.9, 1);
         }
     }
     else
     {
         draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + 60, 0.5, 0.5, 1, c_white, 1);
-        draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 16 + 60, string_hash_to_newline(string(menuDeck[0])));
+        scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + 60, string(menuDeck[0]), 0.9, 1);
         
         for (var i = 1; i < array_length(menuDeck); i++)
             draw_sprite_ext(spr_proximamente, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
     }
+    
+    draw_set_halign(fa_left);
 }
 
 if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
@@ -177,16 +184,16 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
     draw_set_font(general);
     draw_set_alpha(1);
     draw_set_color(c_black);
-    draw_text(__view_get(0, 0) + 60, __view_get(1, 0) + 32, string_hash_to_newline(string(menuOptions)));
-    draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 138, string_hash_to_newline("Cartas en Inv: "));
-    draw_text(__view_get(0, 0) + 96, __view_get(1, 0) + 160, string_hash_to_newline(string(obj_morral.cantidadCartas) + "/" + string(obj_morral.limite_inventario)));
+    scr_texto_barro_izq(__view_get(0, 0) + 60, __view_get(1, 0) + 32, string(menuOptions), 0.9, 1);
+    scr_texto_barro_izq(__view_get(0, 0) + 96, __view_get(1, 0) + 138, "Cartas en Inv: ", 0.8, 1);
+    scr_texto_barro_izq(__view_get(0, 0) + 96, __view_get(1, 0) + 160, string(obj_morral.cantidadCartas) + "/" + string(obj_morral.limite_inventario), 0.8, 1);
     
     if (menuOptions == "Editar mazo")
     {
-        draw_text(__view_get(0, 0) + 60, __view_get(1, 0) + 64, string_hash_to_newline("Mazo equipado: " + string(obj_morral.mazo_seleccionado[1])));
+        scr_texto_barro_izq(__view_get(0, 0) + 60, __view_get(1, 0) + 64, "Mazo equipado: " + string(obj_morral.mazo_seleccionado[1]), 0.8, 1);
         // Uno sobre otro (con 3 cifras no caben lado a lado), bajo el globo del tutorial (llega hasta y≈147) y sobre la cuadrícula (y≈206)
-        draw_text((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 150, string_hash_to_newline("CP Deck: " + string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit)));
-        draw_text((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 176, string_hash_to_newline("Cartas Deck: " + string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit)));
+        scr_texto_barro_izq((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 150, "CP Deck: " + string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit), 0.8, 1);
+        scr_texto_barro_izq((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 176, "Cartas Deck: " + string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit), 0.8, 1);
     }
 }
 
@@ -196,14 +203,14 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
     
     if (select != undefined)
     {
-        draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 192, string_hash_to_newline(string(select[5])));
+        scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 192, string(select[5]), 0.9, 1);
         
         if (editDeck_phase == "cardInventory")
-            draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, string_hash_to_newline("CP - -"));
+            scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, "CP - -", 0.9, 1);
         else if (addRemove_card == "add")
-            draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, string_hash_to_newline("CP " + string(calculoCP)));
+            scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, "CP " + string(calculoCP), 0.9, 1);
         else
-            draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, string_hash_to_newline("CP " + string(calculoCP)));
+            scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, "CP " + string(calculoCP), 0.9, 1);
         
         if (!object_exists(obj_control_tutorial))
             draw_text(__view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 60, string_hash_to_newline(string(select[6])));
@@ -257,13 +264,13 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
                     {
                         draw_set_alpha(0.4);
                         draw_sprite(spr_cardValue_ori, fil + (5 * col), ((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col), ((__view_get(1, 0) + (__view_get(3, 0) / 2)) - 10) + (42 * fil));
-                        draw_text(((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col) + 70, __view_get(1, 0) + (__view_get(3, 0) / 2) + (42 * fil), string_hash_to_newline(string(auxCopys[fil + (5 * col)])));
+                        scr_texto_barro_izq(((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col) + 70, __view_get(1, 0) + (__view_get(3, 0) / 2) + (42 * fil), string(auxCopys[fil + (5 * col)]), 0.6, 0.4);
                     }
                     else
                     {
                         draw_set_alpha(1);
                         draw_sprite(spr_cardValue_ori, fil + (5 * col), ((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col), ((__view_get(1, 0) + (__view_get(3, 0) / 2)) - 10) + (42 * fil));
-                        draw_text(((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col) + 70, __view_get(1, 0) + (__view_get(3, 0) / 2) + (42 * fil), string_hash_to_newline(string(auxCopys[fil + (5 * col)])));
+                        scr_texto_barro_izq(((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160) + (110 * col) + 70, __view_get(1, 0) + (__view_get(3, 0) / 2) + (42 * fil), string(auxCopys[fil + (5 * col)]), 0.6, 1);
                     }
                 }
             }
@@ -293,18 +300,18 @@ if (menuOptions == "Equipar mazo" || menuOptions == "Limpiar mazo" || menuOption
     draw_set_halign(fa_center);
     draw_set_alpha(1);
     draw_set_halign(fa_left);
-    draw_text(__view_get(0, 0) + 32, __view_get(1, 0) + 32, string_hash_to_newline(string(menuOptions)));
+    scr_texto_barro_izq(__view_get(0, 0) + 32, __view_get(1, 0) + 32, string(menuOptions), 0.9, 1);
     
     for (var i = 0; i < 3; i++)
     {
         draw_sprite_ext(spr_decks, i, __view_get(0, 0) + (__view_get(2, 0) / 4) + (380 * i), __view_get(1, 0) + (__view_get(3, 0) / 2) + 150, 1.5, 1.5, 1, c_white, 1);
-        draw_text((__view_get(0, 0) + (__view_get(2, 0) / 4) + (380 * i)) - 60, __view_get(1, 0) + (__view_get(3, 0) / 2) + 200, string_hash_to_newline(string(obj_morral.mazo[0, i])));
+        scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 4) + (380 * i)) - 60, __view_get(1, 0) + (__view_get(3, 0) / 2) + 200, string(obj_morral.mazo[0, i]), 0.9, 1);
     }
     
     if (menuOptions == "Equipar mazo")
     {
-        draw_text(__view_get(0, 0) + 32, __view_get(1, 0) + 64, string_hash_to_newline("Mazo equipado actual: " + string(obj_morral.mazo_seleccionado[1])));
-        draw_text(__view_get(0, 0) + 32, __view_get(1, 0) + 96, string_hash_to_newline("Cantidad cartas: " + string(obj_morral.mazo_seleccionado[4])));
+        scr_texto_barro_izq(__view_get(0, 0) + 32, __view_get(1, 0) + 64, "Mazo equipado actual: " + string(obj_morral.mazo_seleccionado[1]), 0.8, 1);
+        scr_texto_barro_izq(__view_get(0, 0) + 32, __view_get(1, 0) + 96, "Cantidad cartas: " + string(obj_morral.mazo_seleccionado[4]), 0.8, 1);
     }
 }
 
@@ -331,11 +338,11 @@ if (menuOptions == "Recetas")
             if (checkEnable[10])
             {
                 var dataOut = ds_list_find_value(obj_morral.recipeBook, i);
-                draw_text(__view_get(0, 0) + 100, __view_get(1, 0) + 170 + (30 * i), string_hash_to_newline(string(dataOut[7])));
+                scr_texto_barro_izq(__view_get(0, 0) + 100, __view_get(1, 0) + 170 + (30 * i), string(dataOut[7]), 0.8, 1);
             }
             else
             {
-                draw_text(__view_get(0, 0) + 100, __view_get(1, 0) + 170 + (30 * i), string_hash_to_newline("---------"));
+                scr_texto_barro_izq(__view_get(0, 0) + 100, __view_get(1, 0) + 170 + (30 * i), "---------", 0.8, 1);
             }
         }
     }
@@ -347,7 +354,7 @@ if (menuOptions == "Recetas")
         if (checkEnable[10])
         {
             var dataOut = ds_list_find_value(obj_morral.recipeBook, 0);
-            draw_text(__view_get(0, 0) + 100, __view_get(1, 0) + 170, string_hash_to_newline(string(dataOut[7])));
+            scr_texto_barro_izq(__view_get(0, 0) + 100, __view_get(1, 0) + 170, string(dataOut[7]), 0.8, 1);
         }
     }
     
@@ -396,7 +403,8 @@ if (menuOptions == "Recetas")
         }
         
         draw_set_font(description);
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 120, string_hash_to_newline("Descripcion : "));
+        scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 115, "Descripcion : ", 0.8, 1);
+        draw_set_font(description);
         draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, string_hash_to_newline(string(select[8])));
     }
     else
@@ -584,7 +592,7 @@ if (instance_exists(obj_control_tutorial))
 if (!instance_exists(obj_control_tutorial) && menuOptions == "Principal")
 {
     draw_set_color(c_black);
-    draw_text(__view_get(0, 0) + 32, __view_get(1, 0) + 32, "Puntaje : " + string(global.puntaje_total_descrasheo));
+    scr_texto_barro_izq(__view_get(0, 0) + 32, __view_get(1, 0) + 32, "Puntaje : " + string(global.puntaje_total_descrasheo), 0.8, 1);
     
     switch (room_get_name(room))
     {

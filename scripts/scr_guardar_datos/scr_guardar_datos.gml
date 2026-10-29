@@ -14,6 +14,8 @@ ini_write_real("puntaje jugador crasheado", "espiritu_fuego", global.espiritu_fu
 ini_write_real("puntaje jugador crasheado", "khoru", global.khoru);
 ini_write_real("acompanante", "suyai_unida", global.suyai_unida);
 ini_write_real("tutorial", "combo_recordado", global.combo_recordado);
+ini_write_string("materiales", "recogidos", json_stringify(global.materiales_recogidos));
+ini_write_real("materiales", "tiempo_juego", global.tiempo_juego);
 ini_write_string("acompanante", "personaje", global.personaje);
 ini_close();
 }

@@ -1,8 +1,9 @@
 function scr_player_move() {
-k_left = keyboard_check(vk_left) || gamepad_axis_value(0, gp_axislh) < 0;
-k_right = keyboard_check(vk_right) || gamepad_axis_value(0, gp_axislh) > 0;
-k_up = keyboard_check(vk_up) || gamepad_axis_value(0, gp_axislv) < 0;
-k_down = keyboard_check(vk_down) || gamepad_axis_value(0, gp_axislv) > 0;
+// W A S D hace lo mismo que las flechas: las 4 diagonales del mapa isométrico (W = ↑, D = →, S = ↓, A = ←)
+k_left = keyboard_check(vk_left) || keyboard_check(ord("A")) || gamepad_axis_value(0, gp_axislh) < 0;
+k_right = keyboard_check(vk_right) || keyboard_check(ord("D")) || gamepad_axis_value(0, gp_axislh) > 0;
+k_up = keyboard_check(vk_up) || keyboard_check(ord("W")) || gamepad_axis_value(0, gp_axislv) < 0;
+k_down = keyboard_check(vk_down) || keyboard_check(ord("S")) || gamepad_axis_value(0, gp_axislv) > 0;
 
 // Movimiento con clic: se simula una de las 4 flechas, así el ángulo, la velocidad y la animación son los del teclado
 if (k_left || k_right || k_up || k_down)

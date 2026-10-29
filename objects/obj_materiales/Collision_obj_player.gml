@@ -1,3 +1,7 @@
+// Colocado ya recogido (oculto)
+if (recogido)
+    exit;
+
 script_execute(scr_asignaValores_segunMaterial);
 var materialExist = 0;
 
@@ -33,4 +37,26 @@ if (instance_exists(obj_control_tutorial))
         obj_control_tutorial.cantidad_materiales--;
 }
 
-instance_destroy();
+// Aparecido: se libera el lugar para el próximo y el reloj vuelve a empezar (scr_materiales_aparecer)
+if (aparecido)
+{
+    with (obj_game)
+    {
+        mat_actual = noone;
+        mat_reloj = 0;
+    }
+    
+    instance_destroy();
+}
+// Colocado en el mapa: se oculta y queda anotado para siempre en esta partida (Step)
+else if (guarda_recogido)
+{
+    global.materiales_recogidos[$ clave] = 1;
+    recogido = 1;
+    visible = false;
+    phy_active = false;
+}
+else
+{
+    instance_destroy();
+}

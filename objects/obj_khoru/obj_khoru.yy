@@ -1,96 +1,47 @@
 {
-  "$GMObject": "",
-  "%Name": "obj_khoru",
-  "eventList": [
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 0,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 3,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": {
-        "name": "obj_zone",
-        "path": "objects/obj_zone/obj_zone.yy"
-      },
-      "eventNum": 0,
-      "eventType": 4,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 8,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    }
+  "$GMObject":"",
+  "%Name":"obj_khoru",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_zone","path":"objects/obj_zone/obj_zone.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
-  "managed": true,
-  "name": "obj_khoru",
-  "overriddenProperties": [],
-  "parent": {
-    "name": "Objects",
-    "path": "folders/06_Tutorial_Dialogos/Objects.yy"
+  "managed":true,
+  "name":"obj_khoru",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/06_Tutorial_Dialogos/Objects.yy",
   },
-  "parentObjectId": {
-    "name": "obj_zone",
-    "path": "objects/obj_zone/obj_zone.yy"
+  "parentObjectId":{
+    "name":"obj_zone",
+    "path":"objects/obj_zone/obj_zone.yy",
   },
-  "persistent": false,
-  "physicsAngularDamping": 0.1,
-  "physicsDensity": 0.0,
-  "physicsFriction": 0.2,
-  "physicsGroup": 0,
-  "physicsKinematic": false,
-  "physicsLinearDamping": 0.1,
-  "physicsObject": true,
-  "physicsRestitution": 0.1,
-  "physicsSensor": false,
-  "physicsShape": 0,
-  "physicsShapePoints": [
-    {
-      "x": 13.0,
-      "y": 10.0
-    },
-    {
-      "x": 46.0,
-      "y": 70.0
-    }
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.0,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":true,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":0,
+  "physicsShapePoints":[
+    {"x":0.0,"y":0.0,},
+    {"x":33.0,"y":60.0,},
   ],
-  "physicsStartAwake": true,
-  "properties": [],
-  "resourceType": "GMObject",
-  "resourceVersion": "2.0",
-  "solid": false,
-  "spriteId": {
-    "name": "spr_khoru_1",
-    "path": "sprites/spr_khoru_1/spr_khoru_1.yy"
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_khoru_1",
+    "path":"sprites/spr_khoru_1/spr_khoru_1.yy",
   },
-  "spriteMaskId": null,
-  "visible": true
+  "spriteMaskId":null,
+  "visible":true,
 }

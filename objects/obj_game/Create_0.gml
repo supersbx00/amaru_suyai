@@ -4,6 +4,8 @@ hrsJugadas = 0;
 global.gp = 0;
 global.modo_prueba = 0;
 global.suyai_unida = 0;     // Suyai acompaña a Amaru en el mapa
+global.tiempo_juego = 0;    // cuadros jugados fuera del menú inicial (reaparición de materiales)
+global.materiales_recogidos = {}; // "sala:x:y" de materiales colocados ya recogidos (ver obj_materiales)
 global.combo_recordado = 0; // la ayuda del combo ya apareció con la vida baja (una vez por partida)
 global.ver_colisiones = 0;  // F3 en batalla: dibuja las formas físicas
 global.personaje = "amaru"; // personaje controlado: "amaru" o "suyai"
@@ -69,3 +71,10 @@ if (!file_exists("recetas.ini") || !file_exists("logros.ini"))
     script_execute(scr_recetas);
     script_execute(scr_lista_logros);
 }
+
+// Materiales que aparecen con el tiempo en el mapa (scr_materiales_aparecer): estado de la visita a la sala
+mat_sala = noone;
+mat_reloj = 0;
+mat_aparecidos = 0;
+mat_actual = noone;
+mat_rastro = ds_list_create();

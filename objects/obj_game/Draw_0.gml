@@ -15,3 +15,7 @@ if (instance_exists(obj_player))
 }
 
 draw_set_colour(c_black);
+
+// Formas de colisión en el mapa (F6); en batalla las dibuja obj_battleController
+if (global.ver_colisiones && !instance_exists(obj_battleController))
+    physics_world_draw_debug(phy_debug_render_shapes);

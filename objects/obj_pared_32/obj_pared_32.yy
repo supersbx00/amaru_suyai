@@ -1,48 +1,42 @@
 {
-  "$GMObject": "",
-  "%Name": "obj_pared_32",
-  "eventList": [],
-  "managed": true,
-  "name": "obj_pared_32",
-  "overriddenProperties": [],
-  "parent": {
-    "name": "Objects",
-    "path": "folders/03_Mundo_Rooms/Objects.yy"
+  "$GMObject":"",
+  "%Name":"obj_pared_32",
+  "eventList":[],
+  "managed":true,
+  "name":"obj_pared_32",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/03_Mundo_Rooms/Objects.yy",
   },
-  "parentObjectId": {
-    "name": "obj_zone",
-    "path": "objects/obj_zone/obj_zone.yy"
+  "parentObjectId":{
+    "name":"obj_zone",
+    "path":"objects/obj_zone/obj_zone.yy",
   },
-  "persistent": false,
-  "physicsAngularDamping": 0.1,
-  "physicsDensity": 0.0,
-  "physicsFriction": 0.2,
-  "physicsGroup": 0,
-  "physicsKinematic": false,
-  "physicsLinearDamping": 0.1,
-  "physicsObject": true,
-  "physicsRestitution": 0.1,
-  "physicsSensor": false,
-  "physicsShape": 0,
-  "physicsShapePoints": [
-    {
-      "x": 0.0,
-      "y": 0.0
-    },
-    {
-      "x": 16.0,
-      "y": 16.0
-    }
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.0,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":true,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":0,
+  "physicsShapePoints":[
+    {"x":16.0,"y":16.0,},
+    {"x":32.0,"y":32.0,},
   ],
-  "physicsStartAwake": true,
-  "properties": [],
-  "resourceType": "GMObject",
-  "resourceVersion": "2.0",
-  "solid": false,
-  "spriteId": {
-    "name": "spr_pared_chica",
-    "path": "sprites/spr_pared_chica/spr_pared_chica.yy"
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_pared_chica",
+    "path":"sprites/spr_pared_chica/spr_pared_chica.yy",
   },
-  "spriteMaskId": null,
-  "visible": false
+  "spriteMaskId":null,
+  "visible":false,
 }
