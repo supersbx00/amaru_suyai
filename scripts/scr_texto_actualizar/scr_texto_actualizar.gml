@@ -54,3 +54,28 @@ var frame = floor(current_time / 133) mod sprite_get_number(spr_boton_clic);
 var tam = 0.66 * escala;
 draw_sprite_ext(spr_boton_clic, frame, px + (193 * escala), py + (92 * escala), tam, tam, 0, c_white, 1);
 }
+
+// Texto con el estilo de las letras del menú ("letras de barro"): relleno rojo barro oscuro con borde crema.
+// Centrado en px, py. escala 1 = unos 22 px de alto; alpha se limita a 1.
+// Usa la fuente SDF global.fnt_barro (nítida a cualquier escala); si no cargó, la fuente general.
+// El borde se dibuja repitiendo el texto en crema alrededor (los efectos SDF no aplican a fuentes de font_add).
+function scr_texto_barro(px, py, texto, escala, alpha) {
+var a = clamp(alpha, 0, 1);
+var relleno = make_colour_rgb(84, 10, 6);
+var borde = make_colour_rgb(255, 248, 212);
+var sdf = (global.fnt_barro != -1);
+var s = sdf ? (escala * 0.5) : escala;
+var g = 2.5 * escala;
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_font(sdf ? global.fnt_barro : general);
+
+for (var ang = 0; ang < 360; ang += 30)
+    draw_text_transformed_colour(px + lengthdir_x(g, ang), py + lengthdir_y(g, ang), texto, s, s, 0, borde, borde, borde, borde, a);
+
+draw_text_transformed_colour(px, py, texto, s, s, 0, relleno, relleno, relleno, relleno, a);
+
+draw_set_font(general);
+draw_set_valign(fa_top);
+}

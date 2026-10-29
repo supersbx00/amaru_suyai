@@ -16,6 +16,10 @@ if (!instance_exists(obj_pause))
 if (!instance_exists(obj_room_controller))
     instance_create(0, 0, obj_room_controller);
 
+// Wanku detiene a Amaru si intenta pelear antes de que Suyai se una
+if (!instance_exists(obj_wanku_aviso))
+    instance_create(0, 0, obj_wanku_aviso);
+
 if (instance_exists(obj_control_tutorial))
 {
     with (obj_control_tutorial)

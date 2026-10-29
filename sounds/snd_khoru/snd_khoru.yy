@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":301.976,
+  "duration":301.97552,
   "exportDir":"",
   "name":"snd_khoru",
   "parent":{

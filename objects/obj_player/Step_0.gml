@@ -1,3 +1,8 @@
+// Avance real desde el Step anterior, con la física ya resuelta (la pared devuelve a Amaru después del += hspd)
+var avance = point_distance(x, y, choque_x, choque_y);
+choque_x = x;
+choque_y = y;
+
 if (enable_battle == 1 || enable_player == 1)
 {
     enable_player = global.enable_player;
@@ -10,7 +15,10 @@ if (instance_number(obj_enemigo_normal) == 0)
     enable_player = 0;
 }
 
-if ((instance_number(obj_dialogo) > 0 || instance_number(obj_info) > 0) || global.transicion == 1 || global.cinematica == 1 || enable_battle == 1)
+// Al comenzar el tutorial (pasos 1-2) Amaru no puede hacer nada hasta que aparece Wanku
+var inicio_tutorial = instance_exists(obj_control_tutorial) && obj_control_tutorial.tutorialOn && obj_control_tutorial.paso <= 2;
+
+if ((instance_number(obj_dialogo) > 0 || instance_number(obj_info) > 0) || global.transicion == 1 || global.cinematica == 1 || enable_battle == 1 || inicio_tutorial)
 {
     enable_player = 1;
     hspd = 0;
@@ -63,7 +71,13 @@ array_item[1] = phy_position_y;
 array_item[2] = room;
 ds_list_insert(obj_game.escena_grabada, 0, array_item);
 
-if (hspd == 0 && vspd == 0)
+// Si intenta moverse pero un límite no lo deja avanzar, se muestra parado
+if ((hspd != 0 || vspd != 0) && avance < 1)
+    choque_frames += 1;
+else
+    choque_frames = 0;
+
+if ((hspd == 0 && vspd == 0) || choque_frames >= 2)
 {
     if (sprite_index == spr_amaru_walk_rightDown && image_xscale == 1)
         sprite_index = spr_amaru_stand_rightDown;
@@ -73,6 +87,9 @@ if (hspd == 0 && vspd == 0)
         sprite_index = spr_amaru_stand_rightTop;
     else if (sprite_index == spr_amaru_walk_rightDown && image_xscale == -1)
         sprite_index = spr_amaru_stand_rightDown;
+    
+    if (choque_frames >= 2)
+        image_speed = 0;
 }
 
 if (load == 1)

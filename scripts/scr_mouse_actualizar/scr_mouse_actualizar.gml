@@ -54,3 +54,61 @@ if (izq || der)
     global.mouse_enfriamiento = MOUSE_ENFRIAMIENTO;
 }
 }
+
+// Botón redondo de menú en la esquina superior izquierda de la pantalla (capa GUI: sigue a la cámara).
+// Un clic izquierdo sobre él abre el menú de pausa, igual que Enter.
+#macro BOTON_MENU_X 52
+#macro BOTON_MENU_Y 52
+#macro BOTON_MENU_RADIO 30
+
+// Visible cuando Amaru puede actuar en el mapa: sin pausa, batalla, diálogo, ayuda, cinemática ni transición
+function scr_boton_menu_visible() {
+if (global.pause || !instance_exists(obj_player) || !instance_exists(obj_pause))
+    return 0;
+
+if (room == rm_battle || room == rm_battle_tutorial)
+    return 0;
+
+if (global.texto_abierto || instance_exists(obj_popup_ayuda) || instance_exists(obj_popUp))
+    return 0;
+
+// Tutorial: no aparece hasta que Wanku pide abrir el menú (paso 9), y solo en los pasos en que
+// scr_pause_control deja abrirlo (pasos 9 y 15): así nunca se ve un botón que no responde
+if (instance_exists(obj_control_tutorial) && obj_control_tutorial.tutorialOn)
+{
+    var paso = obj_control_tutorial.paso;
+    
+    if (paso < 9 || (paso >= 10 && paso <= 14) || paso >= 16)
+        return 0;
+}
+
+return obj_player.enable_player == 0 && obj_player.enable_battle == 0;
+}
+
+function scr_boton_menu_sobre() {
+return point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), BOTON_MENU_X, BOTON_MENU_Y) <= BOTON_MENU_RADIO;
+}
+
+// Begin Step de obj_game, después de scr_texto_actualizar: el clic sobre el botón es del menú, no de Amaru
+function scr_boton_menu_actualizar() {
+if (global.mouse_click && scr_boton_menu_visible() && scr_boton_menu_sobre())
+{
+    global.mouse_click = 0;
+    
+    with (obj_pause)
+        scr_pause_control();
+}
+}
+
+// Draw GUI de obj_game. En el paso 9 del tutorial (ir al menú) late para llamar la atención.
+function scr_boton_menu_dibujar() {
+if (!scr_boton_menu_visible())
+    exit;
+
+var escala = scr_boton_menu_sobre() ? 1.1 : 1;
+
+if (instance_exists(obj_control_tutorial) && obj_control_tutorial.paso == 9)
+    escala += 0.12 * (1 + sin(current_time / 120));
+
+draw_sprite_ext(spr_boton_menu, 0, BOTON_MENU_X, BOTON_MENU_Y, escala, escala, 0, c_white, 1);
+}

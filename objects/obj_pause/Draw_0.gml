@@ -184,9 +184,9 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
     if (menuOptions == "Editar mazo")
     {
         draw_text(__view_get(0, 0) + 60, __view_get(1, 0) + 64, string_hash_to_newline("Mazo equipado: " + string(obj_morral.mazo_seleccionado[1])));
-        // En una línea y bajo el globo del tutorial (que llega hasta y≈147); la cuadrícula empieza en y≈206
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 300, __view_get(1, 0) + 165, string_hash_to_newline("CP Deck: " + string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit)));
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 480, __view_get(1, 0) + 165, string_hash_to_newline("Cartas Deck: " + string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit)));
+        // Uno sobre otro (con 3 cifras no caben lado a lado), bajo el globo del tutorial (llega hasta y≈147) y sobre la cuadrícula (y≈206)
+        draw_text((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 150, string_hash_to_newline("CP Deck: " + string(obj_morral.mazo_seleccionado[3]) + "/" + string(obj_morral.cp_limit)));
+        draw_text((__view_get(0, 0) + __view_get(2, 0)) - 415, __view_get(1, 0) + 176, string_hash_to_newline("Cartas Deck: " + string(obj_morral.mazo_seleccionado[4]) + "/" + string(obj_morral.deck_limit)));
     }
 }
 
@@ -283,7 +283,7 @@ if (menuOptions == "Editar mazo")
     draw_set_font(little);
     draw_sprite_ext(spr_cuadro_dialogo, 0, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5, 0.5, 0, c_white, 1);
     scr_texto_icono_clic(spr_cuadro_dialogo, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5);
-    draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 198, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, string_hash_to_newline("Presiona 'Z' para añadir carta al mazo#Presiona 'X' para retroceder#Presiona 'A' para añadir cartas#Presiona 'S' para retirar cartas"));
+    draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 198, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, string_hash_to_newline("Haz clic izquierdo para seleccionar#Haz clic derecho para retroceder o salir#Usa los botones de arriba para añadir o retirar cartas"));
 }
 
 if (menuOptions == "Equipar mazo" || menuOptions == "Limpiar mazo" || menuOptions == "Renombrar mazo")
@@ -533,7 +533,7 @@ if (instance_exists(obj_control_tutorial))
         {
             draw_sprite(spr_spiritu_ori, -1, (__view_get(0, 0) + __view_get(2, 0)) - 20, (__view_get(1, 0) + __view_get(3, 0)) - 30);
             draw_sprite(spr_principalGlobo, 1, __view_get(0, 0) + 60, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 60);
-            scr_text("Aqui podemos ver los materiales recogidos y una breve descripcion de ellos#Para retroceder al menu anterior, presionar 'X'", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 116, 720, true);
+            scr_text("Aqui podemos ver los materiales recogidos y una breve descripcion de ellos#Haz clic derecho para retroceder o salir", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 116, 720, true);
         }
         
         if (menuOptions == "Recetas")
@@ -543,7 +543,7 @@ if (instance_exists(obj_control_tutorial))
             if (ds_list_size(obj_morral.morralCards) == 0)
                 scr_text("Aqui podremos crear cartas que te ayudaran durante tu aventura#Como ves, para crear cartas necesitaremos cierta cantidad de#materiales", 1, __view_get(0, 0) + 877, __view_get(1, 0) + 76, 660, true);
             else
-                scr_text("Has creado tu primera carta, para verla, retrocede con X y ve al#menu Ver Cartas", 1, __view_get(0, 0) + 877, __view_get(1, 0) + 76, 660, true);
+                scr_text("Has creado tu primera carta, para verla, retrocede con clic derecho#y ve al menu Ver Cartas", 1, __view_get(0, 0) + 877, __view_get(1, 0) + 76, 660, true);
         }
         
         if (menuOptions == "Editar mazo")
@@ -556,7 +556,7 @@ if (instance_exists(obj_control_tutorial))
                 if (obj_morral.mazo_seleccionado[4] == 0)
                 {
                     if (editDeck_phase == "cardInventory")
-                        scr_text("Puedes elegir entre los distintos tipos de cartas que hayas creado o# conseguido, seleccionemos nuestra carta presionando la tecla 'Z'", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
+                        scr_text("Puedes elegir entre los distintos tipos de cartas que hayas creado o# conseguido, seleccionemos nuestra carta con clic izquierdo", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                     
                     if (editDeck_phase == "cardCopy")
                         scr_text("Debemos elegir el valor de nuestra carta, mientras mayor valor, mas fuerte es# pero a la vez, tiene mayor Card Point (CP),#zagreguemos la carta a nuestro mazo", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
@@ -566,7 +566,7 @@ if (instance_exists(obj_control_tutorial))
                 }
                 else
                 {
-                    scr_text("Genial! ahora salgamos del menú, solo debes apretar 'Enter'", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
+                    scr_text("Genial! ahora salgamos del menú, haz clic derecho para retroceder o salir", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                 }
             }
             
@@ -575,7 +575,7 @@ if (instance_exists(obj_control_tutorial))
                 if (obj_morral.mazo_seleccionado[4] < 5)
                     scr_text("Tenemos que agregar las cartas al mazo hasta que sean 5#Llevas " + string(obj_morral.mazo_seleccionado[4]) + " carta(s)", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
                 else
-                    scr_text("Genial! ahora salgamos del menú apretando 'Enter' ", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
+                    scr_text("Genial! ahora salgamos del menú, haz clic derecho para retroceder o salir", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
             }
         }
     }

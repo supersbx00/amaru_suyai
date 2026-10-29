@@ -16,6 +16,10 @@ tramo = 0;
 atasco_frames = 0;
 pos_prev_x = 0;
 pos_prev_y = 0;
+// Choque con límites: avance real entre Steps (scr_player_move deja el sprite de correr aunque no avance)
+choque_x = x;
+choque_y = y;
+choque_frames = 0;
 player_x = 0;
 player_y = 0;
 load = obj_game.load;

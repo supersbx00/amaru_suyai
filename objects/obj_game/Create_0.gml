@@ -17,6 +17,12 @@ global.mouse_wy_prev = window_mouse_get_y();
 window_set_cursor(cr_none);
 cursor_sprite = spr_cursor1;
 global.texto_abierto = 0;
+// Letras de barro (estilo de las letras del menú): Liberation Sans Narrow Bold incluida en datafiles,
+// en SDF para que se vea nítida a cualquier escala (el borde crema lo dibuja scr_texto_barro)
+global.fnt_barro = font_add("LiberationSansNarrow-Bold.ttf", 44, true, false, 32, 255);
+
+if (global.fnt_barro != -1)
+    font_enable_sdf(global.fnt_barro, true);
 global.texto_confirmar = 0;
 global.texto_enfriamiento = 0;
 global.z_virtual = 0;

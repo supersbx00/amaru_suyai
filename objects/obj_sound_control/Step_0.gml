@@ -1,3 +1,11 @@
+// Fuera del menú de inicio, la música del menú pasa a la de fondo
+if (sound == snd_espiritus && room != rm_menu)
+{
+    audio_stop_sound(snd_espiritus);
+    sound = snd_background;
+    audio_play_sound(sound, 10, true);
+}
+
 if (room == rm_final_morro)
 {
     if (audio_is_playing(snd_background) && count == 0)

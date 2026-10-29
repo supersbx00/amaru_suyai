@@ -11,17 +11,6 @@ if (obj_control_tutorial.paso == 4)
     image_xscale = -1;
 }
 
-if (obj_control_tutorial.paso == 9)
-{
-    draw_sprite(spr_popUp_dialogo, 0, x + 220, y - 170);
-    draw_set_halign(fa_center);
-    
-    if (gamepad_is_connected(0))
-        draw_text(x + 220, y - 200, string_hash_to_newline("Presiona 'START'# que esperas!?!"));
-    else
-        draw_text(x + 220, y - 200, string_hash_to_newline("Presiona 'Enter'# que esperas!?!"));
-}
-
 if (obj_control_tutorial.paso == 15)
 {
     draw_sprite(spr_popUp_dialogo, 0, x + 220, y - 170);

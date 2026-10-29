@@ -176,7 +176,7 @@ if (instance_exists(obj_pause))
                     else if (obj_control_tutorial.paso == 12)
                         textoPaso = "¡Muy bien! Ahora entra a 'Ver cartas' para agregar#tu nueva carta al mazo";
                     else if (obj_control_tutorial.paso == 13 || obj_control_tutorial.paso == 14)
-                        textoPaso = "¡Genial! Presiona 'Enter' para salir del menú";
+                        textoPaso = "¡Genial! Haz clic derecho para salir del menú";
                     
                     if (textoPaso != undefined)
                     {
@@ -192,7 +192,7 @@ if (instance_exists(obj_pause))
                     else switch (posCursor)
                     {
                         case 0:
-                            scr_text("En el inventario se guardan todos los materiales que has recogido durante tu aventura#Para acceder a el solo debes presionar 'Z'", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
+                            scr_text("En el inventario se guardan todos los materiales que has recogido durante tu aventura#Haz clic izquierdo para entrar", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 56, 720, true);
                             break;
                         
                         case 1:

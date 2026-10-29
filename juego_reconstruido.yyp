@@ -72,7 +72,9 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"LiberationSansNarrow-Bold.ttf","CopyToMask":-1,"filePath":"datafiles","name":"LiberationSansNarrow-Bold.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -223,6 +225,7 @@
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
     {"id":{"name":"obj_transparente","path":"objects/obj_transparente/obj_transparente.yy",},},
     {"id":{"name":"obj_tuto_wanku","path":"objects/obj_tuto_wanku/obj_tuto_wanku.yy",},},
+    {"id":{"name":"obj_wanku_aviso","path":"objects/obj_wanku_aviso/obj_wanku_aviso.yy",},},
     {"id":{"name":"obj_tutorial_popup_2","path":"objects/obj_tutorial_popup_2/obj_tutorial_popup_2.yy",},},
     {"id":{"name":"obj_tutorial_popUp","path":"objects/obj_tutorial_popUp/obj_tutorial_popUp.yy",},},
     {"id":{"name":"obj_tutorial_popUp1","path":"objects/obj_tutorial_popUp1/obj_tutorial_popUp1.yy",},},
@@ -410,6 +413,7 @@
     {"id":{"name":"spr_bck_menu","path":"sprites/spr_bck_menu/spr_bck_menu.yy",},},
     {"id":{"name":"spr_boton_a","path":"sprites/spr_boton_a/spr_boton_a.yy",},},
     {"id":{"name":"spr_boton_clic","path":"sprites/spr_boton_clic/spr_boton_clic.yy",},},
+    {"id":{"name":"spr_boton_menu","path":"sprites/spr_boton_menu/spr_boton_menu.yy",},},
     {"id":{"name":"spr_botonAdd","path":"sprites/spr_botonAdd/spr_botonAdd.yy",},},
     {"id":{"name":"spr_botonOut","path":"sprites/spr_botonOut/spr_botonOut.yy",},},
     {"id":{"name":"spr_botton_x_xbox","path":"sprites/spr_botton_x_xbox/spr_botton_x_xbox.yy",},},

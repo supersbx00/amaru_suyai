@@ -1,3 +1,10 @@
+// En el humedal los enemigos esperan a que Suyai se una (Wanku detiene a Amaru, ver obj_wanku_aviso)
+if (room == rm_humedal && !global.suyai_unida)
+{
+    depth = -y;
+    exit;
+}
+
 depth = -y;
 enemy_id = id;
 script_execute(state, "tojone");

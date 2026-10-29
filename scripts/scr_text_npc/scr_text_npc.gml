@@ -164,6 +164,10 @@ switch (npc)
         texto[3] = "Toma esto te puede servir en tu jornada#[Ahora puedes confeccionar Chope de lobo de Mar].";
         break;
     
+    case "wanku_suyai":
+        texto[0] = "Amaru, debes conocer a alguien que tiene tu mismo don.#Me refiero a la chica que está en esa choza.";
+        break;
+    
     case "wanku_tutorial":
         if (obj_control_tutorial.paso == 32)
         {
@@ -222,7 +226,7 @@ switch (npc)
         {
             texto[0] = "Aprenderás a confeccionar un arpón con hueso de ave,#ya que este será muy útil para tu aventura. ";
             texto[1] = "Para lograr esto, debes ocupar fibra vegetal y huesos de ave. #Esto nos servirá para la pesca, recolección y la caza terrestre.";
-            texto[2] = " PRESIONA ENTER (UNA VEZ TERMINADO EL TEXTO)#O PRESIONA START(UNA VEZ TERINADO EL TEXTO)";
+            texto[2] = " HAZ CLIC EN EL BOTÓN DE MENÚ (ARRIBA A LA IZQUIERDA)#UNA VEZ TERMINADO EL TEXTO";
             break;
         }
         

@@ -1,15 +1,10 @@
 draw_set_halign(fa_center);
 
-if (paso == 1)
-{
-    with (obj_player)
-        draw_text(x, y - 96, string_hash_to_newline("Z Z Z Z"));
-}
-
+// Amaru se sorprende cuando aparece Wanku: un solo "!" con las letras del menú
 if (paso == 2)
 {
     with (obj_player)
-        draw_text(x, y - 96, string_hash_to_newline("!  !  !  !"));
+        scr_texto_barro(x, y - 96, "!", 2, 1);
 }
 
 if (wanku_help)
