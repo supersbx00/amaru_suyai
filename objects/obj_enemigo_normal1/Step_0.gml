@@ -1,5 +1,6 @@
-// En el humedal los enemigos esperan a que Suyai se una (Wanku detiene a Amaru, ver obj_wanku_aviso)
-if (room == rm_humedal && !global.suyai_unida)
+// En el humedal los enemigos esperan a que Suyai se una y haya un mazo equipado de al menos 4 cartas
+// (Wanku detiene a Amaru, ver obj_wanku_aviso)
+if (room == rm_humedal && (!global.suyai_unida || obj_morral.mazo_seleccionado[4] < 4))
 {
     depth = -y;
     exit;

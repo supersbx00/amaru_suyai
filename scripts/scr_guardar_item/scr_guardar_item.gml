@@ -19,6 +19,7 @@ with (obj_morral)
         {
             insideMorral = ds_list_find_value(morral, i);
             ini_write_real("Material " + string(i), "Sprite", insideMorral[0]);
+            ini_write_string("Material " + string(i), "Sprite nombre", sprite_get_name(insideMorral[0]));
             ini_write_string("Material " + string(i), "Nombre", insideMorral[1]);
             ini_write_string("Material " + string(i), "Descr.", insideMorral[2]);
             ini_write_real("Material " + string(i), "Cantidad", insideMorral[3]);

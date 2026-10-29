@@ -21,7 +21,7 @@ with (obj_morral)
                 
                 with (instance_create(x, y, obj_card))
                 {
-                    card_morral[0] = ini_read_real("Cartas del Mazo " + string(i), "Sprite carta " + string(j), 32);
+                    card_morral[0] = scr_sprite_cargado("Cartas del Mazo " + string(i), "Sprite nombre carta " + string(j), "Sprite carta " + string(j));
                     card_morral[1] = ini_read_real("Cartas del Mazo " + string(i), "Image index carta " + string(j), 0);
                     card_morral[2] = card_morral[1];
                     card_morral[3] = "No type";
@@ -29,9 +29,15 @@ with (obj_morral)
                     card_morral[5] = "No name";
                     card_morral[6] = "No description";
                     scr_asignaValores_segunCarta();
-                    card_morral[4] = round(card_morral[4] + (card_morral[1] * 0.8));
-                    var aux_listaMazo = obj_morral.mazo[1, i];
-                    ds_list_replace(aux_listaMazo, j, card_morral);
+                    
+                    // Carta que no se pudo reconocer (CP sigue siendo texto): se descarta en vez de romper la carga
+                    if (is_numeric(card_morral[4]))
+                    {
+                        card_morral[4] = round(card_morral[4] + (card_morral[1] * 0.8));
+                        var aux_listaMazo = obj_morral.mazo[1, i];
+                        ds_list_replace(aux_listaMazo, j, card_morral);
+                    }
+
                     instance_destroy();
                 }
             }

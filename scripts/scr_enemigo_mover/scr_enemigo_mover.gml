@@ -46,9 +46,9 @@ if (dist <= mov_vel)
     mov_dest_y = clamp(mov_dest_y, zona_y0, zona_y1);
     
     if (tutorial)
-        mov_vel = random_range(3, 4);
+        mov_vel = random_range(4, 5.5);
     else
-        mov_vel = random_range(3, 6);
+        mov_vel = random_range(4.5, 8);
     
     mov_pausa = choose(0, 0, 6, 12, 24);
     hspd = 0;

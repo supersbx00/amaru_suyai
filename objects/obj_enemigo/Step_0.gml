@@ -63,7 +63,7 @@ if (!player_cardBreaked && !player_danho)
 if (hspd != 0 || vspd != 0)
 {
     sprite_index = spr_enemigo_battle_run;
-    image_speed = 0.3;
+    image_speed = 0.4;
 }
 
 if (barHealth <= 0 && tipo == "normal")

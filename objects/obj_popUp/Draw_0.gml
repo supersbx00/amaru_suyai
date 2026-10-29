@@ -25,3 +25,7 @@ switch (valorTexto)
     default:
         draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2), (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 50, string_hash_to_newline("obj_popUp_Draw_1#Mistake Here"));
 }
+
+// Restablece el estado de dibujo: si no, el resto del menú de pausa (título de la zona) se dibuja con esta transparencia
+draw_set_alpha(1);
+draw_set_halign(fa_left);

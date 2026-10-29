@@ -54,6 +54,9 @@ if (valor_popUp == "null card")
         sprite_index = spr_popUp_nullCard;
 }
 
+if (valor_popUp == "combo")
+    sprite_index = spr_popUp_Combo;
+
 if (valor_popUp == "rotar mazo")
 {
     if (gamepad_is_connected(0))

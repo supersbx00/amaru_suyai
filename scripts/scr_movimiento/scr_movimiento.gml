@@ -7,7 +7,7 @@ dkey = keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_axis_value
 
 var eje_x = rkey - lkey;
 var eje_y = dkey - ukey;
-var rapidez = 4.25;
+var rapidez = 6;
 
 if (eje_x != 0 && eje_y != 0)
     rapidez *= 0.7071;
@@ -23,6 +23,6 @@ if (eje_x != 0 || eje_y != 0)
         sprite_index = spr_amaru_battle_run;
 
     image_xscale = 1;
-    image_speed = 0.3;
+    image_speed = 0.4;
 }
 }

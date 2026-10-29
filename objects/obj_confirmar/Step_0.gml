@@ -33,6 +33,7 @@ if (confirmar)
     {
         global.modo_prueba = 0;
         global.suyai_unida = 0;
+        global.combo_recordado = 0;
         global.personaje = "amaru";
         scr_go_to_room(1);
         script_execute(scr_recetas);
@@ -41,12 +42,28 @@ if (confirmar)
     else if (estado == "cargar")
     {
         global.modo_prueba = 0;
+
+        // La partida guardada vuelve a los archivos en curso; las recetas se leen de nuevo porque obj_morral las leyó al crearse
+        scr_partida_restaurar();
+
+        with (obj_morral)
+        {
+            ds_list_clear(recipeBook);
+            scr_cargar_receta();
+        }
+
+        // Si la sala guardada no existe, se vuelve al menú con el aviso (scr_cargar_escenario)
+        if (!scr_cargar_escenario())
+        {
+            instance_destroy();
+            exit;
+        }
+        
         script_execute(scr_cargar_item);
         script_execute(scr_cargar_cartas);
         script_execute(scr_cargar_mazos);
         script_execute(scr_cargar_logros);
         global.escena_load = 1;
-        script_execute(scr_cargar_escenario);
         script_execute(scr_cargar_datos);
         obj_game.load = 1;
     }

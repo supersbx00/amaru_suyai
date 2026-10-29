@@ -1,6 +1,7 @@
 global.v_player = -1;
 global.v_enemy = -1;
 truco = 0;
+escudo_vida_baja_usado = 0; // el escudo de Wanku por vida baja sale una sola vez por batalla
 menuOptions = "Guardar";
 CardBreaker = 0;
 phase1 = 1;

@@ -19,6 +19,7 @@ with (obj_morral)
         {
             aux_morralCards = ds_list_find_value(morralCards, j);
             ini_write_real("Carta " + string(j), "Sprite", aux_morralCards[0]);
+            ini_write_string("Carta " + string(j), "Sprite nombre", sprite_get_name(aux_morralCards[0]));
             ini_write_real("Carta " + string(j), "Image_index", aux_morralCards[1]);
             cant_tipoCartas++;
             

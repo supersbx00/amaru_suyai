@@ -1,104 +1,51 @@
 {
-  "$GMObject": "",
-  "%Name": "obj_escudo_tuto",
-  "eventList": [
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 0,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": null,
-      "eventNum": 0,
-      "eventType": 3,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": {
-        "name": "obj_bala",
-        "path": "objects/obj_bala/obj_bala.yy"
-      },
-      "eventNum": 0,
-      "eventType": 4,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMEvent": "v1",
-      "%Name": "",
-      "collisionObjectId": {
-        "name": "obj_especial",
-        "path": "objects/obj_especial/obj_especial.yy"
-      },
-      "eventNum": 0,
-      "eventType": 4,
-      "isDnD": false,
-      "name": "",
-      "resourceType": "GMEvent",
-      "resourceVersion": "2.0"
-    }
+  "$GMObject":"",
+  "%Name":"obj_escudo_tuto",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_bala","path":"objects/obj_bala/obj_bala.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_especial","path":"objects/obj_especial/obj_especial.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_flecha","path":"objects/obj_flecha/obj_flecha.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_cuchilla","path":"objects/obj_cuchilla/obj_cuchilla.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_proyectil","path":"objects/obj_proyectil/obj_proyectil.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_proyectil_ice","path":"objects/obj_proyectil_ice/obj_proyectil_ice.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_proyectil_ligth","path":"objects/obj_proyectil_ligth/obj_proyectil_ligth.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
-  "managed": true,
-  "name": "obj_escudo_tuto",
-  "overriddenProperties": [],
-  "parent": {
-    "name": "Objects",
-    "path": "folders/01_Batalla/Objects.yy"
+  "managed":true,
+  "name":"obj_escudo_tuto",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/01_Batalla/Objects.yy",
   },
-  "parentObjectId": null,
-  "persistent": false,
-  "physicsAngularDamping": 0.1,
-  "physicsDensity": 0.0,
-  "physicsFriction": 0.2,
-  "physicsGroup": 0,
-  "physicsKinematic": false,
-  "physicsLinearDamping": 0.1,
-  "physicsObject": true,
-  "physicsRestitution": 0.1,
-  "physicsSensor": false,
-  "physicsShape": 1,
-  "physicsShapePoints": [
-    {
-      "x": -40.0,
-      "y": -69.0
-    },
-    {
-      "x": 42.0,
-      "y": -69.0
-    },
-    {
-      "x": 42.0,
-      "y": 64.0
-    },
-    {
-      "x": -40.0,
-      "y": 64.0
-    }
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":true,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[
+    {"x":-40.0,"y":-69.0,},
+    {"x":42.0,"y":-69.0,},
+    {"x":42.0,"y":64.0,},
+    {"x":-40.0,"y":64.0,},
   ],
-  "physicsStartAwake": true,
-  "properties": [],
-  "resourceType": "GMObject",
-  "resourceVersion": "2.0",
-  "solid": false,
-  "spriteId": {
-    "name": "spr_wanku_escudo",
-    "path": "sprites/spr_wanku_escudo/spr_wanku_escudo.yy"
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_wanku_escudo",
+    "path":"sprites/spr_wanku_escudo/spr_wanku_escudo.yy",
   },
-  "spriteMaskId": null,
-  "visible": true
+  "spriteMaskId":null,
+  "visible":true,
 }

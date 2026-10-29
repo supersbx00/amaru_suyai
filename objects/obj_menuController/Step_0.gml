@@ -1,3 +1,6 @@
+if (aviso_tiempo > 0)
+    aviso_tiempo -= 1;
+
 if (global.gp == 1)
     gamepad_set_axis_deadzone(0, 0.7);
 
@@ -74,13 +77,18 @@ else
                 exit;
             
             case 2:
-                if (file_exists("Escenario.ini"))
+                if (file_exists("partida/Escenario.ini"))
                 {
                     if (!instance_exists(obj_confirmar))
                     {
                         id_confirmar = instance_create(camera_get_view_x(view_camera[0]) + 660, camera_get_view_y(view_camera[0]) + 368, obj_confirmar);
                         id_confirmar.estado = "cargar";
                     }
+                }
+                else
+                {
+                    aviso_texto = "No hay partida guardada";
+                    aviso_tiempo = 120;
                 }
                 
                 break;

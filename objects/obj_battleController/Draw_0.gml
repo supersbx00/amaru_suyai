@@ -18,3 +18,6 @@ if (win == 1 && !instance_exists(obj_control_tutorial))
 
 if (defeat == 1)
     draw_sprite(spr_defeat, 1, 653, 350);
+
+if (global.ver_colisiones)
+    physics_world_draw_debug(phy_debug_render_shapes);

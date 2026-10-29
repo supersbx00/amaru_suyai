@@ -9,6 +9,14 @@ if (fadeAlpha == 1)
             instance_destroy();
     }
     
+    // Las salas del mapa son persistentes: al volver, la física rehace los cuerpos circulares y no acepta
+    // escala distinta por eje (image_xscale -1). Recuperan su orientación al moverse.
+    with (obj_player)
+        image_xscale = 1;
+
+    with (obj_enemigo_normal)
+        image_xscale = 1;
+
     room_goto(tempTarget);
     fadeState = -1;
 }

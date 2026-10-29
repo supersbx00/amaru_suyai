@@ -13,6 +13,7 @@ ini_write_real("puntaje jugador crasheado", "espiritu_agua", global.espiritu_agu
 ini_write_real("puntaje jugador crasheado", "espiritu_fuego", global.espiritu_fuego);
 ini_write_real("puntaje jugador crasheado", "khoru", global.khoru);
 ini_write_real("acompanante", "suyai_unida", global.suyai_unida);
+ini_write_real("tutorial", "combo_recordado", global.combo_recordado);
 ini_write_string("acompanante", "personaje", global.personaje);
 ini_close();
 }

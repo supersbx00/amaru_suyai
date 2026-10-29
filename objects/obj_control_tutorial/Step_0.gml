@@ -399,9 +399,10 @@ if (paso == 20 && !trigger)
 }
 
 // Después de la ayuda de rotar mazo, espera a que el jugador rote una vez
+// o a que el enemigo quede con la mitad de la vida (empieza con 100), para no demorar las ayudas restantes
 if (paso == 22 && !trigger)
 {
-    if (room == rm_battle_tutorial && obj_player_battle.tutorial_rotado)
+    if (room == rm_battle_tutorial && (obj_player_battle.tutorial_rotado || obj_enemigo.barHealth <= 50))
     {
         trigger = 1;
         alarm[0] = 10;

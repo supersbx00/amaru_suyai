@@ -1,9 +1,19 @@
 function scr_asignaValores_segunCarta() {
 if (card_morral != undefined)
 {
-    switch (card_morral[0])
+    // La carta puede venir como número antiguo de GMS1 (11, 5, 9...), como referencia de sprite
+    // o como nombre de sprite (guardados). Se lleva todo a un nombre salvo los números antiguos.
+    var clave = card_morral[0];
+    
+    if (typeof(clave) == "ref")
+        clave = sprite_get_name(clave);
+    else if (is_numeric(clave) && !array_contains([1, 5, 7, 9, 11, 16, 18, 20], clave) && sprite_exists(clave))
+        clave = sprite_get_name(clave);
+    
+    switch (clave)
     {
         case 11:
+        case "spr_cardAnzuelo_huesoAve":
             sprite_index = spr_cardAnzuelo_huesoAve;
             card_morral[0] = sprite_index;
             card_morral[3] = "azul";
@@ -13,6 +23,7 @@ if (card_morral != undefined)
             break;
         
         case 5:
+        case "spr_card_arponHueso":
             sprite_index = spr_card_arponHueso;
             card_morral[0] = sprite_index;
             card_morral[3] = "rojo";
@@ -22,6 +33,7 @@ if (card_morral != undefined)
             break;
         
         case 9:
+        case "spr_card_estolicaMadera":
             sprite_index = spr_card_estolicaMadera;
             card_morral[0] = sprite_index;
             card_morral[3] = "rojo";
@@ -31,6 +43,7 @@ if (card_morral != undefined)
             break;
         
         case 1:
+        case "spr_card_anzuelochoro":
             sprite_index = spr_card_anzuelochoro;
             card_morral[0] = sprite_index;
             card_morral[3] = "azul";
@@ -40,6 +53,7 @@ if (card_morral != undefined)
             break;
         
         case 7:
+        case "spr_card_chope":
             sprite_index = spr_card_chope;
             card_morral[0] = sprite_index;
             card_morral[3] = "rojo";
@@ -49,6 +63,7 @@ if (card_morral != undefined)
             break;
         
         case 16:
+        case "spr_card_agua":
             sprite_index = spr_card_agua;
             card_morral[0] = sprite_index;
             card_morral[3] = "especial_agua";
@@ -58,6 +73,7 @@ if (card_morral != undefined)
             break;
         
         case 18:
+        case "spr_card_fuego":
             sprite_index = spr_card_fuego;
             card_morral[0] = sprite_index;
             card_morral[3] = "especial_fuego";
@@ -67,6 +83,7 @@ if (card_morral != undefined)
             break;
         
         case 20:
+        case "spr_card_moon":
             sprite_index = spr_card_moon;
             card_morral[0] = sprite_index;
             card_morral[3] = "especial_luna";

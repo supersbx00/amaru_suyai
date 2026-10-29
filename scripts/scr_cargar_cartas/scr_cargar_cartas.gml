@@ -6,7 +6,7 @@ for (var j = 0; j < aux_cantidadCartas; j++)
 {
     with (instance_create(x, y, obj_card))
     {
-        card_morral[0] = ini_read_real("Carta " + string(j), "Sprite", 0);
+        card_morral[0] = scr_sprite_cargado("Carta " + string(j), "Sprite nombre", "Sprite");
         card_morral[1] = ini_read_real("Carta " + string(j), "Image_index", 0);
         card_morral[2] = "COPIAS";
         card_morral[3] = "No type";
@@ -25,7 +25,10 @@ for (var j = 0; j < aux_cantidadCartas; j++)
         }
         
         card_morral[2] = aux_cardMorral;
-        ds_list_add(obj_morral.morralCards, card_morral);
+        
+        // Carta que no se pudo reconocer: se descarta en vez de romper el inventario
+        if (is_numeric(card_morral[4]))
+            ds_list_add(obj_morral.morralCards, card_morral);
         instance_destroy();
     }
 }

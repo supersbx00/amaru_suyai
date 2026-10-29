@@ -4,6 +4,8 @@ hrsJugadas = 0;
 global.gp = 0;
 global.modo_prueba = 0;
 global.suyai_unida = 0;     // Suyai acompaña a Amaru en el mapa
+global.combo_recordado = 0; // la ayuda del combo ya apareció con la vida baja (una vez por partida)
+global.ver_colisiones = 0;  // F3 en batalla: dibuja las formas físicas
 global.personaje = "amaru"; // personaje controlado: "amaru" o "suyai"
 global.cambio_destello = 0; // frames de destello tras cambiar de personaje
 global.mouse_click = 0;
@@ -56,6 +58,10 @@ global.enable_player = 0;
 global.enable_battle = 0;
 global.anciana = 0;
 global.zona = 0;
+
+// Guardado anterior a la carpeta "partida/": se copia antes de que el reinicio de abajo limpie los archivos en curso
+if (!file_exists("partida/Escenario.ini") && file_exists("Escenario.ini"))
+    scr_partida_respaldar();
 
 if (!file_exists("recetas.ini") || !file_exists("logros.ini"))
 {

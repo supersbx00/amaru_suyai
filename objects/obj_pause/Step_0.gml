@@ -412,7 +412,10 @@ if (menuOptions == "Guardar")
         ini_open("datosJuego.ini");
         ini_write_real("puntaje jugador", "valor", global.puntaje_total_descrasheo);
         ini_close();
-        
+
+        // La copia en "partida/" es la partida guardada (empezar de nuevo no la toca)
+        scr_partida_respaldar();
+
         with (instance_create(__view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2), obj_popUp))
             valorTexto = "guardar";
     }

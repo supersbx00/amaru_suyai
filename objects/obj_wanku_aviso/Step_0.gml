@@ -16,13 +16,22 @@ if (!fuera && estado == "espera")
 switch (estado)
 {
     case "espera":
-        if (fuera && !global.suyai_unida && !instance_exists(obj_dialogo) && !global.pause && global.cinematica == 0 && global.transicion == 0)
+        // Qué falta para pelear: primero Suyai, después un mazo equipado de al menos 4 cartas
+        var motivo = "";
+
+        if (!global.suyai_unida)
+            motivo = "wanku_suyai";
+        else if (obj_morral.mazo_seleccionado[4] < 4)
+            motivo = "wanku_mazo";
+
+        if (fuera && motivo != "" && !instance_exists(obj_dialogo) && !global.pause && global.cinematica == 0 && global.transicion == 0)
         {
             var cerca = instance_nearest(px, py, obj_enemigo_normal1);
             
             if (cerca != noone && point_distance(px, py, cerca.x, cerca.y) < distancia)
             {
                 enemigo = cerca;
+                npc_texto = motivo;
                 fuera = 0;
                 global.cinematica = 1;
                 

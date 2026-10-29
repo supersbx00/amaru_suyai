@@ -7,10 +7,14 @@ menuInicial[3] = "Multijugador";
 menuInicial_paso = 80;
 menuInicial_spr = [spr_newGame, spr_momificar, spr_loadGame, spr_credito];
 
-if (file_exists("saveDeck.ini"))
+if (file_exists("partida/Escenario.ini"))
     menuInicial_cursor = 2;
 else
     menuInicial_cursor = 0;
+
+// Aviso temporal (p. ej. "No hay partida guardada"); obj_text no sirve aquí porque depende de obj_pause
+aviso_texto = "";
+aviso_tiempo = 0;
 
 image_speed = 0.7;
 image_index = 1;

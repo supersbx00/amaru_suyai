@@ -34,5 +34,5 @@ phy_fixed_rotation = 1;
 // Movimiento por destinos al azar (scr_enemigo_mover); el primer tramo parte desde donde aparece
 mov_dest_x = x;
 mov_dest_y = y;
-mov_vel = 3;
+mov_vel = 4.5;
 mov_pausa = 0;

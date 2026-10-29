@@ -167,6 +167,11 @@ switch (npc)
     case "wanku_suyai":
         texto[0] = "Amaru, debes conocer a alguien que tiene tu mismo don.#Me refiero a la chica que está en esa choza.";
         break;
+
+    case "wanku_mazo":
+        texto[0] = "¡Esperen, chicos! No pueden enfrentarse a los tojotojones sin sus cartas.";
+        texto[1] = "Vayan al menú y, en Equipar mazo, preparen#un mazo de al menos 4 cartas.";
+        break;
     
     case "wanku_tutorial":
         if (obj_control_tutorial.paso == 32)

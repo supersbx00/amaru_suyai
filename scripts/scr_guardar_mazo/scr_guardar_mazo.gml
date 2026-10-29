@@ -27,6 +27,7 @@ with (obj_morral)
             if (aux_noUndefined[1] != undefined)
             {
                 ini_write_real("Cartas del Mazo " + string(i), "Sprite carta " + string(j), aux_noUndefined[0]);
+                ini_write_string("Cartas del Mazo " + string(i), "Sprite nombre carta " + string(j), sprite_get_name(aux_noUndefined[0]));
                 ini_write_real("Cartas del Mazo " + string(i), "Image index carta " + string(j), aux_noUndefined[1]);
             }
             else

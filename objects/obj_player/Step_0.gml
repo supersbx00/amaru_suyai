@@ -71,6 +71,10 @@ array_item[1] = phy_position_y;
 array_item[2] = room;
 ds_list_insert(obj_game.escena_grabada, 0, array_item);
 
+// Solo se usa la posición más reciente: la lista no debe crecer sin límite
+while (ds_list_size(obj_game.escena_grabada) > 60)
+    ds_list_delete(obj_game.escena_grabada, ds_list_size(obj_game.escena_grabada) - 1);
+
 // Si intenta moverse pero un límite no lo deja avanzar, se muestra parado
 if ((hspd != 0 || vspd != 0) && avance < 1)
     choque_frames += 1;

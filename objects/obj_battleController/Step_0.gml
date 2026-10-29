@@ -1,5 +1,24 @@
 global.win = win;
 
+// F3: muestra u oculta las formas de colisión (prueba de que coinciden con los sprites)
+if (keyboard_check_pressed(vk_f3))
+    global.ver_colisiones = !global.ver_colisiones;
+
+// Primera batalla fuera del tutorial con la vida baja: se recuerda el combo una sola vez por partida
+if (room == rm_battle && !instance_exists(obj_control_tutorial) && !global.combo_recordado && !instance_exists(obj_tutorial_popUp) && !instance_exists(obj_tutorial_popUp1))
+{
+    if (obj_player_battle.barHealth > 0 && obj_player_battle.barHealth <= 30)
+    {
+        global.combo_recordado = 1;
+        
+        with (instance_create(camera_get_view_x(view_camera[0]) + 660, camera_get_view_y(view_camera[0]) + 368, obj_tutorial_popUp))
+        {
+            valor_popUp = "combo";
+            sprite_index = spr_popUp_Combo; // desde el primer cuadro (su Step corre recién en el siguiente)
+        }
+    }
+}
+
 if (obj_player_battle.barHealth < 20)
     truco = 1;
 
