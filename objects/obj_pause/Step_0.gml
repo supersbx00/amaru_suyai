@@ -12,6 +12,20 @@ push_lb = keyboard_check_pressed(ord("A")) || gamepad_button_check_pressed(0, gp
 push_rb = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0, gp_shoulderr);
 scr_pause_mouse();
 
+// Con el cuadro de confirmación abierto (Salir al menú) la pausa no recibe entradas
+if (instance_exists(obj_confirmar))
+{
+    k_up = 0;
+    k_down = 0;
+    push_pause = 0;
+    push_int = 0;
+    push_out = 0;
+    push_left = 0;
+    push_right = 0;
+    push_lb = 0;
+    push_rb = 0;
+}
+
 if (push_sabias && global.enable_battle == 0 && global.pause == 0 && !instance_exists(obj_dialogo) && !instance_exists(obj_control_tutorial))
 {
     if (!instance_exists(obj_popup_ayuda))
@@ -280,10 +294,25 @@ if (menuOptions == "Inventario")
     select = ds_list_find_value(obj_morral.morral, posCursor);
 }
 
-if (menuOptions == "Recetas")
+if (menuOptions == "Creación")
 {
     move -= max(k_up, 0);
     move += max(k_down, 0);
+    
+    // Pestañas Cartas / Momificar con izquierda y derecha (en el tutorial solo Cartas)
+    if (!readyConstruct && !instance_exists(obj_control_tutorial) && (push_left || push_right))
+    {
+        subCreacion = (subCreacion == "cartas") ? "momificar" : "cartas";
+        posCursor = 0;
+        
+        if (instance_exists(obj_text))
+        {
+            with (obj_text)
+                instance_destroy();
+        }
+    }
+    
+    var n_recetas = (subCreacion == "cartas") ? ds_list_size(obj_morral.recipeBook) : array_length(scr_momia_recetas());
     
     if (!readyConstruct)
     {
@@ -294,9 +323,9 @@ if (menuOptions == "Recetas")
             if (!instance_exists(obj_control_tutorial))
             {
                 if (posCursor < 0)
-                    posCursor = ds_list_size(obj_morral.recipeBook) - 1;
+                    posCursor = n_recetas - 1;
                 
-                if (posCursor > (ds_list_size(obj_morral.recipeBook) - 1))
+                if (posCursor > (n_recetas - 1))
                     posCursor = 0;
             }
             else
@@ -306,7 +335,7 @@ if (menuOptions == "Recetas")
         }
     }
     
-    select = ds_list_find_value(obj_morral.recipeBook, posCursor);
+    select = (subCreacion == "cartas") ? ds_list_find_value(obj_morral.recipeBook, posCursor) : undefined;
 }
 
 if (menuOptions == "Memorin")

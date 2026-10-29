@@ -32,17 +32,17 @@ if (subMenu == "personas")
         {
             case 0:
                 draw_sprite(posCursor_listaLogros_personas[5], 0, __view_get(0, 0) + (__view_get(2, 0) / 2) + 250, (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 150);
-                draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, posCursor_listaLogros_personas[3]);
+                scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, string(posCursor_listaLogros_personas[3]), 0.7, 1);
                 break;
             
             case 4:
                 draw_sprite(posCursor_listaLogros_personas[5], 0, __view_get(0, 0) + (__view_get(2, 0) / 2) + 250, (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 150);
-                draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, posCursor_listaLogros_personas[3]);
+                scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, string(posCursor_listaLogros_personas[3]), 0.7, 1);
                 break;
             
             default:
                 draw_sprite(spr_info, 0, __view_get(0, 0) + (__view_get(2, 0) / 2) + 250, (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 150);
-                draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, "Hace falta el caso nro " + string(posCursor) + " en\nscr_lista_logros_memorin");
+                scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 30, __view_get(1, 0) + (__view_get(3, 0) / 2) + 90, "Hace falta el caso nro " + string(posCursor) + " en\nscr_lista_logros_memorin", 0.7, 1);
         }
     }
 }

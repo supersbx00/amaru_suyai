@@ -22,6 +22,10 @@ switch (valorTexto)
         draw_sprite(spr_popUp_creaCarta, 0, __view_get(0, 0) + (__view_get(2, 0) / 2), (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 50);
         break;
     
+    case "pieza creada":
+        draw_sprite(spr_popUp_materialConfeccionado, 0, __view_get(0, 0) + (__view_get(2, 0) / 2), (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 50);
+        break;
+    
     default:
         draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2), (__view_get(1, 0) + (__view_get(3, 0) / 2)) - 50, string_hash_to_newline("obj_popUp_Draw_1#Mistake Here"));
 }

@@ -39,7 +39,7 @@ switch (menuOptions)
         if (menuOptions == "Principal")
         {
             if (tutorial)
-                n = (obj_control_tutorial.paso < 12) ? (obj_control_tutorial.paso - 8) : (array_length(menu) - 2);
+                n = (obj_control_tutorial.paso < 12) ? (obj_control_tutorial.paso - 8) : 2;
             else
                 n = array_length(menu);
         }
@@ -66,11 +66,26 @@ switch (menuOptions)
 
         break;
 
-    case "Recetas":
+    case "Creación":
         if (!readyConstruct)
         {
-            n = tutorial ? 1 : ds_list_size(obj_morral.recipeBook);
-            n = min(n, ds_list_size(obj_morral.recipeBook));
+            if (subCreacion == "cartas")
+            {
+                n = tutorial ? 1 : ds_list_size(obj_morral.recipeBook);
+                n = min(n, ds_list_size(obj_morral.recipeBook));
+            }
+            else
+                n = array_length(scr_momia_recetas());
+            
+            // Pestañas Cartas / Momificar (obj_pause/Draw_0); en el tutorial no se dibujan
+            if (!tutorial)
+            {
+                if (scr_mouse_sobre(spr_maderuchaMenu, vx + 560, vy + 80, 0.45, 0.45))
+                    mouse_boton = "tab_cartas";
+                
+                if (scr_mouse_sobre(spr_maderuchaMenu, vx + 760, vy + 80, 0.45, 0.45))
+                    mouse_boton = "tab_momificar";
+            }
 
             for (var i = 0; i < n; i++)
             {
@@ -190,6 +205,12 @@ if (global.mouse_click)
         push_lb = 1;
     else if (mouse_boton == "out")
         push_rb = 1;
+    else if (mouse_boton == "tab_cartas" || mouse_boton == "tab_momificar")
+    {
+        // Clic en la otra pestaña = flecha (obj_pause/Step_0 cambia de pestaña)
+        if (mouse_boton != "tab_" + subCreacion)
+            push_right = 1;
+    }
     else if (mouse_objetivo != -1)
         push_int = 1;
 

@@ -6,8 +6,11 @@ if (dist <= 100)
 {
     if (push_button && count == 0)
     {
+        // Sin los materiales del minijuego (scr_momia_materiales) la abuela dice qué falta y no empieza
+        falta_material = (enable_room && scr_momia_faltantes() != "");
+        
         with (instance_create(x, y, obj_dialogo))
-            npc = other.nombre;
+            npc = other.falta_material ? "npc1_falta" : other.nombre;
         
         if (!entregoPuntaje)
         {
@@ -20,7 +23,7 @@ if (dist <= 100)
         count++;
     }
     
-    if (!instance_exists(obj_dialogo) && count == 1 && enable_room)
+    if (!instance_exists(obj_dialogo) && count == 1 && enable_room && !falta_material)
     {
         global.escena = 1;
         global.anciana = 1;

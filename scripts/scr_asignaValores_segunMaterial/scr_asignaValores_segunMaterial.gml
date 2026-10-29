@@ -43,6 +43,49 @@ switch (sprite_index)
         material[3] = 1;
         break;
     
+    case spr_arcilla:
+        material[0] = sprite_index;
+        material[1] = "Arcilla";
+        material[2] = "Arcilla gris usada por los preparadores#fúnebres para moldear el cuerpo de las#momias negras y devolverle su volumen.";
+        material[3] = 1;
+        break;
+    
+    // Piezas de la momia que se fabrican en Creación (scr_momia_recetas)
+    case spr_momia_palo:
+        material[0] = sprite_index;
+        material[1] = "Palo amarrado";
+        material[2] = "Palos atados con cuerdas de fibra vegetal#que refuerzan los brazos y las piernas#de la momia.";
+        material[3] = 1;
+        break;
+    
+    case spr_momia_travesano:
+        material[0] = sprite_index;
+        material[1] = "Travesaño amarrado";
+        material[2] = "Palo atado con fibra vegetal que refuerza#los hombros y la cadera de la momia.";
+        material[3] = 1;
+        break;
+    
+    case spr_momia_relleno:
+        material[0] = sprite_index;
+        material[1] = "Relleno vegetal";
+        material[2] = "Fibra vegetal para rellenar el cráneo#y el tórax de la momia.";
+        material[3] = 1;
+        break;
+    
+    case spr_momia_faldellin:
+        material[0] = sprite_index;
+        material[1] = "Faldellín";
+        material[2] = "Faldellín tejido con fibra vegetal#que viste a la momia.";
+        material[3] = 1;
+        break;
+    
+    case spr_momia_mascara:
+        material[0] = sprite_index;
+        material[1] = "Máscara";
+        material[2] = "Máscara de arcilla para la cara de la#momia: los ojos se marcan con un palito#y la nariz y la boca con orificios.";
+        material[3] = 1;
+        break;
+    
     default:
         material[0] = sprite_index;
         material[1] = "UNKNOWN";

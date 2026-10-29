@@ -14,18 +14,17 @@ else
 draw_set_font(font);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-var sep = font_size + (font_size / 2);
+var sep = max(font_size + (font_size / 2), 24);   // 24 = alto de una línea de barro a 0.9
 var dx = x + padding;
 var dy = y + padding;
 
+// Letras de barro; el centrado se mide con el texto completo para que las letras no se muevan al escribirse
 if (centrado)
 {
-    dx = x - (string_width_ext(string_hash_to_newline(text), sep, maxlength) / 2);
-    dy = y - (string_height_ext(string_hash_to_newline(text), sep, maxlength) / 2);
+    var medida = scr_texto_barro_medir(text, sep, maxlength, 0.9);
+    dx = x - (medida[0] / 2);
+    dy = y - (medida[1] / 2);
 }
 
-var prev_color = draw_get_color();
-draw_set_color(c_black);
-draw_text_ext(dx, dy, string_hash_to_newline(print), sep, maxlength);
-draw_set_color(prev_color);
+scr_texto_barro_ext(dx, dy, print, sep, maxlength, 0.9, alpha);
 draw_set_alpha(1);

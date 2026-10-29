@@ -223,7 +223,27 @@ if (menuOptions == "Borrar cartas")
     }
 }
 
-if (menuOptions == "Recetas")
+// Pestaña Momificar: se fabrica la pieza al instante (scr_momia_fabricar) y se avisa el resultado
+if (menuOptions == "Creación" && subCreacion == "momificar")
+{
+    var falta = scr_momia_fabricar(posCursor);
+    
+    if (instance_exists(obj_text))
+    {
+        with (obj_text)
+            instance_destroy();
+    }
+    
+    // Como al crear una carta: cartel "¡MATERIAL CONFECCIONADO!" (obj_popUp)
+    if (falta == "")
+    {
+        with (instance_create(__view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2), obj_popUp))
+            valorTexto = "pieza creada";
+    }
+    else
+        scr_text("Te falta: " + falta + ".", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 30);
+}
+else if (menuOptions == "Creación")
 {
     if (select != undefined && select[10] && obj_morral.cantidadCartas < obj_morral.limite_inventario)
         readyConstruct = 1;

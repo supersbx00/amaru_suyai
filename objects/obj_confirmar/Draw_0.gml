@@ -26,3 +26,11 @@ if (estado == "guardar")
     else
         draw_sprite(spr_confirmar_teclado, 2, camera_get_view_x(view_camera[0]) + 660, camera_get_view_y(view_camera[0]) + 368);
 }
+
+if (estado == "salir")
+{
+    if (gamepad_is_connected(0))
+        draw_sprite(spr_confirmar_xbox, 3, camera_get_view_x(view_camera[0]) + 660, camera_get_view_y(view_camera[0]) + 368);
+    else
+        draw_sprite(spr_confirmar_teclado, 3, camera_get_view_x(view_camera[0]) + 660, camera_get_view_y(view_camera[0]) + 368);
+}

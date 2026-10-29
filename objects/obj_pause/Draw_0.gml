@@ -22,7 +22,7 @@ if (menuOptions == "Principal")
         }
         else
         {
-            for (var i = 0; i < (array_length(menu) - 2); i++)
+            for (var i = 0; i < 2; i++)
             {
                 draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), 0.5, 0.5, 1, c_white, 1);
                 scr_texto_barro(__view_get(0, 0) + 136, __view_get(1, 0) + 32 + ((i + 1) * 60), string(menu[i]), 0.9, 1);
@@ -60,9 +60,8 @@ if (menuOptions == "Inventario")
     draw_set_color(c_black);
     scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, "Material: " + string(select[1]), 0.8, 1);
     scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 440, __view_get(1, 0) + (__view_get(3, 0) / 2) + 40, "Cantidad: " + string(select[3]), 0.8, 1);
-    // La descripción larga queda con la letra simple
     draw_set_font(description);
-    draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 70, string_hash_to_newline("Descripcion: " + string(select[2])));
+    scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 130, __view_get(1, 0) + (__view_get(3, 0) / 2) + 70, "Descripcion: " + string(select[2]), 0.7, 1);
 }
 
 if (menuOptions == "Inventario")
@@ -213,7 +212,7 @@ if (menuOptions == "Editar mazo" || menuOptions == "Borrar cartas")
             scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 10, __view_get(1, 0) + 256, "CP " + string(calculoCP), 0.9, 1);
         
         if (!object_exists(obj_control_tutorial))
-            draw_text(__view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 60, string_hash_to_newline(string(select[6])));
+            scr_texto_barro_izq(__view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 60, string(select[6]), 0.7, 1);
     }
 }
 
@@ -290,7 +289,7 @@ if (menuOptions == "Editar mazo")
     draw_set_font(little);
     draw_sprite_ext(spr_cuadro_dialogo, 0, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5, 0.5, 0, c_white, 1);
     scr_texto_icono_clic(spr_cuadro_dialogo, __view_get(0, 0) + (__view_get(2, 0) / 2), __view_get(1, 0) + (__view_get(3, 0) / 2) + 300, 0.5);
-    draw_text((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 198, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, string_hash_to_newline("Haz clic izquierdo para seleccionar#Haz clic derecho para retroceder o salir#Usa los botones de arriba para añadir o retirar cartas"));
+    scr_texto_barro_izq((__view_get(0, 0) + (__view_get(2, 0) / 2)) - 198, __view_get(1, 0) + (__view_get(3, 0) / 2) + 270, "Haz clic izquierdo para seleccionar#Haz clic derecho para retroceder o salir#Usa los botones de arriba para añadir o retirar cartas", 0.6, 1);
 }
 
 if (menuOptions == "Equipar mazo" || menuOptions == "Limpiar mazo" || menuOptions == "Renombrar mazo")
@@ -317,17 +316,65 @@ if (menuOptions == "Equipar mazo" || menuOptions == "Limpiar mazo" || menuOption
 
 depth = -1;
 
-if (menuOptions == "Recetas")
+if (menuOptions == "Creación")
 {
     draw_set_color(c_black);
-    draw_sprite(spr_receta_tituloReceta, 1, __view_get(0, 0) + 40, __view_get(1, 0) + 40);
+    draw_sprite(spr_receta_tituloCreacion, 0, __view_get(0, 0) + 40, __view_get(1, 0) + 40);
     draw_sprite(spr_receta_baseRecetaMaterial, 1, __view_get(0, 0) + 40, __view_get(1, 0) + 130);
     draw_sprite_ext(spr_receta_baseCarta, 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 200, __view_get(1, 0) + 130, 0.97, 1, 0, c_white, 1);
     draw_sprite_ext(spr_receta_cuadroItems, 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 150, 0.85, 1, 0, c_white, 1);
     draw_sprite(spr_receta_necesitas, 1, (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160, __view_get(1, 0) + (__view_get(3, 0) / 2) + 150);
     draw_sprite_ext(spr_receta_descripcion, 1, __view_get(0, 0) + (__view_get(2, 0) / 2) + 138, __view_get(1, 0) + (__view_get(3, 0) / 2) + 100, 1, 0.68, 0, c_white, 1);
     
+    // Pestañas Cartas / Momificar (scr_pause_mouse las hace clicables); en el tutorial solo hay cartas
     if (!instance_exists(obj_control_tutorial))
+    {
+        var pestanas = ["cartas", "momificar"];
+        var titulos = ["Cartas", "Momificar"];
+        
+        for (var p = 0; p < 2; p++)
+        {
+            var elegida = (subCreacion == pestanas[p]);
+            draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, 0.45, 0.45, 0, c_white, elegida ? 1 : 0.5);
+            scr_texto_barro(__view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, titulos[p], 0.8, elegida ? 1 : 0.5);
+        }
+        
+        draw_set_halign(fa_left);
+    }
+    
+    if (subCreacion == "momificar")
+    {
+        var recetas = scr_momia_recetas();
+        
+        for (var i = 0; i < array_length(recetas); i++)
+            scr_texto_barro_izq(__view_get(0, 0) + 100, __view_get(1, 0) + 170 + (30 * i), recetas[i][0], 0.8, 1);
+        
+        draw_set_halign(fa_left);
+        var receta = recetas[clamp(posCursor, 0, array_length(recetas) - 1)];
+        
+        // La pieza en un marco de carta (sin costo), en el lugar y al tamaño de la carta de la pestaña Cartas:
+        // el ícono ampliado y centrado en el pergamino y el nombre en el recuadro de abajo
+        var carta_x = (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 160;
+        var carta_y = __view_get(1, 0) + 175;
+        draw_sprite_ext(spr_momia_cartaBase, 0, carta_x, carta_y, 0.75, 0.75, 0, c_white, 1);
+        var pieza_k = 2;
+        var pieza_x = carta_x + 120 - ((sprite_get_width(receta[1]) / 2) - sprite_get_xoffset(receta[1])) * pieza_k;
+        var pieza_y = carta_y + 124 - ((sprite_get_height(receta[1]) / 2) - sprite_get_yoffset(receta[1])) * pieza_k;
+        draw_sprite_ext(receta[1], 0, pieza_x, pieza_y, pieza_k, pieza_k, 0, c_white, 1);
+        scr_texto_barro(carta_x + 120, carta_y + 261, receta[0], 0.8, 1);
+        draw_set_halign(fa_left);
+        
+        var mats = receta[2];
+        
+        for (var m = 0; m < array_length(mats); m++)
+            scr_recetas_MaterialesNecesarios(mats[m][1], (__view_get(0, 0) + (__view_get(2, 0) / 2)) - 130 + (160 * m), __view_get(1, 0) + (__view_get(3, 0) / 2) + 210, mats[m][2]);
+        
+        draw_set_halign(fa_left);
+        draw_set_font(description);
+        scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 115, "Descripcion : ", 0.8, 1);
+        scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, receta[3], 0.7, 1);
+    }
+    else if (!instance_exists(obj_control_tutorial))
     {
         for (var i = 0; i < ds_list_size(obj_morral.recipeBook); i++)
         {
@@ -358,12 +405,48 @@ if (menuOptions == "Recetas")
         }
     }
     
-    select = ds_list_find_value(obj_morral.recipeBook, posCursor);
+    if (subCreacion == "cartas")
+        select = ds_list_find_value(obj_morral.recipeBook, posCursor);
     
     for (var i = 0; i < 4; i++)
     {
         for (var j = 0; j < 3; j++)
             draw_sprite(spr_cuadro_item, 0, __view_get(0, 0) + (__view_get(2, 0) / 2) + 200 + (120 * i), __view_get(1, 0) + 210 + (120 * j));
+    }
+    
+    // Momificar: en los cuadros, igual que en las cartas, los materiales de la receta que tienes y la pieza ya fabricada,
+    // dibujados después de los cuadros y con la cantidad en spr_nros
+    if (subCreacion == "momificar")
+    {
+        var receta_m = scr_momia_recetas()[clamp(posCursor, 0, array_length(scr_momia_recetas()) - 1)];
+        var en_cuadro = [];
+        
+        for (var m = 0; m < array_length(receta_m[2]); m++)
+            array_push(en_cuadro, receta_m[2][m][0]);
+        
+        array_push(en_cuadro, receta_m[1]);
+        var cuadro = 0;
+        
+        for (var m = 0; m < array_length(en_cuadro); m++)
+        {
+            var cant = scr_morral_cantidad(en_cuadro[m]);
+            
+            if (cant <= 0)
+                continue;
+            
+            var cx = __view_get(0, 0) + (__view_get(2, 0) / 2) + 160 + (120 * cuadro);
+            draw_sprite(en_cuadro[m], 0, cx, __view_get(1, 0) + 190);
+            
+            if (cant <= 9)
+                draw_sprite(spr_nros, cant, cx + 60, __view_get(1, 0) + 170);
+            else
+            {
+                draw_sprite(spr_nros, real(string_char_at(string(cant), 1)), cx + 40, __view_get(1, 0) + 170);
+                draw_sprite(spr_nros, real(string_char_at(string(cant), 2)), cx + 65, __view_get(1, 0) + 170);
+            }
+            
+            cuadro++;
+        }
     }
     
     if (select != undefined && select[10])
@@ -405,12 +488,12 @@ if (menuOptions == "Recetas")
         draw_set_font(description);
         scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 115, "Descripcion : ", 0.8, 1);
         draw_set_font(description);
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, string_hash_to_newline(string(select[8])));
+        scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, string(select[8]), 0.7, 1);
     }
-    else
+    else if (subCreacion == "cartas")
     {
         draw_set_font(description);
-        draw_text(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, string_hash_to_newline("Aun no has desbloqueado esta receta"));
+        scr_texto_barro_izq(__view_get(0, 0) + (__view_get(2, 0) / 2) + 170, __view_get(1, 0) + (__view_get(3, 0) / 2) + 140, "Aun no has desbloqueado esta receta", 0.7, 1);
     }
 }
 
@@ -456,7 +539,7 @@ if (menuOptions == "Ver cartas")
 if (menuOptions == "Inventario")
     draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 270 + ((posCursor - (4 * floor(posCursor / 4))) * 125), __view_get(1, 0) + 270 + (130 * floor(posCursor / 4)));
 
-if (menuOptions == "Recetas")
+if (menuOptions == "Creación")
     draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 350, __view_get(1, 0) + 180 + (30 * posCursor));
 
 if (menuOptions == "Memorin")
@@ -544,7 +627,7 @@ if (instance_exists(obj_control_tutorial))
             scr_text("Aqui podemos ver los materiales recogidos y una breve descripcion de ellos#Haz clic derecho para retroceder o salir", 1, __view_get(0, 0) + 594, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 116, 720, true);
         }
         
-        if (menuOptions == "Recetas")
+        if (menuOptions == "Creación")
         {
             draw_sprite_ext(spr_principalGlobo, 1, __view_get(0, 0) + 400, __view_get(1, 0) + 20, 0.9, 1, 0, c_white, 1);
             

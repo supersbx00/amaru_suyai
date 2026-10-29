@@ -68,10 +68,17 @@ if (confirmar)
         script_execute(scr_cargar_datos);
         obj_game.load = 1;
     }
+    else if (estado == "salir")
+    {
+        // Desde la pausa: vuelve al menú de título; lo no guardado se pierde (lo avisa el cuadro)
+        game_restart();
+    }
 }
 else if (abortar)
 {
     instance_destroy();
 }
 
-depth = -1;
+// Desde la pausa ("salir") queda encima del menú de pausa (depth -1 / -100)
+if (estado != "salir")
+    depth = -1;

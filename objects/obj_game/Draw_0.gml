@@ -9,7 +9,7 @@ if (instance_exists(obj_player))
             
             upText = clamp(upText, 1, 32);
             alpha -= 0.05;
-            scr_texto_barro(obj_player.x, obj_player.y - 76 - upText, "+1 " + string(nombreMaterial), 1, alpha);
+            scr_texto_barro(obj_player.x, obj_player.y - 76 - upText, "+" + string(cantidadAviso) + " " + string(nombreMaterial), 1, alpha);
         }
     }
 }

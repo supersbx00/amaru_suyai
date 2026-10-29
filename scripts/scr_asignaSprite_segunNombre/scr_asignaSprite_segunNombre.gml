@@ -25,6 +25,10 @@ switch (argument0)
         sprite = spr_piedras;
         break;
     
+    case "Arcilla":
+        sprite = spr_arcilla;
+        break;
+    
     default:
         sprite = undefined;
         break;

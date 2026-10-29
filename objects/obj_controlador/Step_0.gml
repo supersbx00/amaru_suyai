@@ -134,20 +134,12 @@ if (can_snap == global.numero)
                 }
             }
             
-            snap[8] = instance_create(posicionX[8], posicionY[8], obj_snap);
-            snap[8].sprite_index = spr_barro;
-            snap[8].depth = -106;
-            snap[8].image_alpha = 0.5;
+            // La arcilla se unta a mano (obj_arcilla_untar), en vez de soltar la pieza sobre una silueta
+            instance_create_depth(posicionX[8], posicionY[8], -106, obj_arcilla_untar);
             can_snap = 14;
             break;
         
         case 14:
-            if (instance_exists(snap[8]))
-            {
-                with (snap[8])
-                    instance_destroy();
-            }
-            
             snap[9] = instance_create(posicionX[9], posicionY[9], obj_snap);
             snap[9].sprite_index = spr_faldellin;
             snap[9].depth = -107;

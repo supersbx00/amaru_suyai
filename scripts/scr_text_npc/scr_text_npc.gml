@@ -133,9 +133,69 @@ switch (npc)
         
         break;
     
+    // Datos de la cultura chinchorro según Bernardo Arriaza y otros: ver fuentes_chinchorro.md
+    // Chica junto a la abuela (rm_momificar): preparación de las momias negras
+    // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
+    case "npc_arcilla":
+    case "npc_arcilla_2":
+        texto[0] = "Hola Amaru, ayudo a la abuela a preparar a nuestros difuntos.#En el patio de nuestras casas tenemos todo lo necesario:#arcillas, fibras, cuchillos, pinturas, cuerdas y agua.";
+        texto[1] = "Con arcilla gris moldeamos todo el cuerpo, para devolverle#el volumen que perdió. Así queda firme, como una estatua.";
+        texto[2] = "Después lo pintamos con una pasta negra de óxido de manganeso,#usando brochas de fibra vegetal. Por eso las llaman momias negras.";
+        texto[3] = "En la cara marcamos los ojos con un palito delgado, y la nariz#y la boca con pequeños orificios. Las dejamos con los ojos y la boca#abiertos, como si siguieran con vida.";
+        
+        if (npc == "npc_arcilla")
+            texto[4] = "Toma, llévate un poco de arcilla para que practiques.#[Recibiste 2 Arcilla].";
+        break;
+    
+    // El del pescado (rm_momificar): la pesca
+    // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
+    case "npc_pesca":
+    case "npc_pesca_2":
+        texto[0] = "¡Mira lo que saqué del mar! Somos pescadores,#y el mar nos da casi todo lo que comemos.";
+        texto[1] = "Pescamos con anzuelos hechos de espinas de cactus curvadas,#y también de concha y de hueso. Para los peces más grandes#usamos arpones y propulsores.";
+        texto[2] = "Muchos pescadores de la costa tenemos un pequeño bulto de hueso#dentro del oído. Dicen que es por bucear tanto en el agua fría.";
+        
+        if (npc == "npc_pesca")
+            texto[3] = "Para amarrar los anzuelos usamos cuerdas de fibra vegetal.#Ten, aquí tienes un poco.#[Recibiste 2 Fibra vegetal].";
+        else
+            texto[3] = "Para amarrar los anzuelos usamos cuerdas de fibra vegetal.";
+        break;
+    
+    // Pescador de los mariscos (rm_momificar)
+    // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
+    case "npc_moluscos":
+    case "npc_moluscos_2":
+        texto[0] = "Yo me dedico a mariscar entre las rocas:#choros, locos y otros moluscos que se pegan a la roca.";
+        texto[1] = "Con las conchas de los choros también hacemos anzuelos,#y collares y pulseras para adornarnos.";
+        
+        if (npc == "npc_moluscos")
+            texto[2] = "Ten estos choros, te pueden servir.#[Recibiste 2 Choros].";
+        break;
+    
+    // Pescador de la izquierda (rm_momificar): la vida en la costa
+    // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
+    case "npc_costa":
+    case "npc_costa_2":
+        texto[0] = "Somos un pueblo de pescadores, cazadores y recolectores de la costa.#Aquí tenemos todo lo que necesitamos.";
+        texto[1] = "Nuestras casas son de palos, cubiertas con pieles#de animales marinos y totora.";
+        
+        if (npc == "npc_costa")
+            texto[2] = "Con fibra vegetal tejemos esteras, cuerdas y faldellines.#Toma esta madera, te servirá para tus herramientas.#[Recibiste 2 Madera].";
+        else
+            texto[2] = "Con fibra vegetal tejemos esteras, cuerdas y faldellines.";
+        break;
+    
     case "npc":
         texto[0] = "Hola Amaru mi nombre es Suyai, seré tu guía para este viaje estaré#contigo para averiguar mas sobre nuestra cultura y la de estos#nuevos invasores.#Recuerda siempre estaré contigo para poder guiarte en esta jornada.";
         texto[1] = "Wanku el espíritu de la sabiduría y nuestro guardián protector# te dará las herramientas y el conocimiento para detener esta locura#y salvar nuestra cultura. Confió en que podrás derrotar al oscuro chamán.";
+        break;
+    
+    // La abuela sin los materiales del minijuego (obj_npc_1): se arma con lo que falta en este momento
+    case "npc1_falta":
+        texto[0] = "Hola joven chinchorro. Para honrar a nuestro hermano#necesitamos más cosas. Te falta:";
+        texto[1] = scr_momia_faltantes() + ".";
+        texto[2] = "Las piezas se fabrican en Creación, en el menú de pausa,#con la madera y la fibra vegetal que encontrarás#en estas costas. La arcilla también está por aquí.";
+        texto[3] = "Vuelve cuando tengas todo.";
         break;
     
     case "npc1":

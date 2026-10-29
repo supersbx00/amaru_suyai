@@ -37,7 +37,7 @@ if (scr_aviso_bajo_mouse())
 var interactuables = [obj_agua, obj_ayuda, obj_ayuda1, obj_fuego, obj_info_anzota, obj_info_camarones, obj_info_capilla,
     obj_info_capilla1, obj_info_choza, obj_info_junquillo, obj_info_morro, obj_info_oasis, obj_info_rocas, obj_khoru,
     obj_moon, obj_moon1, obj_npc, obj_npc_1, obj_npc_2, obj_npc_3, obj_npc_31, obj_npc_4, obj_npc_estolica,
-    obj_npc_pescador, obj_npc_tejedora, obj_tuto_wanku];
+    obj_npc_pescador, obj_npc_personaje, obj_npc_tejedora, obj_tuto_wanku];
 var radio_largo = [obj_info_anzota, obj_info_camarones, obj_info_junquillo, obj_info_morro, obj_info_rocas];
 
 objetivo = noone;
@@ -47,6 +47,10 @@ for (var i = 0; i < array_length(interactuables); i++)
 {
     // Tolerancia de 24 px alrededor del clic para no tener que apuntar exacto
     var inst = collision_circle(mouse_x, mouse_y, 24, interactuables[i], false, true);
+    
+    // obj_npc_personaje sin nombre es decorativo (rm_camarones): no se puede clicar para hablar
+    if (inst != noone && inst.object_index == obj_npc_personaje && inst.nombre == "")
+        inst = noone;
     
     if (inst != noone)
     {

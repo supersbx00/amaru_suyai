@@ -21,10 +21,10 @@ var clic = 0;
 
 if (global.mouse_click && global.texto_abierto)
 {
-    // En la momia el mouse arrastra órganos: solo cuenta el clic sobre el cuadro del mensaje
+    // En la momia el clic avanza desde cualquier parte en los pasos de diálogo; en los de acción es del juego
     if (room == rm_Momia)
     {
-        if (instance_exists(obj_mensaje) && scr_mouse_sobre(obj_mensaje.sprite_index, 586, 555, 1, 1))
+        if (instance_exists(obj_mensaje) && !obj_mensaje.paso_accion[global.numero])
             clic = 1;
     }
     else
@@ -102,4 +102,41 @@ for (var ang = 0; ang < 360; ang += 30)
 draw_text_transformed_colour(px, py, t, s, s, 0, relleno, relleno, relleno, relleno, a);
 
 draw_set_font(fuente_antes);
+}
+
+// Como scr_texto_barro_izq pero cortando las líneas por ancho (reemplaza draw_text_ext(px, py, texto, sep, ancho)).
+// sep y ancho van en pixeles de pantalla; draw_text_ext_transformed los aplica antes de escalar, por eso se dividen.
+function scr_texto_barro_ext(px, py, texto, sep, ancho, escala, alpha) {
+var fuente_antes = draw_get_font();
+var a = clamp(alpha, 0, 1);
+var relleno = make_colour_rgb(84, 10, 6);
+var borde = make_colour_rgb(255, 248, 212);
+var sdf = (global.fnt_barro != -1);
+var s = sdf ? (escala * 0.5) : escala;
+var g = 2.5 * escala;
+var t = string_hash_to_newline(texto);
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(sdf ? global.fnt_barro : general);
+
+for (var ang = 0; ang < 360; ang += 30)
+    draw_text_ext_transformed_colour(px + lengthdir_x(g, ang), py + lengthdir_y(g, ang), t, sep / s, ancho / s, s, s, 0, borde, borde, borde, borde, a);
+
+draw_text_ext_transformed_colour(px, py, t, sep / s, ancho / s, s, s, 0, relleno, relleno, relleno, relleno, a);
+
+draw_set_font(fuente_antes);
+}
+
+// Tamaño en pantalla [ancho, alto] que ocupa texto al dibujarlo con scr_texto_barro_ext (para centrarlo).
+function scr_texto_barro_medir(texto, sep, ancho, escala) {
+var fuente_antes = draw_get_font();
+var sdf = (global.fnt_barro != -1);
+var s = sdf ? (escala * 0.5) : escala;
+var t = string_hash_to_newline(texto);
+
+draw_set_font(sdf ? global.fnt_barro : general);
+var medida = [string_width_ext(t, sep / s, ancho / s) * s, string_height_ext(t, sep / s, ancho / s) * s];
+draw_set_font(fuente_antes);
+return medida;
 }

@@ -40,6 +40,7 @@ global.dist = 1320;
 upText = undefined;
 alpha = undefined;
 nombreMaterial = undefined;
+cantidadAviso = 1; // unidades del aviso "+N material" (scr_morral_agregar)
 
 with (other.id)
 {

@@ -17,8 +17,11 @@ menuOptions = -4;
 menuPrincipal = 0;
 menu[0] = "Inventario";
 menu[1] = "Ver cartas";
-menu[2] = "Recetas";
+menu[2] = "Creación";
 menu[3] = "Guardar";
+menu[4] = "Salir al menú";
+// Pestaña de Creación: "cartas" (recetas de cartas) o "momificar" (piezas de la momia, scr_momia_recetas)
+subCreacion = "cartas";
 subMenu = "personas";
 menuCartas = 0;
 menuDeck[0] = "Equipar cartas";

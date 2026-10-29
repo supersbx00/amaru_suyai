@@ -4,12 +4,22 @@ if (global.numero >= 7)
     {
         var posicion_h = (mouse_y - 16) div 67;
         click = 0;
-        mouse_arrastrar = inventario[posicion_h];
-        show_debug_message("el mouse es");
-        show_debug_message("la posición es" + string(posicion_h));
         alarm[0] = 30;
-        guardar_h = posicion_h;
-        inventario[posicion_h] = 0;
+        
+        // Paso de la arcilla: el terrón queda en la mano para untarlo (obj_arcilla_untar), no se arrastra como pieza
+        if (global.numero == 12 && inventario[posicion_h] == 9 && instance_exists(obj_arcilla_untar))
+        {
+            inventario[posicion_h] = 0;
+            obj_arcilla_untar.en_mano = 1;
+        }
+        else
+        {
+            mouse_arrastrar = inventario[posicion_h];
+            show_debug_message("el mouse es");
+            show_debug_message("la posición es" + string(posicion_h));
+            guardar_h = posicion_h;
+            inventario[posicion_h] = 0;
+        }
     }
     
     if (mouse_arrastrar > 0)
@@ -127,6 +137,8 @@ if (global.numero >= 7)
         
         if (mouse_arrastrar > 0 && !mouse_check_button(mb_left))
         {
+            // Pieza puesta en su lugar: gasta su pieza fabricada del morral (scr_momia_materiales)
+            scr_momia_cobrar(mouse_arrastrar);
             mouse_arrastrar = 0;
             objetofuera = -4;
             global.controlsnap += 1;

@@ -30,9 +30,9 @@ if (menuOptions == "Principal" && !instance_exists(obj_popUp))
 if (menuOptions == "Inventario")
     menuOptions = "Principal";
 
-if (menuOptions == "Recetas" && !readyConstruct)
+if (menuOptions == "Creación" && !readyConstruct)
     menuOptions = "Principal";
-else if (menuOptions == "Recetas" && readyConstruct)
+else if (menuOptions == "Creación" && readyConstruct)
     readyConstruct = 0;
 
 if (menuOptions == "Ver cartas")
