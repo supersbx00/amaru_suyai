@@ -21,8 +21,8 @@ return [
 // Recetas de la pestaña Momificar de Creación: [nombre, sprite de la pieza, [[sprite del material, nombre, cantidad], ...], descripción]
 function scr_momia_recetas() {
 return [
-    ["Palo amarrado", spr_momia_palo, [[spr_madera, "Madera", 1], [spr_fibraVegetal, "Fibra vegetal", 1]], "Refuerza los brazos y las piernas.#Hacen falta 4."],
-    ["Travesaño amarrado", spr_momia_travesano, [[spr_madera, "Madera", 1], [spr_fibraVegetal, "Fibra vegetal", 1]], "Refuerza los hombros y la cadera.#Hacen falta 2."],
+    ["Maderos de soporte", spr_momia_palo, [[spr_madera, "Madera", 1], [spr_fibraVegetal, "Fibra vegetal", 1]], "Refuerza los brazos y las piernas.#Hacen falta 4."],
+    ["Travesaño", spr_momia_travesano, [[spr_madera, "Madera", 1], [spr_fibraVegetal, "Fibra vegetal", 1]], "Refuerza los hombros y la cadera.#Hacen falta 2."],
     ["Relleno vegetal", spr_momia_relleno, [[spr_fibraVegetal, "Fibra vegetal", 1]], "Rellena el cráneo y el tórax.#Hacen falta 2."],
     ["Faldellín", spr_momia_faldellin, [[spr_fibraVegetal, "Fibra vegetal", 2]], "Viste a la momia.#Hace falta 1."],
     ["Máscara", spr_momia_mascara, [[spr_arcilla, "Arcilla", 1]], "Cubre la cara de la momia.#Hace falta 1."]
@@ -56,7 +56,7 @@ return "";
 
 // Total del minijuego: [[sprite, nombre, cantidad], ...] con las piezas fabricadas y la arcilla para untar
 function scr_momia_total() {
-var total = [[spr_momia_palo, "Palo amarrado", 0], [spr_momia_travesano, "Travesaño amarrado", 0], [spr_momia_relleno, "Relleno vegetal", 0],
+var total = [[spr_momia_palo, "Maderos de soporte", 0], [spr_momia_travesano, "Travesaño", 0], [spr_momia_relleno, "Relleno vegetal", 0],
     [spr_momia_faldellin, "Faldellín", 0], [spr_momia_mascara, "Máscara", 0], [spr_arcilla, "Arcilla", MOMIA_ARCILLA_UNTAR]];
 var costos = scr_momia_costos();
 
