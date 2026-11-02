@@ -30,6 +30,10 @@ if (!instance_exists(obj_pause))
 if (!instance_exists(obj_room_controller))
     instance_create(0, 0, obj_room_controller);
 
+// Desafío de Khoru: intro de Wanku, Khoru tras los 4 regalos, batalla y NPC de recetas (solo esta sala)
+if (!instance_exists(obj_khoru_camarones))
+    instance_create(0, 0, obj_khoru_camarones);
+
 if (instance_exists(obj_control_tutorial))
 {
     with (obj_control_tutorial)

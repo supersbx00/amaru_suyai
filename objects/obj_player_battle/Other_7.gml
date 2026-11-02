@@ -1,45 +1,45 @@
-if (sprite_index == spr_amaru_battle_atk)
+if (sprite_index == spr_b_atk)
 {
     image_speed = 0.3;
     
     if (ancestral == 1)
         sprite_index = spr_amaru_stand_ancestral;
     else
-        sprite_index = spr_amaru_battle_stand;
+        sprite_index = spr_b_stand;
 }
 
-if (sprite_index == spr_amaru_battle_cura)
+if (sprite_index == spr_b_cura)
 {
     image_speed = 0.3;
     
     if (ancestral == 1)
         sprite_index = spr_amaru_stand_ancestral;
     else
-        sprite_index = spr_amaru_battle_stand;
+        sprite_index = spr_b_stand;
     
     actionActivate = 1;
 }
 
-if (sprite_index == spr_amaru_battle_run)
-    sprite_index = spr_amaru_battle_stand;
+if (sprite_index == spr_b_run)
+    sprite_index = spr_b_stand;
 
 if (sprite_index == spr_amaru_ancestral_run)
     sprite_index = spr_amaru_stand_ancestral;
 
-if (sprite_index == spr_amaru_battle_danho)
-    sprite_index = spr_amaru_battle_stand;
+if (sprite_index == spr_b_danho)
+    sprite_index = spr_b_stand;
 
-if (sprite_index == spr_amaru_battle_defeat)
+if (sprite_index == spr_b_defeat)
 {
     phy_active = 0;
     image_index = 5;
     image_speed = 0;
 }
 
-if (sprite_index == spr_amaru_battle_carga)
+if (sprite_index == spr_b_carga)
 {
     if (ancestral == 1)
         sprite_index = spr_amaru_stand_ancestral;
     else
-        sprite_index = spr_amaru_battle_stand;
+        sprite_index = spr_b_stand;
 }

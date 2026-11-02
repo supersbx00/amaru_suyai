@@ -10,7 +10,7 @@ if (dist <= 100)
         falta_material = (enable_room && scr_momia_faltantes() != "");
         
         with (instance_create(x, y, obj_dialogo))
-            npc = other.falta_material ? "npc1_falta" : other.nombre;
+            npc = is_method(other.texto_anciana) ? other.texto_anciana() : (other.falta_material ? "npc1_falta" : other.nombre);
         
         if (!entregoPuntaje)
         {

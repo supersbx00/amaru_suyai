@@ -6,9 +6,10 @@ if (instance_exists(obj_control_tutorial) && obj_control_tutorial.paso < 25 && i
         obj_enemigo.barHealth = 1;
 }
 
+// Vida total del grupo al empezar: la barra de arriba muestra cuánto le queda al grupo
 if (instance_exists(obj_enemigo) && count_total == 0)
 {
-    total = obj_enemigo.barHealth;
+    total = scr_batalla_vida_grupo();
     count_total++;
 }
 

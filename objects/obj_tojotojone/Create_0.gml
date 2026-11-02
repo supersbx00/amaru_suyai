@@ -1,4 +1,6 @@
 event_inherited();
+spr_correr = spr_tojone;          // scr_enemigo_mover
+spr_parado = spr_tojone_stand;
 barHealth = 200;
 count = 0;
 count_die = 0;

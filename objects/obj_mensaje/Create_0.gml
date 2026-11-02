@@ -1,29 +1,42 @@
 global.numero = 0;
 mensaje = "";
-texto[0] = " Hola de nuevo joven chinchorro";
-texto[1] = " Bienvenido a fines del Periodo Arcaico Temprano#(8000-5000 a.c.) y principios del Periodo Arcaico# Medio(5000-3000 a.c.).";
-texto[2] = " La momificación es parte importante de esta# cultura, así que procura realizar bien el# proceso de momificación, para ello te iré# explicando lo que tienes que hacer.";
+// La abuela habla desde su época: sin fechas, nombres de períodos ni términos de arqueólogo ("momificación", "ajuares", "chinchorro")
+texto[0] = "Hola de nuevo, joven.";
+texto[1] = "Hoy vas a ayudarme a preparar a nuestro#hermano que partió, para que siga#junto a la familia.";
+texto[2] = "Esta ceremonia es muy importante para#nuestro grupo, así que hazlo con cuidado.#Yo te iré explicando cada paso.";
 
 if (gamepad_is_connected(0))
-    texto[3] = " Como primer paso debes de retirar la piel# del cadáver (presionar el boton X#hasta  desvanecer la piel por completo.) ";
+    texto[3] = "Primero hay que retirar la piel del cuerpo#(presiona el botón X hasta que la piel#desaparezca por completo).";
 else
-    texto[3] = " Como primer paso debes de retirar la piel# del cadáver (haz clic sobre el cuerpo#hasta desvanecer la piel por completo.) ";
+    texto[3] = "Primero hay que retirar la piel del cuerpo#(haz clic sobre el cuerpo hasta que la piel#desaparezca por completo).";
 
-texto[4] = " ¡Muy Bien!, es hora de quitar los  órganos del cuerpo,#tales como el cerebro, los pulmones, entre otros,#arrastra los organos al agujero que se encuentra#en la pantalla.[usa el mouse]";
-texto[5] = " Creo que estas aprendiendo bien  esto, pero# aun falta mucho, es un proceso  bastante # complejo.";
-texto[6] = " Es momento de fijar las articulaciones  con# madera y cuerdas de fibra vegetal.";
-texto[7] = " Debes de buscar en el inventario lo necesario# para fijar las articulaciones tanto de # las piernas, como brazos y tronco.";
-texto[8] = " Al parecer está todo bien fijo.";
-texto[9] = " Es momento de rellenar el cuerpo con fibra#vegetal.";
-texto[10] = " Recuerda rellenar el cráneo y el tórax.";
-texto[11] = " Ahora es momento de fijar el cráneo, no# queremos que a nuestra momia se le caiga el# relleno del cráneo.#(Haz clic sobre el cuerpo para fijar)";
-texto[12] = " Es hora de moldear el cuerpo con la arcilla.# Agregándole algunos pedazos de piel.#(Toma la arcilla y úntala con la mano#por todo el cuerpo)";
-texto[13] = " Finalmente...# Incorpora estos ajuares y elementos a la momia# como una ofrenda para rendir tributo y respeto# a nuestros ancestros.";
-texto[14] = " Primero ponemos un faldellin.";
-texto[15] = " Luego ponemos el Pelo de la Momia.";
-texto[16] = " Finalmente Colocamos la Máscara.";
-texto[17] = " Te Felicito has conseguido realizar el proceso# de momificación con éxito.";
-texto[18] = " Haz ganado una ayuda de los espiritus, #con esto podremos detener a Khoru.";
+if (gamepad_is_connected(0))
+    texto[4] = "¡Muy bien! Ahora hay que sacar los órganos,#como el cerebro y los pulmones.#Arrástralos al agujero de la pantalla.#[A toma, el stick mueve y B suelta]";
+else
+    texto[4] = "¡Muy bien! Ahora hay que sacar los órganos,#como el cerebro y los pulmones.#Arrástralos al agujero de la pantalla.#[usa el mouse]";
+texto[5] = "Estás aprendiendo bien, pero aún falta#mucho: es un trabajo largo y delicado.";
+texto[6] = "Ahora hay que reforzar las articulaciones#con maderos y cuerdas de fibra vegetal.";
+if (gamepad_is_connected(0))
+    texto[7] = "Busca en el inventario lo necesario para#reforzar las piernas, los brazos#y el tronco.#[A toma la pieza, el stick mueve, B suelta]";
+else
+    texto[7] = "Busca en el inventario lo necesario para#reforzar las piernas, los brazos#y el tronco.";
+texto[8] = "Muy bien, quedó todo firme.";
+texto[9] = "Ahora hay que rellenar el cuerpo#con fibra vegetal.";
+texto[10] = "Recuerda rellenar el cráneo y el tórax.";
+if (gamepad_is_connected(0))
+    texto[11] = "Ahora hay que cerrar el cráneo, para que#no se salga el relleno.#(Presiona A sobre el cuerpo o el botón X)";
+else
+    texto[11] = "Ahora hay que cerrar el cráneo, para que#no se salga el relleno.#(Haz clic sobre el cuerpo para cerrarlo)";
+if (gamepad_is_connected(0))
+    texto[12] = "Es hora de moldear el cuerpo con arcilla#y volver a ponerle trozos de su piel.#(Toma la arcilla con A y úntala por todo#el cuerpo con el stick; B para parar)";
+else
+    texto[12] = "Es hora de moldear el cuerpo con arcilla#y volver a ponerle trozos de su piel.#(Toma la arcilla y úntala con la mano#por todo el cuerpo)";
+texto[13] = "Por último, le pondremos estas prendas#y adornos como ofrenda, para honrar#y respetar a nuestros ancestros.";
+texto[14] = "Primero, el faldellín.";
+texto[15] = "Luego, el pelo.";
+texto[16] = "Y al final, la máscara.";
+texto[17] = "¡Te felicito! Preparaste a nuestro#hermano con mucho respeto.";
+texto[18] = "Has ganado una ayuda de los espíritus.#Con esto podremos detener a Khoru.";
 final = 18;
 
 // Pasos en que hay que hacer algo (retirar piel, órganos, inventario, cráneo); avanzan solos al completarse.

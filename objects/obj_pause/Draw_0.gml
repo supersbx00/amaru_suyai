@@ -1,6 +1,17 @@
 if (!global.pause)
     exit;
 
+// Contadores del mazo al día: al poner una carta, scr_pause_avance (Step de obj_pause) suma en obj_morral.mazo y destruye el
+// globo (obj_text); el globo nuevo se crea más abajo en este Draw y guarda su texto (scr_text). Si se leyera la copia que
+// hace obj_morral/Step_0, que ya corrió en este frame antes de la suma, quedaría una carta atrás.
+with (obj_morral)
+{
+    mazo_seleccionado[1] = mazo[0, mazo_seleccionado[0]];
+    mazo_seleccionado[2] = mazo[1, mazo_seleccionado[0]];
+    mazo_seleccionado[3] = mazo[2, mazo_seleccionado[0]];
+    mazo_seleccionado[4] = mazo[4, mazo_seleccionado[0]];
+}
+
 draw_set_alpha(1);
 draw_sprite(spr_bck_menu, 0, __view_get(0, 0), __view_get(1, 0));
 draw_set_halign(fa_center);
@@ -335,8 +346,10 @@ if (menuOptions == "Creación")
         for (var p = 0; p < 2; p++)
         {
             var elegida = (subCreacion == pestanas[p]);
-            draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, 0.45, 0.45, 0, c_white, elegida ? 1 : 0.5);
-            scr_texto_barro(__view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, titulos[p], 0.8, elegida ? 1 : 0.5);
+            var sobre = (creacion_tab_hover == pestanas[p]); // mouse encima: se resalta un poco más grande
+            var esc_tab = sobre ? 0.5 : 0.45;
+            draw_sprite_ext(spr_maderuchaMenu, 1, __view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, esc_tab, esc_tab, 0, c_white, (elegida || sobre) ? 1 : 0.5);
+            scr_texto_barro(__view_get(0, 0) + 560 + (200 * p), __view_get(1, 0) + 80, titulos[p], sobre ? 0.88 : 0.8, (elegida || sobre) ? 1 : 0.5);
         }
         
         draw_set_halign(fa_left);
@@ -540,7 +553,21 @@ if (menuOptions == "Inventario")
     draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 270 + ((posCursor - (4 * floor(posCursor / 4))) * 125), __view_get(1, 0) + 270 + (130 * floor(posCursor / 4)));
 
 if (menuOptions == "Creación")
-    draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 350, __view_get(1, 0) + 180 + (30 * posCursor));
+{
+    if (creacion_foco == "pestana")
+    {
+        // Señala la pestaña elegida (o la que tiene el mouse encima) desde afuera: Cartas desde la izquierda
+        // (flecha dada vuelta), Momificar desde la derecha
+        var tab_flecha = (creacion_tab_hover != "") ? creacion_tab_hover : subCreacion;
+        
+        if (tab_flecha == "cartas")
+            draw_sprite_ext(spr_cursor, 0, __view_get(0, 0) + 560 - 120 - flecha_dx, __view_get(1, 0) + 80, -1, 1, 0, c_white, 1);
+        else
+            draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 760 + 120, __view_get(1, 0) + 80);
+    }
+    else
+        draw_sprite(spr_cursor, 0, flecha_dx + __view_get(0, 0) + 350, __view_get(1, 0) + 180 + (30 * posCursor));
+}
 
 if (menuOptions == "Memorin")
 {
@@ -670,6 +697,47 @@ if (instance_exists(obj_control_tutorial))
             }
         }
     }
+}
+
+// Desafío de Khoru (rm_momificar): tras hablar con la anciana se abre Creación → Momificar; un globo en la franja libre
+// de arriba a la derecha (junto a las pestañas) dice qué piezas faltan, contadas como las cuenta la anciana (scr_momia_total)
+if (!instance_exists(obj_control_tutorial) && global.desafio_momia_guia && menuOptions == "Creación" && subCreacion == "momificar")
+{
+    draw_sprite_ext(spr_principalGlobo, 1, __view_get(0, 0) + 886, __view_get(1, 0) + 35, 0.38, 0.68, 0, c_white, 1);
+    var total_momia = scr_momia_total();
+    var lineas = "";
+    var n_falta = 0;
+    
+    for (var k = 0; k < array_length(total_momia); k++)
+    {
+        var tiene_k = scr_morral_cantidad(total_momia[k][0]);
+        
+        if (tiene_k < total_momia[k][2])
+        {
+            lineas += ((n_falta mod 2) == 0) ? "\n" : ", ";
+            lineas += total_momia[k][1] + " " + string(tiene_k) + "/" + string(total_momia[k][2]);
+            n_falta += 1;
+        }
+    }
+    
+    if (n_falta > 0)
+        scr_texto_barro(__view_get(0, 0) + 1088, __view_get(1, 0) + 73, "Fabrica las piezas para la ceremonia:" + lineas, 0.62, 1);
+    else
+        scr_texto_barro(__view_get(0, 0) + 1088, __view_get(1, 0) + 73, "¡Listo! Sal del menú\ny habla con la anciana.", 0.62, 1);
+    
+    draw_set_halign(fa_left);
+}
+
+// Desafío de Khoru (rm_momificar): Wanku abrió el menú en Ver cartas; el globo pide las 5 cartas como en el tutorial
+if (!instance_exists(obj_control_tutorial) && global.desafio_mazo_guia && menuOptions == "Editar mazo")
+{
+    draw_sprite(spr_spiritu_ori, -1, (__view_get(0, 0) + __view_get(2, 0)) - 20, (__view_get(1, 0) + __view_get(3, 0)) - 10);
+    draw_sprite_ext(spr_principalGlobo, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 20, 0.95, 1, 0, c_white, 1);
+    
+    if (obj_morral.mazo_seleccionado[4] < 5)
+        scr_text("Debes equipar 5 cartas para empezar el desafío de Khoru.#Llevas " + string(obj_morral.mazo_seleccionado[4]) + " carta(s)", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
+    else
+        scr_text("¡Listo! Sal del menú con clic derecho y habla con Khoru.", 1, __view_get(0, 0) + 843, __view_get(1, 0) + 76, 680, true);
 }
 
 if (!instance_exists(obj_control_tutorial) && menuOptions == "Principal")

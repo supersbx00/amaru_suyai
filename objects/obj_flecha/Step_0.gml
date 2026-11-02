@@ -1,4 +1,8 @@
 phy_position_x += hspd;
+phy_position_y += vspd;
+// Se mueve por posición: un choque con otro cuerpo no lo desvía
+phy_speed_x = 0;
+phy_speed_y = 0;
 
 if (!trigger && !phy_active)
 {
@@ -14,10 +18,9 @@ if (instance_exists(obj_player_battle))
         instance_destroy();
 }
 
-if (instance_exists(obj_enemigo))
+// Si al enemigo que lo lanzó lo aturden o le anulan la carta, su ataque desaparece
+if (creador == "enemy" && instance_exists(dueno))
 {
-    if (creador == "enemy" && obj_enemigo.player_cardBreaked == 1)
-        instance_destroy();
-    else if (creador == "enemy" && obj_enemigo.anulable == 1)
+    if (dueno.player_cardBreaked == 1 || dueno.anulable == 1)
         instance_destroy();
 }

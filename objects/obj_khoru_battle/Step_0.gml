@@ -24,7 +24,8 @@ else
     event_user(1);
 }
 
-if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
+// Con varios enemigos, solo elige carta el que tiene el turno (scr_batalla_enemigos)
+if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_batalla_mi_turno())
 {
     randomize();
     tipo_ataque = choose("normal", "combo");
@@ -107,23 +108,10 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
 
 if (!player_cardBreaked && !player_danho)
 {
-    if (my_path != -1 && barHealth > 0)
+    // Destinos al azar en su mitad de la arena, como los demás enemigos (antes seguía un recorrido fijo)
+    if (barHealth > 0)
     {
-        dir = point_direction(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dist = point_distance(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dx = lengthdir_x(velocidad, dir);
-        dy = lengthdir_y(velocidad, dir);
-        hspd = dx;
-        vspd = dy;
-        phy_position_x -= dx;
-        phy_position_y -= dy;
-        
-        if (dist > 32)
-        {
-            phy_position_x = my_target.x;
-            phy_position_y = my_target.y;
-        }
-        
+        scr_enemigo_mover();
         global.count = 0;
     }
 }
@@ -139,7 +127,14 @@ if (barHealth <= 0)
     barHealth = 0;
     phy_active = 0;
     sprite_index = spr_khoru_defeat;
-    obj_battleController.enemigosCantidad -= 1;
+    
+    // Se descuenta una sola vez: con varios enemigos, restar cada frame daba la victoria antes de tiempo
+    if (!contado_muerte)
+    {
+        contado_muerte = 1;
+        obj_battleController.enemigosCantidad -= 1;
+    }
+
     image_speed = 0.3;
 }
 
@@ -169,3 +164,6 @@ else if (player_danho && !alarm_danho)
     alarm_danho = 1;
     alarm[10] = 10;
 }
+
+// Apuntar, avisar y disparar el patrón elegido (scr_batalla_enemigos)
+scr_enemigo_ataque_fases();

@@ -22,7 +22,8 @@ if (room == rm_battle && !instance_exists(obj_control_tutorial) && !global.combo
 if (obj_player_battle.barHealth < 20)
     truco = 1;
 
-if (enemigosCantidad == 0)
+// Victoria: todo el grupo enemigo derrotado
+if (enemigosCantidad == 0 && scr_batalla_vida_grupo() <= 0)
 {
     win = 1;
     
@@ -36,6 +37,10 @@ if (enemigosCantidad == 0)
     global.enable_battle = 0;
     obj_player_battle.phy_active = 0;
     enemigosCantidad = -1;
+    
+    // Desafío de Khoru en rm_momificar (solo se activa ahí): al volver entrega el premio
+    if (global.desafio_camarones == 2 && global.tipo_enemigo == "tojone")
+        global.desafio_camarones = 3;
     
     if (global.tipo_enemigo == "espiritu_luna")
     {
@@ -78,7 +83,28 @@ if (dialogo == 1 && alarm_trigger == 1)
     }
 }
 
-if (obj_player_battle.barHealth <= 0 || obj_enemigo.barHealth <= 0)
+// Equipo con Suyai: si cae el personaje controlado y el otro sigue en pie, el control pasa solo al otro.
+// Tab, gatillo derecho (RT) o clic en el retrato del compañero: cambiar de personaje.
+if (cura_suyai > 0)
+    cura_suyai -= 1;
+
+if (global.cambio_destello > 0)
+    global.cambio_destello -= 1;
+
+if (instance_exists(obj_aliado_battle))
+{
+    if (obj_player_battle.barHealth <= 0)
+        scr_batalla_cambiar(1);
+    else if (keyboard_check_pressed(vk_tab) || gamepad_button_check_pressed(0, gp_shoulderrb) || (mouse_check_button_pressed(mb_left) && scr_batalla_retrato_bajo_mouse()))
+        scr_batalla_cambiar();
+}
+
+// El enemigo del turno murió o desapareció: le toca al siguiente vivo
+if (enemigo_turno != noone && (!instance_exists(enemigo_turno) || enemigo_turno.barHealth <= 0))
+    scr_batalla_turno_siguiente();
+
+// Fin de la pelea: cayó todo el equipo (Amaru y Suyai) o todo el grupo enemigo
+if (scr_batalla_equipo_vivo() == 0 || scr_batalla_vida_grupo() <= 0)
 {
     phase1 = 0;
     phase2 = 0;
@@ -87,9 +113,9 @@ if (obj_player_battle.barHealth <= 0 || obj_enemigo.barHealth <= 0)
 
 if (phase3)
 {
-    if (obj_player_battle.barHealth <= 0 && alarm_trigger == 1)
+    if (scr_batalla_equipo_vivo() == 0 && alarm_trigger == 1)
     {
-        obj_player_battle.sprite_index = spr_amaru_battle_defeat;
+        obj_player_battle.sprite_index = obj_player_battle.spr_b_defeat;
         obj_player_battle.enable_battle = 0;
         obj_player_battle.enable_player = 0;
         
@@ -104,11 +130,16 @@ if (phase3)
         alarm[3] = 150;
     }
     
-    if (obj_enemigo.barHealth <= 0)
+    with (obj_enemigo)
     {
-        obj_enemigo.sprite_index = spr_enemigo_battle_defeat;
-        obj_enemigo.barHealth = 0;
-        obj_enemigo.phy_active = 0;
+        if (barHealth <= 0)
+        {
+            if (object_index == obj_enemigo)
+                sprite_index = spr_enemigo_battle_defeat;
+            
+            barHealth = 0;
+            phy_active = 0;
+        }
     }
 }
 

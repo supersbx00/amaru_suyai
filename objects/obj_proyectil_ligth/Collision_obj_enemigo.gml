@@ -1,6 +1,6 @@
 if (creador == "player1")
 {
-    other.barHealth -= danho;
+    other.barHealth -= scr_danho(danho);
     
     if (instance_exists(obj_transparente))
     {

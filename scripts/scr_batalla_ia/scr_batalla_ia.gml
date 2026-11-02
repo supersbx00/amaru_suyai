@@ -6,8 +6,13 @@ danho = cartaPlayer[1];
 
 if (cartaPlayer[0] == spr_cardsNull) // carta null: paraliza al enemigo (antes índice GMS1 4)
 {
-    obj_enemigo.player_cardBreaked = 1;
-    obj_enemigo.anulable = 0;
+    var rival = scr_batalla_enemigo_duelo();
+    
+    if (rival != noone)
+    {
+        rival.player_cardBreaked = 1;
+        rival.anulable = 0;
+    }
 }
 
 if (cartaPlayer[3] == "rojo")

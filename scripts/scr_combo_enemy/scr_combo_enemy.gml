@@ -20,6 +20,7 @@ if (buscaTipo[3] == "luna")
         }
         
         creador = "enemy";
+        dueno = other.id;
         image_speed = 0.3;
     }
 }
@@ -42,6 +43,7 @@ if (buscaTipo[3] == "agua")
         }
         
         creador = "enemy";
+        dueno = other.id;
         image_speed = 0.3;
     }
 }
@@ -64,6 +66,7 @@ if (buscaTipo[3] == "fuego")
         }
         
         creador = "enemy";
+        dueno = other.id;
         image_speed = 0.3;
     }
 }

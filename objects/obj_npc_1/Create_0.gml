@@ -8,6 +8,8 @@ puntaje = ini_read_real(string(id), "puntaje", 0);
 ini_close();
 entregoPuntaje = 0;
 falta_material = 0;
+// Opcional: método que devuelve la clave del diálogo (lo asigna obj_khoru_camarones en rm_momificar). undefined = la de siempre
+texto_anciana = undefined;
 
 // spr_anciana está dibujada más grande que Amaru y Suyai: se achica para que queden en proporción
 image_xscale = 0.9;

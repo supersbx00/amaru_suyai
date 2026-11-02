@@ -2,11 +2,24 @@ push_enter = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,
 push_cont = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1);
 global.iventario = instance_number(obj_inventario);
 
+// Paso de los órganos: primero se quitan el cráneo y el esternón con clic o A sobre ellos (antes, evento Mouse_0)
+if (global.numero == 4 && scr_momia_presiona())
+{
+    with (obj_huesos)
+    {
+        if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom))
+        {
+            instance_destroy();
+            break;
+        }
+    }
+}
+
 if (global.prioridad > 13 && !instance_exists(obj_huesos))
 {
     if (global.objeto_mouse == -4)
     {
-        if (mouse_check_button_pressed(mb_left))
+        if (scr_momia_presiona())
         {
             for (var i = 0; i < instance_number(obj_organo); i++)
             {
@@ -26,7 +39,7 @@ if (global.prioridad > 13 && !instance_exists(obj_huesos))
         global.objeto_mouse.x = mouse_x + offset_x;
         global.objeto_mouse.y = mouse_y + offset_y;
         
-        if (mouse_check_button_released(mb_left))
+        if (!scr_momia_mantiene())
             global.objeto_mouse = -4;
     }
 }
@@ -93,8 +106,8 @@ if (can_snap == global.numero)
             break;
         
         case 11:
-            // Fijar el cráneo: Enter o un clic sobre el cuerpo
-            if (!push_enter && global.mouse_click && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
+            // Fijar el cráneo: Enter (X), o un clic o A sobre el cuerpo
+            if (!push_enter && (global.mouse_click || gamepad_button_check_pressed(0, gp_face1)) && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
             {
                 push_enter = 1;
                 global.mouse_click = 0;

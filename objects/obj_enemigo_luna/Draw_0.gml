@@ -1,6 +1,7 @@
 var id1 = id;
 
-if (cartaUsada != undefined)
+// La carta de arriba es la del enemigo que tiene el turno
+if (cartaUsada != undefined && scr_batalla_mi_turno())
 {
     dibujaCarta1 = cartaUsada;
     
@@ -17,4 +18,5 @@ if (!ds_list_empty(id1.ComboArray))
     }
 }
 
-draw_self();
+// Con tinte si está herido, brillo si avisa un disparo, barra de vida y marca de turno
+scr_enemigo_dibujar();

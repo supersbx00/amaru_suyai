@@ -314,6 +314,18 @@ if (menuOptions == "Creación")
     
     var n_recetas = (subCreacion == "cartas") ? ds_list_size(obj_morral.recipeBook) : array_length(scr_momia_recetas());
     
+    // Con la flecha en la pestaña, arriba/abajo no recorren recetas: abajo baja a la lista
+    if (creacion_foco == "pestana")
+    {
+        if (move > 0)
+        {
+            creacion_foco = "lista";
+            posCursor = 0;
+        }
+        
+        move = 0;
+    }
+    
     if (!readyConstruct)
     {
         if (move != 0)

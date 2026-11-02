@@ -13,6 +13,8 @@ duelo3 = 0;
 dueloFin = 0;
 phase3 = 0;
 enemigosCantidad = 0;
+cura_suyai = 0;       // recarga de la curación de Suyai (scr_batalla_equipo)
+enemigo_turno = noone; // enemigo que elige carta y dispara (scr_batalla_enemigos); noone = todos, como en el tutorial
 nombre = "";
 dialogo = 0;
 instance_create(x, y, obj_pauseBattle);

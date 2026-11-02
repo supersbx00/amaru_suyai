@@ -6,7 +6,7 @@ if (carta_mid != undefined)
 {
     if (carta_mid[3] == "recarga" && ds_list_size(playerDeck) < CANTMAXCARDS)
     {
-        sprite_index = spr_amaru_battle_carga;
+        sprite_index = spr_b_carga;
         recuperaCartas += 0.5;
         
         if (recuperaCartas == 30)

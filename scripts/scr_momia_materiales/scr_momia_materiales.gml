@@ -98,6 +98,25 @@ for (var k = 0; k < array_length(total); k++)
 return texto;
 }
 
+// Piezas que faltan fabricar (sin la arcilla de untar), por ejemplo "Travesaño 1/2, Máscara 0/1"; "" si están todas
+function scr_momia_piezas_faltan() {
+var total = scr_momia_total();
+var texto = "";
+
+for (var k = 0; k < array_length(total); k++)
+{
+    if (total[k][0] == spr_arcilla)
+        continue;
+    
+    var tiene = scr_morral_cantidad(total[k][0]);
+    
+    if (tiene < total[k][2])
+        texto += ((texto == "") ? "" : ", ") + total[k][1] + " " + string(tiene) + "/" + string(total[k][2]);
+}
+
+return texto;
+}
+
 // Cobra el costo del objeto `objeto` del inventario de la momia al quedar puesto
 function scr_momia_cobrar(objeto) {
 var costos = scr_momia_costos();

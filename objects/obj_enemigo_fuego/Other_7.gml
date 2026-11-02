@@ -16,6 +16,11 @@ if (sprite_index == spr_fuego_defeat)
 {
     image_speed = 0;
     image_index = 0;
-    obj_battleController.enemigosCantidad -= 1;
+    // Una sola vez por enemigo, aunque la animación de caída se repita (con varios enemigos daba la victoria antes de tiempo)
+    if (!contado_muerte)
+    {
+        contado_muerte = 1;
+        obj_battleController.enemigosCantidad -= 1;
+    }
     alarm[4] = 120;
 }

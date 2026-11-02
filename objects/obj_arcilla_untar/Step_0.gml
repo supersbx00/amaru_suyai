@@ -9,7 +9,7 @@ if (arcilla_usada < MOMIA_ARCILLA_UNTAR && cubiertas >= (total * arcilla_usada /
     sin_arcilla = 0;
 }
 
-if (mouse_check_button(mb_left))
+if (scr_momia_mantiene())
 {
     var lx = mouse_x - ox;
     var ly = mouse_y - oy;

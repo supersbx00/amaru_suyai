@@ -28,7 +28,7 @@ if (mouse_arrastrar == 0)
         if (inventario[i] >= desde && inventario[i] <= hasta)
         {
             // Pequeño y en la esquina, para que se vea el objeto
-            draw_sprite_ext(spr_boton_clic, floor(current_time / 133) mod sprite_get_number(spr_boton_clic), 48 + 20, 32 + (i * 67) + 20, 0.45, 0.45, 0, c_white, 1);
+            scr_momia_icono(48 + 20, 32 + (i * 67) + 20, 0.45);
             break;
         }
     }

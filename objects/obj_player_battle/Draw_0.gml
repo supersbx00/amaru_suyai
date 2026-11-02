@@ -1,4 +1,6 @@
 draw_self();
+scr_batalla_destello();
+scr_batalla_escudo_dibujar();
 apunta_izq = apuntador - 1;
 apunta_mid = apuntador;
 apunta_der = apuntador + 1;
@@ -122,7 +124,7 @@ if (!instance_exists(obj_control_tutorial))
     }
     else if (gamepad_is_connected(0))
     {
-        draw_sprite(spr_button_B, 1, __view_get(0, 0) + 340, __view_get(1, 0) + 40);
+        draw_sprite(spr_boton_b, 0, __view_get(0, 0) + 340, __view_get(1, 0) + 40); // B de madera (tools/gen_botones_joystick.py)
     }
     else
     {

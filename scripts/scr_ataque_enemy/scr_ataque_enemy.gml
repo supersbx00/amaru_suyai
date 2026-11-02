@@ -1,5 +1,7 @@
-function scr_ataque_enemy() {
-var tipos = argument0;
+// Disparo de un enemigo. angulo (grados): inclinación del disparo, para el abanico (scr_enemigo_disparar).
+// Cada proyectil recuerda a su dueño: si a ese enemigo lo aturden o le anulan la carta, el ataque desaparece.
+function scr_ataque_enemy(tipos, angulo = 0) {
+var nuevo = noone;
 
 if (global.proyectil_2 == 1)
 {
@@ -10,6 +12,7 @@ if (global.proyectil_2 == 1)
         flecha_id.hspd = p_hspd;
         flecha_id.danho = danho;
         flecha_id.image_xscale = scale_x;
+        nuevo = flecha_id;
     }
     
     if (tipos == "tojone")
@@ -19,6 +22,7 @@ if (global.proyectil_2 == 1)
         flecha_id.hspd = p_hspd;
         flecha_id.danho = danho;
         flecha_id.image_xscale = scale_x;
+        nuevo = flecha_id;
     }
     else if (tipos == "especial_fuego")
     {
@@ -34,6 +38,7 @@ if (global.proyectil_2 == 1)
         proyectil_id.creador = creador;
         proyectil_id.danho = danho;
         proyectil_id.image_speed = 0.3;
+        nuevo = proyectil_id;
     }
     else if (tipos == "especial_agua")
     {
@@ -49,6 +54,7 @@ if (global.proyectil_2 == 1)
         proyectil_id.creador = creador;
         proyectil_id.danho = danho;
         proyectil_id.image_speed = 0.3;
+        nuevo = proyectil_id;
     }
     else if (tipos == "especial_luna")
     {
@@ -64,6 +70,13 @@ if (global.proyectil_2 == 1)
         proyectil_id.creador = creador;
         proyectil_id.danho = danho;
         proyectil_id.image_speed = 0.3;
+        nuevo = proyectil_id;
+    }
+    
+    if (nuevo != noone)
+    {
+        nuevo.dueno = id;
+        nuevo.vspd = abs(nuevo.hspd) * dtan(angulo);
     }
     
     global.proyectil_2 = 0;

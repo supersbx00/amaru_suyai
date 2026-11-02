@@ -13,7 +13,8 @@ else
     event_user(1);
 }
 
-if (!anulable && !player_cardBreaked && escoger == 0 && barHealth > 0)
+// Con varios enemigos, solo elige carta el que tiene el turno (scr_batalla_enemigos)
+if (!anulable && !player_cardBreaked && escoger == 0 && barHealth > 0 && scr_batalla_mi_turno())
 {
     with (instance_create(x, y, obj_card))
     {
@@ -130,3 +131,5 @@ if (trigger_angulo == 1)
     alarm[3] = 190;
 }
 
+// Apuntar, avisar y disparar el patrón elegido (scr_batalla_enemigos)
+scr_enemigo_ataque_fases();

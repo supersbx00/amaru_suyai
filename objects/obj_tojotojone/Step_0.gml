@@ -15,7 +15,8 @@ else
     event_user(1);
 }
 
-if (escoger == 0 && barHealth > 0 && !player_cardBreaked && !anulable)
+// Con varios enemigos, solo elige carta el que tiene el turno (scr_batalla_enemigos)
+if (escoger == 0 && barHealth > 0 && !player_cardBreaked && !anulable && scr_batalla_mi_turno())
 {
     randomize();
     
@@ -109,23 +110,10 @@ if (escoger == 0 && barHealth > 0 && !player_cardBreaked && !anulable)
 
 if (!player_cardBreaked && !player_danho)
 {
-    if (my_path != -1 && barHealth > 0)
+    // Destinos al azar en su mitad de la arena, como los demás enemigos (antes seguía un recorrido fijo)
+    if (barHealth > 0)
     {
-        dir = point_direction(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dist = point_distance(my_target.x, my_target.y, phy_position_x, phy_position_y);
-        dx = lengthdir_x(4, dir);
-        dy = lengthdir_y(4, dir);
-        hspd = dx;
-        vspd = dy;
-        phy_position_x -= dx;
-        phy_position_y -= dy;
-        
-        if (dist > 32)
-        {
-            phy_position_x = my_target.x;
-            phy_position_y = my_target.y;
-        }
-        
+        scr_enemigo_mover();
         global.count = 0;
     }
 }
@@ -193,3 +181,6 @@ if (sprite_index == spr_tojone_danho)
     alarm[10] = 10;
     event_user(1);
 }
+
+// Apuntar, avisar y disparar el patrón elegido (scr_batalla_enemigos)
+scr_enemigo_ataque_fases();

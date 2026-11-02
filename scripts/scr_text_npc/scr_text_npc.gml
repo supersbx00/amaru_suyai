@@ -10,7 +10,7 @@ switch (npc)
         break;
     
     case "espiritu_luna_camarones2":
-        texto[0] = "Vamos todavía tienes mucho que aprender respecto a tu cultura,#aun no tienes los conocimientos necesarios para enfrentar a Khoru.#Debemos pedir ayuda y se dónde encontrarla.";
+        texto[0] = "Vamos todavía tienes mucho que aprender respecto a tu cultura,#aun no tienes los conocimientos necesarios para enfrentar a Khoru.#Debemos pedir ayuda y sé dónde encontrarla.";
         break;
     
     case "npc31":
@@ -113,11 +113,11 @@ switch (npc)
         break;
     
     case "premio_carta":
-        texto[0] = "!En hora buena! Has ganado una nueva herramienta.# Revisa esta herramienta en la opción ver cartas.";
+        texto[0] = "¡Enhorabuena! Has ganado una nueva herramienta.#Revisa esta herramienta en la opción Ver cartas.";
         break;
     
     case "premio_materiales":
-        texto[0] = "!En hora buena! Has ganado un nuevo material.#Revisa tu inventario para ver el nuevo material adquerido.";
+        texto[0] = "¡Enhorabuena! Has ganado un nuevo material.#Revisa tu inventario para ver el nuevo material adquirido.";
         break;
     
     case "espiritu malvado":
@@ -138,9 +138,9 @@ switch (npc)
     // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
     case "npc_arcilla":
     case "npc_arcilla_2":
-        texto[0] = "Hola Amaru, ayudo a la abuela a preparar a nuestros difuntos.#En el patio de nuestras casas tenemos todo lo necesario:#arcillas, fibras, cuchillos, pinturas, cuerdas y agua.";
+        texto[0] = "Hola Amaru, ayudo a la abuela a preparar a nuestros difuntos.#Junto a nuestros refugios tenemos todo lo necesario:#arcillas, fibras, cuchillos, pinturas, cuerdas y agua.";
         texto[1] = "Con arcilla gris moldeamos todo el cuerpo, para devolverle#el volumen que perdió. Así queda firme, como una estatua.";
-        texto[2] = "Después lo pintamos con una pasta negra de óxido de manganeso,#usando brochas de fibra vegetal. Por eso las llaman momias negras.";
+        texto[2] = "Después lo pintamos con una pasta negra de óxido de manganeso,#usando brochas de fibra vegetal. Así queda negro y brillante.";
         texto[3] = "En la cara marcamos los ojos con un palito delgado, y la nariz#y la boca con pequeños orificios. Las dejamos con los ojos y la boca#abiertos, como si siguieran con vida.";
         
         if (npc == "npc_arcilla")
@@ -176,13 +176,104 @@ switch (npc)
     // nombre "_2": ya entregó el regalo (obj_npc_personaje), se repiten los datos sin "[Recibiste…]"
     case "npc_costa":
     case "npc_costa_2":
-        texto[0] = "Somos un pueblo de pescadores, cazadores y recolectores de la costa.#Aquí tenemos todo lo que necesitamos.";
-        texto[1] = "Nuestras casas son de palos, cubiertas con pieles#de animales marinos y totora.";
+        texto[0] = "Somos un grupo de pescadores, cazadores y recolectores de la costa.#Aquí tenemos todo lo que necesitamos.";
+        texto[1] = "Nuestros refugios son de palos, cubiertos con pieles#de animales marinos y totora.";
         
         if (npc == "npc_costa")
             texto[2] = "Con fibra vegetal tejemos esteras, cuerdas y faldellines.#Toma esta madera, te servirá para tus herramientas.#[Recibiste 2 Madera].";
         else
             texto[2] = "Con fibra vegetal tejemos esteras, cuerdas y faldellines.";
+        break;
+    
+    // Desafío de Khoru en rm_momificar (obj_khoru_camarones, obj_wanku_guia). Período Arcaico temprano: "grupo", no "pueblo".
+    case "wanku_camarones_intro":
+        texto[0] = "Amaru, estamos en Camarones. Aquí nuestro grupo realizó la primera#ceremonia para honrar a sus ancestros: la momificación.";
+        texto[1] = "Desde hace muchas generaciones, en esta costa, preparamos a nuestros#muertos para que sigan acompañando a la familia.";
+        texto[2] = "Explora la zona y habla con la gente. Ellos te enseñarán nuestra#cultura y te darán materiales para la ceremonia.";
+        texto[3] = "Empieza por la abuela: ella sabe todo sobre la ceremonia.";
+        break;
+    
+    case "wanku_camarones_cartas":
+        texto[0] = "¡Espera, Amaru! Para enfrentar a Khoru necesitas un mazo.";
+        texto[1] = "Toma estas cartas de Arpón de hueso.#[Recibiste 5 cartas de Arpón de hueso].";
+        texto[2] = "Debes equipar 5 cartas para empezar el desafío de Khoru.#Te abro el menú en Ver cartas.";
+        break;
+    
+    case "wanku_camarones_cartas_2":
+        texto[0] = "Recuerda: debes equipar 5 cartas para empezar el desafío de Khoru.#Te abro el menú en Ver cartas.";
+        break;
+    
+    case "khoru_camarones_llamado":
+        texto[0] = "¡Eh, tú! El que anda juntando ornamentos para los ancestros.#Ven acá, quiero hablar contigo.";
+        break;
+    
+    case "npc_espera_abuela":
+        texto[0] = "Antes de nada, ve a hablar con la abuela.#Ella sabe todo sobre la ceremonia.";
+        break;
+    
+    case "khoru_camarones_desafio":
+        texto[0] = "Así que tú eres el que anda preguntando por las viejas costumbres.";
+        texto[1] = "Con esos ornamentos no alcanzarás a honrar a tus ancestros.#Si quieres lo que falta, demuéstrame que sabes pelear.";
+        texto[2] = "Veamos qué haces contra uno de mis tojotojones.";
+        break;
+    
+    case "khoru_camarones_desafio_2":
+        texto[0] = "¿Ya estás listo? Mi tojotojón te espera.";
+        break;
+    
+    case "khoru_camarones_premio":
+        texto[0] = "Hmm... no lo hiciste nada mal.";
+        // Lo que falta para la momia, calculado al ganar (obj_khoru_camarones.calcular_premio)
+        if (global.khoru_premio_texto != "")
+            texto[1] = "Toma, con esto podrás terminar tu ceremonia.#" + global.khoru_premio_texto;
+        else
+            texto[1] = "Ya tienes todo lo que necesitas para tu ceremonia.";
+        texto[2] = "Pero no te confíes. Para enfrentarme de verdad necesitarás el poder#de los tres espíritus: la luna, el agua y el fuego. Hasta entonces.";
+        break;
+    
+    case "wanku_camarones_guia":
+        texto[0] = "Bien hecho, Amaru. Khoru es fuerte, pero hoy diste el primer paso.";
+        texto[1] = "Ahora habla con la anciana para preparar la ceremonia.";
+        texto[2] = "Y mira: llegó gente a la playa. Pescadores, recolectores y un cazador#te enseñarán a fabricar sus herramientas.";
+        break;
+    
+    // NPC de recetas de rm_momificar (obj_npc_personaje con receta): "_2" al volver a hablar, sin el aviso
+    case "receta_anzuelo_hueso":
+    case "receta_anzuelo_hueso_2":
+        texto[0] = "Con huesos de ave tallados se hacen buenos anzuelos. Se amarran#con cuerdas de fibra vegetal y se les ata una piedra#para que se hundan en el mar.";
+        
+        if (npc == "receta_anzuelo_hueso")
+            texto[1] = "Te enseñaré a hacerlo, así podrás pescar como nosotros.#[Ahora puedes confeccionar Anzuelo de hueso de ave]#[Recibiste 2 Fibra vegetal y 3 Huesos de ave].";
+        break;
+    
+    case "receta_anzuelo_concha":
+    case "receta_anzuelo_concha_2":
+        texto[0] = "Desde estas rocas recolectamos peces y mariscos.#Es uno de los mejores lugares de la costa.";
+        
+        if (npc == "receta_anzuelo_concha")
+            texto[1] = "Con la concha de los choros, tallada y amarrada con fibra vegetal,#también se hacen anzuelos. Mira cómo se hace.#[Ahora puedes confeccionar Anzuelo de concha]#[Recibiste 1 Fibra vegetal y 2 Choros].";
+        else
+            texto[1] = "Con la concha de los choros, tallada y amarrada con fibra vegetal,#también se hacen anzuelos.";
+        break;
+    
+    case "receta_chope":
+    case "receta_chope_2":
+        texto[0] = "Entre las rocas se sacan locos, choros y otros mariscos.#Para despegarlos usamos el chope.";
+        
+        if (npc == "receta_chope")
+            texto[1] = "Es una herramienta curva, hecha de costilla de lobo marino,#que entra bajo el marisco pegado a la roca.#[Ahora puedes confeccionar Chope de lobo de mar]#[Recibiste 3 Fibra vegetal y 1 C. lobo de mar].";
+        else
+            texto[1] = "Es una herramienta curva, hecha de costilla de lobo marino,#que entra bajo el marisco pegado a la roca.";
+        break;
+    
+    case "receta_estolica":
+    case "receta_estolica_2":
+        texto[0] = "¡Shhh! Estoy buscando algún animal para cazar.";
+        
+        if (npc == "receta_estolica")
+            texto[1] = "Uso la estólica: un madero que impulsa los dardos#para lanzarlos más lejos y con más fuerza.#[Ahora puedes confeccionar Estólica de madera]#[Recibiste 3 Madera y 2 Fibra vegetal].";
+        else
+            texto[1] = "Uso la estólica: un madero que impulsa los dardos#para lanzarlos más lejos y con más fuerza.";
         break;
     
     case "npc":
@@ -192,16 +283,34 @@ switch (npc)
     
     // La abuela sin los materiales del minijuego (obj_npc_1): se arma con lo que falta en este momento
     case "npc1_falta":
-        texto[0] = "Hola joven chinchorro. Para honrar a nuestro hermano#necesitamos más cosas. Te falta:";
-        texto[1] = scr_momia_faltantes() + ".";
-        texto[2] = "Las piezas se fabrican en Creación, en el menú de pausa,#con la madera y la fibra vegetal que encontrarás#en estas costas. La arcilla también está por aquí.";
-        texto[3] = "Vuelve cuando tengas todo.";
+        // Explica la ceremonia, invita a participar y da la lista de lo que falta
+        texto[0] = "Hola, joven. Soy una de las sabias de nuestro grupo. Mi deber es#enseñar a honrar a nuestros ancestros preparando a nuestros muertos.";
+        texto[1] = "Limpiamos el cuerpo, lo armamos con maderos y fibras, lo cubrimos#de arcilla y le ponemos una máscara, para que siga junto a la familia.";
+        texto[2] = "¿Quieres participar? Para ello necesitas:";
+        texto[3] = scr_momia_faltantes() + ".";
+        texto[4] = "Las piezas se hacen en Creación, en el menú de pausa, con madera,#fibra vegetal y arcilla. La gente de esta playa te puede ayudar.";
+        texto[5] = "Vuelve cuando tengas todo.";
+        break;
+    
+    // rm_momificar: la anciana ya se presentó (obj_khoru_camarones.texto_anciana)
+    case "anciana_falta":
+        texto[0] = "Aún te falta:#" + scr_momia_faltantes() + ".";
+        texto[1] = "Junta madera, fibra vegetal y arcilla. La gente de esta playa#te puede ayudar.";
+        break;
+    
+    case "anciana_materiales":
+        texto[0] = "¡Ya tienes todos los materiales! Vamos a crear los insumos#necesarios para hacer nuestro primer ritual.";
+        break;
+    
+    case "anciana_lista":
+        texto[0] = "¡Manos a la obra!";
         break;
     
     case "npc1":
-        texto[0] = "Hola joven chinchorro, soy una de las sabias de nuestra cultura#Chinchorro, mi deber es enseñar a honrar a tus ancestros a través#del ritual de momificación.";
-        texto[1] = " El proceso consiste en honrar el espíritu de aquel# hermano o hermana que ha pasado a otra vida.";
-        texto[2] = "Ahora tu me vas ayudar, es necesario que sigas todas mis indicaciones# y asi poder alcanzar juntos la meta ¡Manos a la obra! ";
+        // "Chinchorro" es el nombre que les dieron los arqueólogos en el siglo XX: ellos no se llamaban así
+        texto[0] = "Hola, joven. Soy una de las sabias de nuestro grupo. Mi deber es#enseñar a honrar a nuestros ancestros preparando a nuestros muertos.";
+        texto[1] = "Limpiamos el cuerpo, lo armamos con maderos y fibras, lo cubrimos#de arcilla y le ponemos una máscara, para que siga junto a la familia.";
+        texto[2] = "Ya tienes todo lo necesario. ¿Quieres participar? Sigue mis#indicaciones y lo haremos juntos. ¡Manos a la obra!";
         break;
     
     case "npc2":
@@ -230,7 +339,7 @@ switch (npc)
 
     case "wanku_mazo":
         texto[0] = "¡Esperen, chicos! No pueden enfrentarse a los tojotojones sin sus cartas.";
-        texto[1] = "Vayan al menú y, en Equipar mazo, preparen#un mazo de al menos 4 cartas.";
+        texto[1] = "Vayan al menú, entren a Ver cartas y armen#un mazo de al menos 4 cartas.";
         break;
     
     case "wanku_tutorial":

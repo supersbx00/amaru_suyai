@@ -1,7 +1,7 @@
 if (!player_cardBreaked && !anulable)
 {
     image_speed = 0.1;
-    sprite_index = spr_amaru_battle_cura;
+    sprite_index = spr_b_cura;
     hspd = 0;
     vspd = 0;
     

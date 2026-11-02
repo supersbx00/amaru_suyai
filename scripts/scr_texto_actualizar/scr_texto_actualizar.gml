@@ -45,10 +45,14 @@ if (global.texto_confirmar)
 }
 
 // Ícono animado de clic izquierdo sobre spr_cuadro_dialogo, donde el texto dice "PRESIONA [ícono] PARA CONTINUAR".
-// spr: sprite del cuadro (con gamepad es la versión xbox y no lleva ícono); px, py, escala: como se dibujó el cuadro.
+// spr: sprite del cuadro (con gamepad es la versión xbox, que trae una A plana: se tapa con la A de madera);
+// px, py, escala: como se dibujó el cuadro.
 function scr_texto_icono_clic(spr, px, py, escala) {
 if (spr != spr_cuadro_dialogo)
+{
+    scr_boton_joy_sobre(spr, px, py, escala);
     return;
+}
 
 var frame = floor(current_time / 133) mod sprite_get_number(spr_boton_clic);
 var tam = 0.66 * escala;

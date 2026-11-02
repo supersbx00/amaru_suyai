@@ -3,6 +3,7 @@ function scr_pause_mouse() {
 // Las zonas salen de las mismas posiciones que usa obj_pause/Draw_0. Solo cuentan los elementos dibujados.
 mouse_objetivo = -1;
 mouse_boton = "";
+creacion_tab_hover = "";
 
 if (!global.pause)
     exit;
@@ -91,6 +92,29 @@ switch (menuOptions)
             {
                 if (point_in_rectangle(mouse_x, mouse_y, vx + 90, vy + 165 + (30 * i), vx + 400, vy + 194 + (30 * i)))
                     mouse_objetivo = i;
+            }
+            
+            // Mouse sobre una pestaña: se resalta y la flecha la señala (obj_pause/Draw_0); el contenido cambia recién con clic
+            if (mouse_boton != "")
+            {
+                creacion_tab_hover = string_delete(mouse_boton, 1, 4);
+                
+                if (global.mouse_movido)
+                    creacion_foco = "pestana";
+            }
+            
+            // Con la flecha en la pestaña, pasar el mouse por una receta baja la flecha a esa receta. Un clic también
+            // la elige, pero sin fabricarla todavía (eso es con otro clic o Enter)
+            if (creacion_foco == "pestana" && mouse_objetivo != -1 && (global.mouse_movido || global.mouse_click))
+            {
+                creacion_foco = "lista";
+                posCursor = mouse_objetivo;
+                
+                if (global.mouse_click)
+                {
+                    global.mouse_click = 0;
+                    mouse_objetivo = -1;
+                }
             }
         }
 
@@ -207,9 +231,11 @@ if (global.mouse_click)
         push_rb = 1;
     else if (mouse_boton == "tab_cartas" || mouse_boton == "tab_momificar")
     {
-        // Clic en la otra pestaña = flecha (obj_pause/Step_0 cambia de pestaña)
+        // Clic en la otra pestaña = flecha (obj_pause/Step_0 cambia de pestaña). El clic además baja a la lista de recetas
         if (mouse_boton != "tab_" + subCreacion)
             push_right = 1;
+        
+        creacion_foco = "lista";
     }
     else if (mouse_objetivo != -1)
         push_int = 1;

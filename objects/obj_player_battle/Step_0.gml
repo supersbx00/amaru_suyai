@@ -19,13 +19,17 @@ if (global.transicion == 0 && add == 0 && trigger_teclado == 1)
 if (add == 1)
 {
     // Clic izquierdo = usar carta, clic derecho = combo (un clic por acción, con el enfriamiento de scr_mouse_actualizar)
-    addCard = global.mouse_click || gamepad_button_check_pressed(0, gp_face1);
+    // Un clic sobre el retrato del compañero cambia de personaje, no usa carta
+    addCard = (global.mouse_click && !scr_batalla_retrato_bajo_mouse()) || gamepad_button_check_pressed(0, gp_face1);
     addComboCard = global.mouse_atras || gamepad_button_check_pressed(0, gp_face3);
     global.mouse_click = 0;
     global.mouse_atras = 0;
 }
 
 var id1 = id;
+
+// Escudo con recarga: Y, Espacio o clic medio
+scr_batalla_escudo();
 
 if (other.barHealth > 0 && barHealth > 0)
 {
@@ -134,7 +138,7 @@ if (other.barHealth > 0 && barHealth > 0)
 
 recuperar = mouse_check_button(mb_left) || keyboard_check(ord("R")) || gamepad_button_check(0, gp_face1);
 
-if (recuperar && can_atk && obj_enemigo.barHealth > 0 && barHealth > 0)
+if (recuperar && can_atk && scr_batalla_vida_grupo() > 0 && barHealth > 0)
 {
     ds_list_clear(comboCard_array);
     scr_recuperarCartas();
@@ -142,18 +146,24 @@ if (recuperar && can_atk && obj_enemigo.barHealth > 0 && barHealth > 0)
 
 if (barHealth > 0 && other.barHealth > 0 && !player_cardBreaked)
 {
-    if (sprite_index == spr_amaru_battle_danho || sprite_index == spr_amaru_battle_cura || sprite_index == spr_amaru_battle_carga || sprite_index == spr_amaru_battle_CardBreaker || addCard)
+    // Recibiendo daño, curándose, recargando o con la carta rota: quieto. Lanzando una carta: a media rapidez.
+    if (sprite_index == spr_b_danho || sprite_index == spr_b_cura || sprite_index == spr_b_carga || sprite_index == spr_b_break)
     {
         hspd = 0;
         vspd = 0;
     }
     else
     {
-        script_execute(scr_movimiento);
+        scr_movimiento((addCard || sprite_index == spr_b_atk) ? 0.5 : 1);
     }
     
     phy_position_x += hspd;
     phy_position_y += vspd;
+}
+else
+{
+    hspd = 0;
+    vspd = 0;
 }
 
 if (player_cardBreaked && ancestral == 0 && barHealth > 0)
@@ -163,7 +173,7 @@ if (player_cardBreaked && ancestral == 0 && barHealth > 0)
     cartaUsada = undefined;
     alarm[10] = 60;
     can_atk = 0;
-    sprite_index = spr_amaru_battle_CardBreaker;
+    sprite_index = spr_b_break;
     image_speed = 0.3;
 }
 
@@ -204,7 +214,12 @@ else if (obj_control_tutorial.paso >= 22)
         tutorial_rotado = 1;
 }
 
-if (boton_ancestral && can_atk)
+// B / F: con Suyai, su curación; con Amaru, el poder ancestral
+if (boton_ancestral && can_atk && personaje == "suyai")
+{
+    scr_batalla_suyai_curar();
+}
+else if (boton_ancestral && can_atk)
 {
     if (go_agua >= 2 && go_fuego >= 2 && go_luna >= 2 && create_ancestral == 0)
     {

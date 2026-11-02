@@ -56,5 +56,14 @@ if (global.proyectil_1 == 1)
         proyectil_id.creador = creador;
         proyectil_id.image_speed = 0.3;
     }
+    
+    // Los ataques de Suyai hacen menos daño que los de Amaru (scr_batalla_equipo)
+    if (variable_instance_exists(id, "personaje") && personaje == "suyai")
+    {
+        if (tipos == "normal")
+            flecha_id.danho *= SUYAI_DANHO_MULT;
+        else if (string_pos("especial", tipos) == 1)
+            proyectil_id.danho *= SUYAI_DANHO_MULT;
+    }
 }
 }

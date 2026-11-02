@@ -4,7 +4,7 @@ player_cardBreaked = 0;
 if (ancestral == 1)
     sprite_index = spr_amaru_stand_ancestral;
 else
-    sprite_index = spr_amaru_battle_stand;
+    sprite_index = spr_b_stand;
 
 global.enable_player = 1;
 global.enable_battle = 1;

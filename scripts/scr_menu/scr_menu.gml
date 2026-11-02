@@ -56,6 +56,8 @@ switch (menu[posCursor])
             posCursor = 0;
             menuOptions = "Creación";
             subCreacion = "cartas";
+            // La flecha parte en la pestaña; con Enter, clic o abajo se baja a las recetas (en el tutorial no hay pestañas)
+            creacion_foco = instance_exists(obj_control_tutorial) ? "lista" : "pestana";
             io_clear();
         }
         else

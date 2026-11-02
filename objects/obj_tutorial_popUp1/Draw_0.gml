@@ -5,4 +5,5 @@ draw_set_alpha(1);
 var px = camera_get_view_x(view_camera[0]) + 660;
 var py = camera_get_view_y(view_camera[0]) + 368;
 draw_sprite(sprite_index, image_index, px, py);
+scr_boton_joy_sobre(sprite_index, px, py); // tapa el botón plano de los popups _xbox
 scr_ayuda_dibujar_icono(scr_ayuda_icono_x(sprite_index, px), scr_ayuda_icono_y(sprite_index, py));

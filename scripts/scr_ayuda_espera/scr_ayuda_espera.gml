@@ -49,7 +49,8 @@ return mouse_check_button_pressed(mb_left) && point_distance(mouse_x, mouse_y, i
 function scr_ayuda_dibujar_icono(ix, iy) {
 if (ayuda_espera > 0)
 {
-    draw_sprite_ext(spr_boton_clic, 0, ix, iy, 1, 1, 0, c_gray, 0.6);
+    // Con joystick, el botón View/Back (el que abre y cierra las ayudas); sin él, el clic
+    draw_sprite_ext(gamepad_is_connected(0) ? spr_boton_view : spr_boton_clic, 0, ix, iy, 1, 1, 0, c_gray, 0.6);
     
     // Anillo de progreso (sentido horario desde arriba)
     var progreso = 1 - (ayuda_espera / ayuda_total);
@@ -74,7 +75,10 @@ if (ayuda_espera > 0)
 else
 {
     var escala = 1 + (0.04 * (1 + sin(ayuda_anim * 0.2)));
-    draw_sprite_ext(spr_boton_clic, (ayuda_anim * 0.25) mod sprite_get_number(spr_boton_clic), ix, iy, escala, escala, 0, c_white, 1);
+    if (gamepad_is_connected(0))
+        draw_sprite_ext(spr_boton_view, 0, ix, iy, escala, escala, 0, c_white, 1);
+    else
+        draw_sprite_ext(spr_boton_clic, (ayuda_anim * 0.25) mod sprite_get_number(spr_boton_clic), ix, iy, escala, escala, 0, c_white, 1);
 }
 }
 

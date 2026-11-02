@@ -224,15 +224,44 @@ if (menuOptions == "Borrar cartas")
 }
 
 // Pestaña Momificar: se fabrica la pieza al instante (scr_momia_fabricar) y se avisa el resultado
-if (menuOptions == "Creación" && subCreacion == "momificar")
+if (menuOptions == "Creación" && creacion_foco == "pestana")
 {
-    var falta = scr_momia_fabricar(posCursor);
-    
+    // Enter con la flecha en la pestaña: baja a la lista de recetas de esa pestaña
+    creacion_foco = "lista";
+    posCursor = 0;
+}
+else if (menuOptions == "Creación" && subCreacion == "momificar")
+{
     if (instance_exists(obj_text))
     {
         with (obj_text)
             instance_destroy();
     }
+    
+    // Primer ritual en rm_momificar: no se fabrican piezas de más (gastarían materiales que faltan para otras)
+    var pieza = scr_momia_recetas()[posCursor];
+    var necesarias = 0;
+    var total_momia = scr_momia_total();
+    
+    for (var k = 0; k < array_length(total_momia); k++)
+    {
+        if (total_momia[k][0] == pieza[1])
+            necesarias = total_momia[k][2];
+    }
+    
+    if (room == rm_momificar && global.anciana == 0 && scr_morral_cantidad(pieza[1]) >= necesarias)
+    {
+        var faltan = scr_momia_piezas_faltan();
+        
+        if (faltan == "")
+            scr_text("Ya tienes todas las piezas: sal del menú y habla con la anciana.", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 30, 600);
+        else
+            scr_text("Ya tienes " + string(necesarias) + " " + pieza[0] + ". Falta fabricar: " + faltan + ".", 1, __view_get(0, 0) + 108, __view_get(1, 0) + (__view_get(3, 0) / (4/3)) + 30, 600);
+        
+        exit;
+    }
+    
+    var falta = scr_momia_fabricar(posCursor);
     
     // Como al crear una carta: cartel "¡MATERIAL CONFECCIONADO!" (obj_popUp)
     if (falta == "")

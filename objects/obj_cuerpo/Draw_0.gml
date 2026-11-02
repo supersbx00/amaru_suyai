@@ -1,7 +1,7 @@
 push_enter = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_face3);
 
-// Paso de retirar la piel: cada clic sobre el cuerpo cuenta como un Enter (un clic a la vez, sin repetir al mantener)
-if (global.numero == 3 && global.mouse_click && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
+// Paso de retirar la piel: cada clic (o A) sobre el cuerpo cuenta como un Enter (uno a la vez, sin repetir al mantener)
+if (global.numero == 3 && (global.mouse_click || gamepad_button_check_pressed(0, gp_face1)) && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
 {
     push_enter = 1;
     global.mouse_click = 0;
@@ -29,22 +29,17 @@ shader_set_uniform_f(alpha, 1 - (size / max_size));
 draw_sprite(spr_cuerpo, -100, 544, 103);
 shader_reset();
 
-// Indica dónde hacer clic en los pasos de retirar la piel (3) y fijar el cráneo (11); con gamepad no se muestra
+// Indica dónde actuar en los pasos de retirar la piel (3) y fijar el cráneo (11): clic, o botón A con joystick
 var marcar = 0;
 
-if (!gamepad_is_connected(0))
-{
-    if (global.numero == 3 && size < max_size)
-        marcar = 1;
-    
-    if (global.numero == 11 && !(instance_exists(obj_craneo) && instance_exists(obj_esternon) && obj_craneo.x == 622 && obj_craneo.y == 123 && obj_esternon.x == 607 && obj_esternon.y == 253))
-        marcar = 1;
-}
+if (global.numero == 3 && size < max_size)
+    marcar = 1;
 
-var icono_frame = floor(current_time / 133) mod sprite_get_number(spr_boton_clic);
+if (global.numero == 11 && !(instance_exists(obj_craneo) && instance_exists(obj_esternon) && obj_craneo.x == 622 && obj_craneo.y == 123 && obj_esternon.x == 607 && obj_esternon.y == 253))
+    marcar = 1;
 
 if (marcar)
-    draw_sprite(spr_boton_clic, icono_frame, 652, 428);
+    scr_momia_icono(652, 428);
 
 // Paso de quitar los órganos: primero se quitan el cráneo y el esternón con un clic, después se arrastran los órganos.
 // Se dibuja aquí porque obj_cuerpo es la capa de más arriba de la sala.
@@ -58,5 +53,5 @@ if (global.numero == 4 && global.objeto_mouse == -4)
         objetivo = instance_find(obj_organo, 0);
     
     if (objetivo != noone)
-        draw_sprite(spr_boton_clic, icono_frame, (objetivo.bbox_left + objetivo.bbox_right) / 2, (objetivo.bbox_top + objetivo.bbox_bottom) / 2);
+        scr_momia_icono((objetivo.bbox_left + objetivo.bbox_right) / 2, (objetivo.bbox_top + objetivo.bbox_bottom) / 2);
 }

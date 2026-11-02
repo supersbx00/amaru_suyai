@@ -1,5 +1,5 @@
 mensaje = "";
-texto[0] = "Junquillo:#Planta de pantano que crece en suelos humedos.";
+texto[0] = "Junquillo:#Planta de pantano que crece en suelos húmedos.";
 texto[1] = "Puede alcanzar 40 cm de alto sirviendo como refugios #principalmente para aves e insectos.";
 texto[2] = "Sus tallos fueron recolectados como materia prima #para elaborar diferentes tipos de cordelerías y esteras.";
 numero = 0;

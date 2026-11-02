@@ -13,7 +13,8 @@ else
     event_user(1);
 }
 
-if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0)
+// Con varios enemigos, solo elige carta el que tiene el turno (scr_batalla_enemigos)
+if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_batalla_mi_turno())
 {
     randomize();
     tipo_ataque = choose("normal", "combo");
@@ -130,3 +131,6 @@ if (player_danho && alarm_danho == 0)
     vspd = 0;
     alarm[10] = 10;
 }
+
+// Apuntar, avisar y disparar el patrón elegido (scr_batalla_enemigos)
+scr_enemigo_ataque_fases();

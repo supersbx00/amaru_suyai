@@ -31,7 +31,13 @@ if (menuOptions == "Inventario")
     menuOptions = "Principal";
 
 if (menuOptions == "Creación" && !readyConstruct)
-    menuOptions = "Principal";
+{
+    // Desde la lista se vuelve primero a la pestaña; desde la pestaña (o en el tutorial), al menú principal
+    if (creacion_foco == "lista" && !instance_exists(obj_control_tutorial))
+        creacion_foco = "pestana";
+    else
+        menuOptions = "Principal";
+}
 else if (menuOptions == "Creación" && readyConstruct)
     readyConstruct = 0;
 

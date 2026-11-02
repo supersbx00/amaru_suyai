@@ -1,6 +1,6 @@
 if (global.numero >= 7)
 {
-    if (mouse_check_button_pressed(mb_left) && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length(inventario) * 64) + 67))
+    if (scr_momia_presiona() && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length(inventario) * 64) + 67))
     {
         var posicion_h = (mouse_y - 16) div 67;
         click = 0;
@@ -24,7 +24,7 @@ if (global.numero >= 7)
     
     if (mouse_arrastrar > 0)
     {
-        if (!mouse_check_button(mb_left))
+        if (!scr_momia_mantiene())
         {
             if ((objetofuera == -4 || objetofuera.snap == 0) && (objetofuerados == -4 || objetofuerados.snap == 0) && (objetofueratres == -4 || objetofueratres.snap == 0))
             {
@@ -135,7 +135,7 @@ if (global.numero >= 7)
             objetofuera = -4;
         }
         
-        if (mouse_arrastrar > 0 && !mouse_check_button(mb_left))
+        if (mouse_arrastrar > 0 && !scr_momia_mantiene())
         {
             // Pieza puesta en su lugar: gasta su pieza fabricada del morral (scr_momia_materiales)
             scr_momia_cobrar(mouse_arrastrar);

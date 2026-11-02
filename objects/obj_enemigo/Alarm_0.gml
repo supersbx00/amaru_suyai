@@ -15,5 +15,5 @@ if (barHealth > 0)
     anulable = 0;
     global.proyectil_2 = 1;
     tipo = "normal";
-    script_execute(scr_ataque_enemy, tipo);
+    scr_enemigo_disparar(tipo); // simple, ráfaga o abanico
 }

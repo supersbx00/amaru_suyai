@@ -6,7 +6,7 @@
   "name": "scr_danho",
   "parent": {
     "name": "Scripts",
-    "path": "folders/99_Sin_Uso_Revisar/Scripts.yy"
+    "path": "folders/01_Batalla/Scripts.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

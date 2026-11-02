@@ -36,3 +36,20 @@ mov_dest_x = x;
 mov_dest_y = y;
 mov_vel = 4.5;
 mov_pausa = 0;
+// Sprites de correr y de parado que usa scr_enemigo_mover (cada hijo puede cambiarlos)
+spr_correr = spr_enemigo_battle_run;
+spr_parado = spr_enemigo_battle_stand;
+// Ataque en fases (scr_enemigo_ataque_fases): apuntar a un personaje, avisar brillando y disparar un patrón
+vida_max = barHealth;       // scr_batalla_enemigos la ajusta; con menos de la mitad, el enemigo se vuelve agresivo
+ataque_fase = "";
+fase_t = 0;
+objetivo = noone;
+patron = "simple";
+tipo_disparo = "normal";
+rafaga_restan = 0;
+rafaga_t = 0;
+apunta_margen = 0;
+escudo_aturdido = 0;        // lo aturdió el escudo de Amaru: 1 s en vez de los 2,5 s de una carta rota
+contado_muerte = 0;         // ya se descontó de obj_battleController.enemigosCantidad
+espera_pendiente = 0;
+esquivados = [];            // proyectiles de Amaru ya evaluados para esquivar (una sola vez cada uno)
