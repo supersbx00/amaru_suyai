@@ -4,7 +4,7 @@ if (image_alpha > 0)
     
     // Aviso de interacción mientras espera que Amaru llegue a hablarle
     if (global.desafio_camarones == 2 && fase == "espera" && point_distance(x, y, obj_player.x, obj_player.y) <= 100)
-        scr_aviso_interaccion(sprite_get_yoffset(sprite_index) * escala_y + AVISO_MARGEN); // se dibuja más chico que su máscara
+        scr_aviso_interaccion(sprite_get_yoffset(sprite_index) * escala_y + AVISO_MARGEN);
 }
 
 // Humo oscuro de la aparición: bocanadas que giran alrededor de Khoru, crecen y se disipan (encima de él al principio)

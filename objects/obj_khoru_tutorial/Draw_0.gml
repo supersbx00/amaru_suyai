@@ -7,7 +7,7 @@ if (obj_control_tutorial.paso > 25)
 }
 
 if (obj_control_tutorial.paso == 28)
-    image_xscale = -0.89;
+    image_xscale = -1;
 
 if (obj_control_tutorial.paso == 30)
-    image_xscale = 0.89;
+    image_xscale = 1;
