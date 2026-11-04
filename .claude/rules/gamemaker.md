@@ -19,7 +19,7 @@
 
 ## 4. Arquitectura Feature Cascade Idiomática (Nativa de GML)
 - **Sin Mappers ni DTOs:** Prohibido crear Mappers, DTOs o abstracciones empresariales pesadas. GameMaker resuelve la asignación visual de forma nativa (`draw_sprite_ext`, `sprite_index`).
-- **Pipeline en Cascada:** Las mecánicas se estructuran como un pipeline ordenado de ejecución en el evento `Step` mediante structs/constructores ligeros en la subcarpeta del dominio correspondiente:
+- **Pipeline en Cascada:** Las mecánicas se estructuran como un pipeline ordenado de ejecución en el evento `Step` mediante structs/constructores ligeros en los scripts del grupo de la feature correspondiente:
   1. **Input / Intención:** Lectura de controles.
   2. **Movimiento & Colisión:** Actualización de `x`, `y`, `hsp`, `vsp`.
   3. **Físicas Secundarias:** Procesamiento de capas, colas (*ponytail*) o ropa usando la posición `x, y` final calculada.
@@ -27,7 +27,7 @@
 
 ## 5. Optimización de Contexto con gms-mcp
 - **Consultas Ligeras:** Usa siempre las herramientas de `gms-mcp` para inspeccionar objetos, eventos y scripts. Queda prohibido leer archivos `.yy` o `.yyp` completos en la ventana de contexto.
-- **Indexación Selectiva:** Lee únicamente los eventos o scripts de la subcarpeta involucrada en la tarea actual.
+- **Indexación Selectiva:** Lee únicamente los eventos o scripts del grupo involucrado en la tarea actual.
 
 ## 6. Disciplina Clean Code (Ponytail) & Linter
 - **Built-in First:** Es obligatorio usar funciones nativas de GML (`instance_place`, `point_distance`, etc.) antes de construir algoritmos manuales.
