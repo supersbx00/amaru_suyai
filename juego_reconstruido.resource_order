@@ -1,4 +1,6 @@
 {
-  "FolderOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"grupo1","order":1,"path":"folders/Scripts/grupo1.yy",},
+  ],
   "ResourceOrderSettings":[],
 }
