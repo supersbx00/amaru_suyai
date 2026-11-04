@@ -1,0 +1,39 @@
+schema: spec-driven
+
+context: |
+  Proyecto GameMaker Studio ($GMProject v1). Las carpetas son virtuales: cada
+  recurso (objeto/script/room/sprite/...) declara su carpeta padre en su propio
+  .yy via "parent": {"name","path"}, sin restricción de tipo, y el .yyp lista
+  esas carpetas en "Folders" (GMFolder). Mover un recurso de carpeta NO requiere
+  tocar código ni GUIDs, solo ese campo "parent" + la entrada en "Folders".
+  Idioma de trabajo: español (proposals, specs, tasks, comunicación).
+  Los archivos y sus rutas en el .yyp quedan en la ruta por defecto de GameMaker.
+  Las rooms van en el grupo nativo Rooms, sin subgrupos.
+  El orden vive en grupos virtuales <Feature>/<Responsabilidad>, sin subgrupos por
+  tipo: 00_Core, 01_Partida, 02_Jugador, 03_Batalla, 04_Enemigos,
+  05_Inventario_Creacion, 06_Momia, 07_Mundo, 08_NPCs_Dialogos, 09_UI,
+  99_Sin_Uso_Revisar. Ver .claude/rules/gamemaker.md secciones 2 y 3.
+  No modificar los scripts de compatibilidad GMS1 (__global_init, __init_global,
+  __init_view, __view_get, action_restart_game, action_set_motion,
+  instance_create, object_get_depth, __global_object_depths, __init_action)
+  salvo que la tarea sea
+  explícitamente sobre esa capa de compatibilidad.
+
+rules:
+  proposal:
+    - "Antes de cerrar el alcance de un proposal sobre un escenario (room) o feature nueva, hacer preguntas aclaratorias al usuario (mínimo 3, máximo 10) hasta que el alcance quede inequívoco. Cubrir al menos: qué dispara/usa la feature, cómo interactúa con los hubs existentes (obj_player, obj_game, obj_control_tutorial, obj_pause), y en qué grupo <Feature>/<Responsabilidad> debe vivir cada recurso nuevo."
+    - "Indicar explícitamente en el proposal la carpeta virtual destino de cada recurso nuevo a crear, con la forma <Feature>/<Responsabilidad> (p. ej. 03_Batalla/Flujo), no solo la feature."
+    - "Evaluar y dejar registrado si el diseño permite escalar (agregar más rooms/escenarios similares después) sin duplicar lógica ya existente en los hubs de 00_Core."
+  tasks:
+    - "Cada tarea que cree un recurso nuevo (objeto/script/room) debe indicar su parent de destino: <Feature>/<Responsabilidad>, o Rooms si es una room."
+
+operations:
+  apply:
+    guidance:
+      - "Al crear un recurso nuevo, dejarlo en la ruta por defecto, setear su parent en el .yy a folders/<Feature>/<Responsabilidad>.yy y reusar (o crear) esa entrada en Folders del .yyp, según .claude/rules/gamemaker.md."
+      - "No reorganizar recursos existentes fuera del alcance de la tarea."
+      - "La verificación de que el proyecto abre y funciona bien en la IDE de GameMaker la hace el usuario, no el agente. No buscar ni usar herramientas/CLI de GameMaker (Igor, runtime, etc.) para comprobar nada por cuenta propia: hacer solo los cambios acordados en el plan (metadata .yy/.yyp) y esperar que el usuario confirme el resultado."
+      - "No correr baterías de verificación propias (greps masivos, chequeos de balance de llaves, etc.) después de aplicar un cambio ya aprobado. Si algo falla, el usuario lo reporta."
+
+process:
+  - "Todo cambio de código/proyecto (no solo proposals de features nuevas) pasa por OpenSpec: primero propose genera el plan, el usuario lo revisa y aprueba, y solo entonces se ejecuta apply. No implementar directamente por fuera de ese ciclo, y no volver a preguntar si se puede editar cada artefacto una vez que el plan ya fue aprobado."

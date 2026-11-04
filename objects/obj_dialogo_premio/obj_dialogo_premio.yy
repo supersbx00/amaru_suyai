@@ -51,8 +51,8 @@
   "name": "obj_dialogo_premio",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/01_Batalla/Objects.yy"
+    "name": "Flujo",
+    "path": "folders/03_Batalla/Flujo.yy"
   },
   "parentObjectId": null,
   "persistent": false,

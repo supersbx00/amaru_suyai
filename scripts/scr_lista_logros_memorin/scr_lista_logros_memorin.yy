@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_lista_logros_memorin",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Logros",
+    "path": "folders/09_UI/Logros.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

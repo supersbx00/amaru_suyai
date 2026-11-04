@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_amaru_clic",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/08_Jugador_CambioZona/Scripts.yy"
+    "name": "Input",
+    "path": "folders/02_Jugador/Input.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

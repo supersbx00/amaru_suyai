@@ -25,8 +25,8 @@
   "name":"obj_player_battle",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/01_Batalla/Objects.yy",
+    "name":"Combatientes",
+    "path":"folders/03_Batalla/Combatientes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

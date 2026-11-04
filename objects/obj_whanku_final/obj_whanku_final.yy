@@ -18,8 +18,8 @@
   "name": "obj_whanku_final",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/06_Tutorial_Dialogos/Objects.yy"
+    "name": "Final",
+    "path": "folders/07_Mundo/Final.yy"
   },
   "parentObjectId": null,
   "persistent": false,

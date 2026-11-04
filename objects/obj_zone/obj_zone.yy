@@ -18,8 +18,8 @@
   "name": "obj_zone",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/07_NPCs_Puntaje/Objects.yy"
+    "name": "Limites",
+    "path": "folders/07_Mundo/Limites.yy"
   },
   "parentObjectId": null,
   "persistent": false,

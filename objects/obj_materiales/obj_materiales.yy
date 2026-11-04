@@ -10,8 +10,8 @@
   "name":"obj_materiales",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/03_Mundo_Rooms/Objects.yy",
+    "name":"Materiales",
+    "path":"folders/05_Inventario_Creacion/Materiales.yy",
   },
   "parentObjectId":null,
   "persistent":false,

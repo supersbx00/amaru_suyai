@@ -64,7 +64,7 @@
   "name":"rm_Momia",
   "parent":{
     "name":"Rooms",
-    "path":"folders/04_Minijuego_Momia/Rooms.yy",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

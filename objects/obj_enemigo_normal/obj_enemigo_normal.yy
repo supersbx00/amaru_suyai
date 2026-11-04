@@ -11,8 +11,8 @@
   "name":"obj_enemigo_normal",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/06_Tutorial_Dialogos/Objects.yy",
+    "name":"En_Mapa",
+    "path":"folders/04_Enemigos/En_Mapa.yy",
   },
   "parentObjectId":null,
   "persistent":false,

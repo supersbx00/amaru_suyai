@@ -11,8 +11,8 @@
   "name":"obj_control_tutorial",
   "overriddenProperties":[],
   "parent":{
-    "name":"00_Core",
-    "path":"folders/00_Core.yy",
+    "name":"Tutorial",
+    "path":"folders/08_NPCs_Dialogos/Tutorial.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_asignaValores_segunCarta",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Cartas",
+    "path": "folders/03_Batalla/Cartas.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

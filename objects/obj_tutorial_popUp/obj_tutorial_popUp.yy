@@ -10,8 +10,8 @@
   "name":"obj_tutorial_popUp",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/06_Tutorial_Dialogos/Objects.yy",
+    "name":"Tutorial",
+    "path":"folders/08_NPCs_Dialogos/Tutorial.yy",
   },
   "parentObjectId":null,
   "persistent":false,

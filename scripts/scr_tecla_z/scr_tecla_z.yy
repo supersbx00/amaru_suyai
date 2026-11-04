@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_tecla_z",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Entrada",
+    "path": "folders/09_UI/Entrada.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

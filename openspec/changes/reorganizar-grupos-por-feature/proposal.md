@@ -6,7 +6,7 @@ Los grupos actuales de GameMaker mezclan recursos por tipo y por comunidades ant
 
 ## What Changes
 
-- Mover 151 objetos, 108 scripts y 17 rooms a grupos virtuales por feature y responsabilidad, sin subcarpetas `Scripts`/`Objects`/`Rooms`. El mapeo completo está en `grupos.json`, y se puede revisar en `mapa_objetos_y_rooms.md` y `mapa_scripts.md`.
+- Mover 151 objetos y 108 scripts a grupos virtuales por feature y responsabilidad, sin subcarpetas `Scripts`/`Objects`, y las 17 rooms al grupo nativo `Rooms`. El mapeo completo está en `grupos.json`, y se puede revisar en `mapa_objetos_y_rooms.md` y `mapa_scripts.md`.
 - Mover también 11 recursos que dependen de grupos que se retiran: 4 sonidos a `03_Batalla/Sonidos`, 1 sonido a `09_UI/Sonidos`, 3 paths a `03_Batalla/Rutas` y 3 fuentes al grupo `Fonts`.
 - Retirar del `.yyp` y de `juego_reconstruido.resource_order` los grupos antiguos que queden vacíos. `grupo1`, creado por el usuario, y los grupos de sprites se conservan.
 - Actualizar las secciones 2 y 3 de `.claude/rules/gamemaker.md` y `openspec/config.yaml`: rutas por defecto de GameMaker más grupos `<Feature>/<Responsabilidad>`.

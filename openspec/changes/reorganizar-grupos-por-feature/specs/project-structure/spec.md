@@ -14,19 +14,23 @@ Los recursos SHALL conservar la ubicación física y la ruta del proyecto que Ga
 - **THEN** las rutas son idénticas y ningún archivo cambió de carpeta
 
 ### Requirement: Grupos por feature y responsabilidad
-Cada objeto, script y room SHALL pertenecer a un grupo `<Feature>/<Responsabilidad>`, y los grupos de feature MUST NOT separar recursos con subgrupos por tipo como `Scripts`, `Objects` o `Rooms`.
+Cada objeto y script SHALL pertenecer a un grupo `<Feature>/<Responsabilidad>`, y los grupos de feature MUST NOT separar recursos con subgrupos por tipo como `Scripts`, `Objects` o `Rooms`. Cada room SHALL estar directamente en el grupo nativo `Rooms`.
 
 #### Scenario: Árbol de recursos
 - **WHEN** se abre el proyecto en GameMaker
-- **THEN** cada objeto, script y room aparece en el grupo asignado por el mapeo del proyecto
+- **THEN** cada objeto y script aparece en el grupo asignado por el mapeo del proyecto, y cada room aparece en `Rooms`
 
 #### Scenario: Recurso compartido
 - **WHEN** un objeto o script lo usan varias features y ninguna es su dueña
 - **THEN** se ubica en `00_Core`
 
 #### Scenario: Recurso nuevo
-- **WHEN** se crea un objeto, script o room
+- **WHEN** se crea un objeto o script
 - **THEN** se asigna al grupo de su feature y su archivo queda en la ruta por defecto
+
+#### Scenario: Room nueva
+- **WHEN** se crea una room
+- **THEN** se asigna al grupo `Rooms` y su archivo queda en la ruta por defecto
 
 ### Requirement: Grupos antiguos retirados sin perder recursos
 Un grupo antiguo SHALL retirarse solo cuando ningún recurso ni subgrupo dependa de él.

@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_asignaValores_segunMaterial",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "Morral",
+    "path": "folders/05_Inventario_Creacion/Morral.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

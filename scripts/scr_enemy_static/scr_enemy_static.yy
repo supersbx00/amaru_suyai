@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_enemy_static",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "IA",
+    "path": "folders/04_Enemigos/IA.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

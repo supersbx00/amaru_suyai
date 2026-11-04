@@ -40,8 +40,8 @@
   "name": "obj_confirmar",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/02_Nucleo_Partida/Objects.yy"
+    "name": "Menu",
+    "path": "folders/09_UI/Menu.yy"
   },
   "parentObjectId": null,
   "persistent": false,

@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_enemigo_mover",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "IA",
+    "path": "folders/04_Enemigos/IA.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

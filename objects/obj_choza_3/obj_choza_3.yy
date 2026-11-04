@@ -18,8 +18,8 @@
   "name": "obj_choza_3",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/99_Sin_Uso_Revisar/Objects.yy"
+    "name": "Escenario",
+    "path": "folders/07_Mundo/Escenario.yy"
   },
   "parentObjectId": null,
   "persistent": false,

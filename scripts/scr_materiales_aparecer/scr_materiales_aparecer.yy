@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_materiales_aparecer",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/03_Mundo_Rooms/Scripts.yy"
+    "name": "Materiales",
+    "path": "folders/05_Inventario_Creacion/Materiales.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

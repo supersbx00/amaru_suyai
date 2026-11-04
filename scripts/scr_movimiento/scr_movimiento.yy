@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_movimiento",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "Combatientes",
+    "path": "folders/03_Batalla/Combatientes.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

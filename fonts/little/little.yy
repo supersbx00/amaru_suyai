@@ -1752,7 +1752,7 @@
   "name": "little",
   "parent": {
     "name": "Fonts",
-    "path": "folders/02_Nucleo_Partida/Fonts.yy"
+    "path": "folders/Fonts.yy"
   },
   "pointRounding": 0,
   "ranges": [

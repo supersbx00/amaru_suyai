@@ -40,8 +40,8 @@
   "name": "obj_pauseBattle",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/09_Pausa_Ayudas_Popups/Objects.yy"
+    "name": "Pausa",
+    "path": "folders/09_UI/Pausa.yy"
   },
   "parentObjectId": null,
   "persistent": false,

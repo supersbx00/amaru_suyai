@@ -40,8 +40,8 @@
   "name": "obj_text",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/02_Nucleo_Partida/Objects.yy"
+    "name": "Dialogos",
+    "path": "folders/08_NPCs_Dialogos/Dialogos.yy"
   },
   "parentObjectId": null,
   "persistent": false,

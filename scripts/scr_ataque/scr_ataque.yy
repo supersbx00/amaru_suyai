@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_ataque",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "Combate",
+    "path": "folders/03_Batalla/Combate.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

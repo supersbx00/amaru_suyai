@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_dibujarCartas",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "Cartas",
+    "path": "folders/03_Batalla/Cartas.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

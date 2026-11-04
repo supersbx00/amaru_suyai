@@ -1752,7 +1752,7 @@
   "name": "general",
   "parent": {
     "name": "Fonts",
-    "path": "folders/05_Textos_Carteles/Fonts.yy"
+    "path": "folders/Fonts.yy"
   },
   "pointRounding": 0,
   "ranges": [

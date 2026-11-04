@@ -6,8 +6,8 @@
   "name": "obj_prueba",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/99_Sin_Uso_Revisar/Objects.yy"
+    "name": "99_Sin_Uso_Revisar",
+    "path": "folders/99_Sin_Uso_Revisar.yy"
   },
   "parentObjectId": null,
   "persistent": false,

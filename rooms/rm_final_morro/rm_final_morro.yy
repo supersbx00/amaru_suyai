@@ -200,7 +200,7 @@
   "name":"rm_final_morro",
   "parent":{
     "name":"Rooms",
-    "path":"folders/03_Mundo_Rooms/Rooms.yy",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

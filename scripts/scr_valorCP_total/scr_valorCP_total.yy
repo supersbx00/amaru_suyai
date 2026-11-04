@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_valorCP_total",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Mazos",
+    "path": "folders/09_UI/Mazos.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

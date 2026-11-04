@@ -12,8 +12,8 @@
   "name":"obj_enemigo_normal1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/03_Mundo_Rooms/Objects.yy",
+    "name":"En_Mapa",
+    "path":"folders/04_Enemigos/En_Mapa.yy",
   },
   "parentObjectId":{
     "name":"obj_enemigo_normal",

@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "macros",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/99_Sin_Uso_Revisar/Scripts.yy"
+    "name": "Constantes",
+    "path": "folders/00_Core/Constantes.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

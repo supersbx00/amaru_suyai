@@ -11,8 +11,8 @@
   "name":"obj_khoru_camarones",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/06_Tutorial_Dialogos/Objects.yy",
+    "name":"Khoru_y_Wanku",
+    "path":"folders/08_NPCs_Dialogos/Khoru_y_Wanku.yy",
   },
   "parentObjectId":{
     "name":"obj_zone",

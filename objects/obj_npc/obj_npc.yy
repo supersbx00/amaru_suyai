@@ -10,8 +10,8 @@
   "name":"obj_npc",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/05_Textos_Carteles/Objects.yy",
+    "name":"NPCs",
+    "path":"folders/08_NPCs_Dialogos/NPCs.yy",
   },
   "parentObjectId":null,
   "persistent":false,

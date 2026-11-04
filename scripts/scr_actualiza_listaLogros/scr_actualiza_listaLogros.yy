@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_actualiza_listaLogros",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Logros",
+    "path": "folders/09_UI/Logros.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

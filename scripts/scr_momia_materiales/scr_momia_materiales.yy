@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_momia_materiales",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/04_Minijuego_Momia/Scripts.yy"
+    "name": "Materiales",
+    "path": "folders/06_Momia/Materiales.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

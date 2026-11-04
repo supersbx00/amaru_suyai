@@ -14,8 +14,8 @@
   "name":"obj_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"00_Core",
-    "path":"folders/00_Core.yy",
+    "name":"Controlador",
+    "path":"folders/02_Jugador/Controlador.yy",
   },
   "parentObjectId":null,
   "persistent":false,

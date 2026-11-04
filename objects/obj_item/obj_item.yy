@@ -71,8 +71,8 @@
   "name": "obj_item",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/01_Batalla/Objects.yy"
+    "name": "Items",
+    "path": "folders/03_Batalla/Items.yy"
   },
   "parentObjectId": null,
   "persistent": false,

@@ -22,8 +22,8 @@
   "name":"obj_enemigo_fuego",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/01_Batalla/Objects.yy",
+    "name":"Tipos",
+    "path":"folders/04_Enemigos/Tipos.yy",
   },
   "parentObjectId":{
     "name":"obj_enemigo",

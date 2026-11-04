@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_boton_joy",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/09_Pausa_Ayudas_Popups/Scripts.yy"
+    "name": "Entrada",
+    "path": "folders/09_UI/Entrada.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

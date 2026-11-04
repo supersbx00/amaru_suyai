@@ -16,8 +16,8 @@
   "name":"obj_escudo_tuto",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/01_Batalla/Objects.yy",
+    "name":"Cartas",
+    "path":"folders/03_Batalla/Cartas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

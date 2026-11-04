@@ -29,8 +29,8 @@
   "name": "obj_proyectilHealth",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/01_Batalla/Objects.yy"
+    "name": "Proyectiles",
+    "path": "folders/03_Batalla/Proyectiles.yy"
   },
   "parentObjectId": null,
   "persistent": false,

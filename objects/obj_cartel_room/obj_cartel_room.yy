@@ -51,8 +51,8 @@
   "name": "obj_cartel_room",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/02_Nucleo_Partida/Objects.yy"
+    "name": "Transiciones",
+    "path": "folders/01_Partida/Transiciones.yy"
   },
   "parentObjectId": null,
   "persistent": false,

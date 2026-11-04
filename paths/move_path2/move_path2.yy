@@ -5,8 +5,8 @@
   "kind": 0,
   "name": "move_path2",
   "parent": {
-    "name": "Paths",
-    "path": "folders/01_Batalla/Paths.yy"
+    "name": "Rutas",
+    "path": "folders/03_Batalla/Rutas.yy"
   },
   "points": [
     {

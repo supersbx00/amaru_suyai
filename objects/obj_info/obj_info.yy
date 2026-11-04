@@ -6,8 +6,8 @@
   "name": "obj_info",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/05_Textos_Carteles/Objects.yy"
+    "name": "Info_Lugares",
+    "path": "folders/07_Mundo/Info_Lugares.yy"
   },
   "parentObjectId": null,
   "persistent": false,

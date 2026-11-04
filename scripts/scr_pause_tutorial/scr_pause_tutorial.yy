@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_pause_tutorial",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/99_Sin_Uso_Revisar/Scripts.yy"
+    "name": "Pausa",
+    "path": "folders/09_UI/Pausa.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

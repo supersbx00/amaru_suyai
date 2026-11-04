@@ -40,8 +40,8 @@
   "name": "obj_npc_personaje",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/03_Mundo_Rooms/Objects.yy"
+    "name": "NPCs",
+    "path": "folders/08_NPCs_Dialogos/NPCs.yy"
   },
   "parentObjectId": {
     "name": "obj_zone",

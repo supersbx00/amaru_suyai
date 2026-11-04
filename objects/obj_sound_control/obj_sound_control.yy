@@ -29,8 +29,8 @@
   "name": "obj_sound_control",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/01_Batalla/Objects.yy"
+    "name": "Hubs",
+    "path": "folders/00_Core/Hubs.yy"
   },
   "parentObjectId": null,
   "persistent": true,

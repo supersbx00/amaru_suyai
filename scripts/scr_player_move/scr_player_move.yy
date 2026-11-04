@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_player_move",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/99_Sin_Uso_Revisar/Scripts.yy"
+    "name": "Movimiento",
+    "path": "folders/02_Jugador/Movimiento.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

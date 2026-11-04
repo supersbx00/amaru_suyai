@@ -40,8 +40,8 @@
   "name": "obj_tuto_wanku",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/08_Jugador_CambioZona/Objects.yy"
+    "name": "Tutorial",
+    "path": "folders/08_NPCs_Dialogos/Tutorial.yy"
   },
   "parentObjectId": null,
   "persistent": false,

@@ -6,8 +6,8 @@
   "name": "obj_organo",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/04_Minijuego_Momia/Objects.yy"
+    "name": "Piezas",
+    "path": "folders/06_Momia/Piezas.yy"
   },
   "parentObjectId": null,
   "persistent": false,

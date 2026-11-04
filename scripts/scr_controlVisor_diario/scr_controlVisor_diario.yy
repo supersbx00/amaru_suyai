@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_controlVisor_diario",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Pausa",
+    "path": "folders/09_UI/Pausa.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

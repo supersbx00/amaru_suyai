@@ -106,8 +106,8 @@
   "name": "obj_battleController",
   "overriddenProperties": [],
   "parent": {
-    "name": "00_Core",
-    "path": "folders/00_Core.yy"
+    "name": "Flujo",
+    "path": "folders/03_Batalla/Flujo.yy"
   },
   "parentObjectId": null,
   "persistent": false,

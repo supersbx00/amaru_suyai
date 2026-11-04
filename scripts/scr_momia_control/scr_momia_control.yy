@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_momia_control",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/04_Minijuego_Momia/Scripts.yy"
+    "name": "Entrada",
+    "path": "folders/06_Momia/Entrada.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

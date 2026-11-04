@@ -40,8 +40,8 @@
   "name": "obj_tutorial_popup_2",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/09_Pausa_Ayudas_Popups/Objects.yy"
+    "name": "Tutorial",
+    "path": "folders/08_NPCs_Dialogos/Tutorial.yy"
   },
   "parentObjectId": null,
   "persistent": false,

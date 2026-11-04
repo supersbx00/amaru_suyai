@@ -73,8 +73,8 @@
   "name": "obj_mensaje",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/04_Minijuego_Momia/Objects.yy"
+    "name": "Pasos",
+    "path": "folders/06_Momia/Pasos.yy"
   },
   "parentObjectId": null,
   "persistent": false,

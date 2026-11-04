@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_logros",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/99_Sin_Uso_Revisar/Scripts.yy"
+    "name": "Logros",
+    "path": "folders/09_UI/Logros.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

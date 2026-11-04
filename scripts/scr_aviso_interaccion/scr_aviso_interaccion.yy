@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_aviso_interaccion",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Ayudas",
+    "path": "folders/09_UI/Ayudas.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

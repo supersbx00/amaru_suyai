@@ -51,8 +51,8 @@
   "name": "obj_companero",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/08_Jugador_CambioZona/Objects.yy"
+    "name": "Personajes",
+    "path": "folders/02_Jugador/Personajes.yy"
   },
   "parentObjectId": null,
   "persistent": false,

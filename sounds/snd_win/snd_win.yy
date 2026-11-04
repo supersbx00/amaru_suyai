@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_win",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/01_Batalla/Sounds.yy",
+    "name":"Sonidos",
+    "path":"folders/03_Batalla/Sonidos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

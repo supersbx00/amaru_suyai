@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_guardar_datos",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/07_NPCs_Puntaje/Scripts.yy"
+    "name": "Guardado",
+    "path": "folders/01_Partida/Guardado.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

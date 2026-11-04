@@ -10,8 +10,8 @@
   "name":"obj_info_capilla",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/07_NPCs_Puntaje/Objects.yy",
+    "name":"Info_Lugares",
+    "path":"folders/07_Mundo/Info_Lugares.yy",
   },
   "parentObjectId":null,
   "persistent":false,

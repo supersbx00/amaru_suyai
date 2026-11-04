@@ -51,8 +51,8 @@
   "name": "obj_pause",
   "overriddenProperties": [],
   "parent": {
-    "name": "00_Core",
-    "path": "folders/00_Core.yy"
+    "name": "Pausa",
+    "path": "folders/09_UI/Pausa.yy"
   },
   "parentObjectId": null,
   "persistent": false,

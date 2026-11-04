@@ -54,8 +54,8 @@
   "name": "obj_moon1",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/06_Tutorial_Dialogos/Objects.yy"
+    "name": "Interactuables",
+    "path": "folders/07_Mundo/Interactuables.yy"
   },
   "parentObjectId": {
     "name": "obj_zone",

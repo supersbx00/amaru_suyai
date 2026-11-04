@@ -18,7 +18,7 @@
   "name":"rm_final_demo",
   "parent":{
     "name":"Rooms",
-    "path":"folders/02_Nucleo_Partida/Rooms.yy",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

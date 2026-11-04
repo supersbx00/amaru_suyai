@@ -10,8 +10,8 @@
   "name":"obj_npc_3",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/07_NPCs_Puntaje/Objects.yy",
+    "name":"NPCs",
+    "path":"folders/08_NPCs_Dialogos/NPCs.yy",
   },
   "parentObjectId":{
     "name":"obj_zone",

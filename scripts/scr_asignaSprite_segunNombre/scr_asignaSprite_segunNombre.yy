@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_asignaSprite_segunNombre",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Morral",
+    "path": "folders/05_Inventario_Creacion/Morral.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

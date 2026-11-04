@@ -29,8 +29,8 @@
   "name": "obj_mouse",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/04_Minijuego_Momia/Objects.yy"
+    "name": "Entrada",
+    "path": "folders/06_Momia/Entrada.yy"
   },
   "parentObjectId": null,
   "persistent": false,

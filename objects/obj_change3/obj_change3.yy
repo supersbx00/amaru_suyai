@@ -32,8 +32,8 @@
   "name": "obj_change3",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/08_Jugador_CambioZona/Objects.yy"
+    "name": "Transiciones",
+    "path": "folders/01_Partida/Transiciones.yy"
   },
   "parentObjectId": null,
   "persistent": false,

@@ -10,8 +10,8 @@
   "name":"obj_ayuda",
   "overriddenProperties":[],
   "parent": {
-    "name": "Objects",
-    "path": "folders/09_Pausa_Ayudas_Popups/Objects.yy"
+    "name": "Ayudas",
+    "path": "folders/09_UI/Ayudas.yy"
   },
   "parentObjectId":null,
   "persistent":false,

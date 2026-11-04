@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_cargar_posicion",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/08_Jugador_CambioZona/Scripts.yy"
+    "name": "Posicion",
+    "path": "folders/02_Jugador/Posicion.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

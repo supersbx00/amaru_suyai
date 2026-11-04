@@ -51,8 +51,8 @@
   "name": "obj_texto_capilla",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/05_Textos_Carteles/Objects.yy"
+    "name": "Info_Lugares",
+    "path": "folders/07_Mundo/Info_Lugares.yy"
   },
   "parentObjectId": {
     "name": "obj_info",

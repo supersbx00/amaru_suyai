@@ -51,8 +51,8 @@
   "name": "obj_generate",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/03_Mundo_Rooms/Objects.yy"
+    "name": "Controladores",
+    "path": "folders/07_Mundo/Controladores.yy"
   },
   "parentObjectId": null,
   "persistent": true,

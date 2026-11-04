@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_cambiaSprite",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/05_Textos_Carteles/Scripts.yy"
+    "name": "Dialogos",
+    "path": "folders/08_NPCs_Dialogos/Dialogos.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

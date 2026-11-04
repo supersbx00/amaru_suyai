@@ -29,8 +29,8 @@
   "name": "obj_marca_clic",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/08_Jugador_CambioZona/Objects.yy"
+    "name": "Input",
+    "path": "folders/02_Jugador/Input.yy"
   },
   "parentObjectId": null,
   "persistent": false,

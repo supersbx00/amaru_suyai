@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_khoru",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/09_Pausa_Ayudas_Popups/Sounds.yy",
+    "name":"Sonidos",
+    "path":"folders/09_UI/Sonidos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

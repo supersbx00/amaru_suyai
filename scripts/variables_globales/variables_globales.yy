@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "variables_globales",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/04_Minijuego_Momia/Scripts.yy"
+    "name": "Constantes",
+    "path": "folders/00_Core/Constantes.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

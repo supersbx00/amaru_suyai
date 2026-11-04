@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_room_transition",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Transiciones",
+    "path": "folders/01_Partida/Transiciones.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

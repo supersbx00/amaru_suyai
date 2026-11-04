@@ -10,8 +10,8 @@
   "name":"obj_go_luna",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/01_Batalla/Objects.yy",
+    "name":"Items",
+    "path":"folders/03_Batalla/Items.yy",
   },
   "parentObjectId":{
     "name":"obj_item",

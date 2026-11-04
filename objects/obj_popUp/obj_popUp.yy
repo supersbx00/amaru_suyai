@@ -40,8 +40,8 @@
   "name": "obj_popUp",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/02_Nucleo_Partida/Objects.yy"
+    "name": "Ayudas",
+    "path": "folders/09_UI/Ayudas.yy"
   },
   "parentObjectId": null,
   "persistent": false,

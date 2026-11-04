@@ -19,8 +19,8 @@
   "name":"obj_game",
   "overriddenProperties":[],
   "parent":{
-    "name":"00_Core",
-    "path":"folders/00_Core.yy",
+    "name":"Hubs",
+    "path":"folders/00_Core/Hubs.yy",
   },
   "parentObjectId":null,
   "persistent":true,

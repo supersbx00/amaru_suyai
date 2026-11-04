@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_enemy_static_all",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/08_Jugador_CambioZona/Scripts.yy"
+    "name": "IA",
+    "path": "folders/04_Enemigos/IA.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

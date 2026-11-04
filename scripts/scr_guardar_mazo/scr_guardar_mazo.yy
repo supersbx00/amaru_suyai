@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_guardar_mazo",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Guardado",
+    "path": "folders/01_Partida/Guardado.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

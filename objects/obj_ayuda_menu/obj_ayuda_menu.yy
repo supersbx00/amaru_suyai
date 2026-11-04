@@ -18,8 +18,8 @@
   "name": "obj_ayuda_menu",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/99_Sin_Uso_Revisar/Objects.yy"
+    "name": "Menu",
+    "path": "folders/09_UI/Menu.yy"
   },
   "parentObjectId": null,
   "persistent": false,

@@ -41,6 +41,10 @@ Lo creó el usuario y su cambio sigue sin commit. El script no lo toca y `resour
 ### 6. Reglas alineadas con lo aplicado
 `gamemaker.md` deja de pedir `scripts/<dominio>/` y `rooms/<categoría>/`. `openspec/config.yaml` deja de pedir `<Comunidad>/<Tipo>` y de citar `propuesta.md` y `reorg_subcarpetas_por_tipo.md`, que ya no rige.
 
+### 7. Rooms en el grupo nativo `Rooms`
+Una room mezcla recursos de varias features, así que ninguna es su dueña. Tras probar la agrupación por feature, el usuario decidió dejarlas juntas en `Rooms`; objetos y scripts siguen por feature.
+- **Alternativa descartada:** `07_Mundo/Zonas/<Zona>` y `Escena` por feature, porque forzaban un dueño y repartían 17 rooms en 9 grupos.
+
 ## Risks / Trade-offs
 
 - [GameMaker abierto sobrescribe los cambios] → El usuario lo cierra antes de aplicar y lo abre después.

@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_recetas",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Recetas",
+    "path": "folders/05_Inventario_Creacion/Recetas.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

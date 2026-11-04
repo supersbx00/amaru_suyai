@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_pause_control",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/09_Pausa_Ayudas_Popups/Scripts.yy"
+    "name": "Pausa",
+    "path": "folders/09_UI/Pausa.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

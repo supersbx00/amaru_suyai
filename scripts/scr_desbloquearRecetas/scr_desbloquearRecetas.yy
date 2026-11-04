@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_desbloquearRecetas",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/07_NPCs_Puntaje/Scripts.yy"
+    "name": "Recetas",
+    "path": "folders/05_Inventario_Creacion/Recetas.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

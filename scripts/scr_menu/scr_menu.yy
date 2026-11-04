@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_menu",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/02_Nucleo_Partida/Scripts.yy"
+    "name": "Menu",
+    "path": "folders/09_UI/Menu.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"

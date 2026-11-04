@@ -18,8 +18,8 @@
   "name": "obj_imagen_final",
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/02_Nucleo_Partida/Objects.yy"
+    "name": "Final",
+    "path": "folders/07_Mundo/Final.yy"
   },
   "parentObjectId": null,
   "persistent": false,

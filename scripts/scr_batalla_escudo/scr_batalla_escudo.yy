@@ -5,8 +5,8 @@
   "isDnD": false,
   "name": "scr_batalla_escudo",
   "parent": {
-    "name": "Scripts",
-    "path": "folders/01_Batalla/Scripts.yy"
+    "name": "Flujo",
+    "path": "folders/03_Batalla/Flujo.yy"
   },
   "resourceType": "GMScript",
   "resourceVersion": "2.0"
