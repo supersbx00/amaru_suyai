@@ -4,7 +4,11 @@
 *.yyz
 *.user
 .vs/
+.gmedit/
+export/
+[bc]ache/
 openspec
 _recuperado
-.claude
+.claude/*
+!.claude/rules/
 .devcontainer
