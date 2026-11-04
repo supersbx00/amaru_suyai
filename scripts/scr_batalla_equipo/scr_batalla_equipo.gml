@@ -38,7 +38,7 @@ else
     spr_b_danho = spr_amaru_battle_danho;
     spr_b_defeat = spr_amaru_battle_defeat;
     spr_b_cura = spr_amaru_battle_cura;
-    spr_b_carga = spr_amaru_battle_carga;
+    spr_b_carga = spr_amaru_battle_brillo;
     spr_b_break = spr_amaru_battle_CardBreaker;
 }
 }
