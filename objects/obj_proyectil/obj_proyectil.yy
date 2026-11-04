@@ -31,8 +31,8 @@
   "physicsSensor":false,
   "physicsShape":0,
   "physicsShapePoints":[
-    {"x":-2.0,"y":10.0,},
-    {"x":78.0,"y":234.0,},
+    {"x":256.0,"y":202.0,},
+    {"x":78.0,"y":202.0,},
   ],
   "physicsStartAwake":true,
   "properties":[],
