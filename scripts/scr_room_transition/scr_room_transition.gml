@@ -17,6 +17,22 @@ if (fadeAlpha == 1)
     with (obj_enemigo_normal)
         image_xscale = 1;
 
+    // Círculos volteados con image_xscale = -1 en el código de creación de su sala
+    with (obj_moon)
+        image_xscale = 1;
+
+    with (obj_agua)
+        image_xscale = 1;
+
+    with (obj_npc_2)
+        image_xscale = 1;
+
+    with (obj_npc_3)
+        image_xscale = 1;
+
+    with (obj_npc_31)
+        image_xscale = 1;
+
     room_goto(tempTarget);
     fadeState = -1;
 }
