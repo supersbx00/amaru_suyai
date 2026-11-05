@@ -13,7 +13,7 @@ else if (global.espiritu_agua == 1 && global.espiritu_luna == 1 && global.espiri
     global.puntaje_total += 70;
     sprite = 16;
 }
-else if (global.espiritu_fuego == 1 && global.espiritu_luna == 1 && global.espiritu_fuego == 1 && global.khoru == 0)
+else if (global.espiritu_fuego == 1 && global.espiritu_luna == 1 && global.espiritu_agua == 1 && global.khoru == 0)
 {
     global.puntaje_total_descrasheo += 90;
     global.puntaje_total += 90;

@@ -29,19 +29,19 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_bat
 {
     randomize();
     tipo_ataque = choose("normal", "combo");
-    sprite = choose(20, 16, 18);
+    sprite = choose(spr_card_moon, spr_card_agua, spr_card_fuego);
     
-    if (sprite == 20)
+    if (sprite == spr_card_moon)
     {
         typeCombo = "luna";
         tipo = "especial_luna";
     }
-    else if (sprite == 16)
+    else if (sprite == spr_card_agua)
     {
         typeCombo = "agua";
         tipo = "especial_agua";
     }
-    else if (sprite == 18)
+    else if (sprite == spr_card_fuego)
     {
         typeCombo = "fuego";
         tipo = "especial_fuego";
@@ -67,6 +67,8 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_bat
         }
         else if (id1.tipo_ataque == "combo")
         {
+            id1.comboCard_value = 0;
+            
             for (var i = 0; i < 3; i++)
             {
                 randomize();
@@ -84,7 +86,7 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_bat
             
             if (ds_list_size(id1.ComboArray) == 3)
             {
-                comboCarta_aux[0] = 14;
+                comboCarta_aux[0] = spr_deck_combo;
                 comboCarta_aux[1] = id1.comboCard_value;
                 comboCarta_aux[2] = id1.comboCard_value;
                 global.v_enemy = id1.comboCard_value;

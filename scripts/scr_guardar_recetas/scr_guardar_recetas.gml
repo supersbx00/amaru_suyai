@@ -16,7 +16,7 @@ for (var i = 0; i < ds_list_size(obj_morral.recipeBook); i++)
             break;
         
         case "Arpon de hueso":
-            ini_write_real("anzuelo_huesoAve", "enable", aux_search[10]);
+            ini_write_real("arpon_hueso", "enable", aux_search[10]);
             break;
         
         case "Estolica de Madera":

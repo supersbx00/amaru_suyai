@@ -76,7 +76,6 @@ if (!file_exists("partida/Escenario.ini") && file_exists("Escenario.ini"))
 
 if (!file_exists("recetas.ini") || !file_exists("logros.ini"))
 {
-    show_message("entro");
     script_execute(scr_recetas);
     script_execute(scr_lista_logros);
 }

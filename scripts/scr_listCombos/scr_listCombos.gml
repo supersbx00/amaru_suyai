@@ -97,7 +97,7 @@ if (argument0[2] >= 10)
         
         with (id_pr)
         {
-            if (obj_flecha_espiritual.x < (room_width / 2))
+            if (x < (room_width / 2))
             {
                 image_xscale = -1;
                 hspd = 20;

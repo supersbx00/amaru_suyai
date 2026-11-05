@@ -70,7 +70,7 @@ if (subMenu == "florafauna")
 {
     for (var k = 0; k < ds_list_size(listaLogros_florafauna); k++)
     {
-        var posLista_logros = ds_list_find_value(listaLogros_florafauna, i);
+        var posLista_logros = ds_list_find_value(listaLogros_florafauna, k);
         
         if (!posLista_logros)
         {

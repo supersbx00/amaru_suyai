@@ -8,8 +8,8 @@ if (instance_exists(obj_player_battle))
         {
             spawn_id.x = random(room_width / 2);
             spawn_id.y = random_range(384, room_height);
-            spawn_id.phy_position_x = random(room_width / 2);
-            spawn_id.phy_position_y = random_range(384, room_height);
+            spawn_id.phy_position_x = spawn_id.x;
+            spawn_id.phy_position_y = spawn_id.y;
             
             with (spawn_id)
             {

@@ -86,7 +86,7 @@ if (subMenu == "florafauna")
         else
         {
             visorRange_min_diario = 0;
-            visorRange_min_diario = 5;
+            visorRange_max_diario = 5;
         }
     }
     

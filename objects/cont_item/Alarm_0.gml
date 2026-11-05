@@ -6,8 +6,8 @@ if (instance_number(obj_item) == 0 && instance_number(obj_escudo_tuto) == 0)
     {
         spawn_id.x = random(room_width / 2);
         spawn_id.y = random_range(384, room_height);
-        spawn_id.phy_position_x = random(room_width / 2);
-        spawn_id.phy_position_y = random_range(384, room_height);
+        spawn_id.phy_position_x = spawn_id.x;
+        spawn_id.phy_position_y = spawn_id.y;
         
         with (spawn_id)
         {

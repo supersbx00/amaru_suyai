@@ -58,7 +58,7 @@ if (!player_cardBreaked && !anulable && escoger == 0 && barHealth > 0 && scr_bat
             
             if (ds_list_size(id1.ComboArray) == 3)
             {
-                comboCarta_aux[0] = 14;
+                comboCarta_aux[0] = spr_deck_combo;
                 comboCarta_aux[1] = id1.comboCard_value;
                 comboCarta_aux[2] = id1.comboCard_value;
                 comboCarta_aux[3] = typeCombo;

@@ -7,6 +7,7 @@ if (file_exists("logros.ini"))
     global.espiritu_fuego = ini_read_real("Mision", "fuego", 0);
     global.espiritu_luna = ini_read_real("Mision", "luna", 0);
     global.anciana = ini_read_real("Mision", "anciana", 0);
+    global.khoru = ini_read_real("Mision", "khoru", 0);
     ini_close();
 }
 }

@@ -1,6 +1,6 @@
 if (global.numero >= MOMIA_PASO_MADEROS)
 {
-    if (scr_momia_presiona() && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length(inventario) * 64) + 67))
+    if (scr_momia_presiona() && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < 16 + (array_length(inventario) * 67))
     {
         var posicion_h = (mouse_y - 16) div 67;
         click = 0;
@@ -28,7 +28,7 @@ if (global.numero >= MOMIA_PASO_MADEROS)
             {
                 var posicion_h;
                 
-                if (mouse_x < 80 && mouse_y < ((array_length(inventario) * 16) + 67) && mouse_y > 0)
+                if (mouse_x < 80 && mouse_y < 16 + (array_length(inventario) * 67) && mouse_y > 0)
                     posicion_h = (mouse_y - 16) div 67;
                 else
                     posicion_h = guardar_h;

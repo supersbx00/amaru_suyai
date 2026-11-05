@@ -20,10 +20,10 @@ else if (player_cardBreaked || anulable)
 {
     if (barHealtant < barHealth)
     {
-        if (curar >= 1 && curar == 5)
+        if (curar >= 1 && curar <= 5)
             barHealth -= 50;
         
-        if (curar >= 6 && curar == 9)
+        if (curar >= 6 && curar <= 9)
             barHealth -= 100;
     }
 }

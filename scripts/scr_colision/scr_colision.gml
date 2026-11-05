@@ -9,8 +9,7 @@ if (creador == "player2" || creador == "enemy")
 
     instance_destroy();
 }
-
-if (creador == "player1" || creador == "player2")
+else if (creador == "player1" || creador == "player2")
 {
     // Solo el enemigo golpeado pierde vida, no "el" primero del grupo
     other.barHealth -= scr_danho(danho);

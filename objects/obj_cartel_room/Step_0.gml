@@ -1,4 +1,4 @@
-x = (camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0] / 2)) - 330;
+x = (camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2) - 330;
 y = camera_get_view_y(view_camera[0]) + 110;
 
 if (valor_room == 11 || valor_room == 12 || valor_room == 1)
