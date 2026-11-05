@@ -2,6 +2,11 @@
 
 ## 1. Protocolo de Aprobación y Modificaciones (OpenSpec Plan-First)
 - **Consulta Obligatoria:** NUNCA modifiques ni generes código (.gml), scripts (.py) ni documentación (.md) sin presentar un plan previo y obtener aprobación explícita.
+- **Prompt Acordado:** Ante un requerimiento nuevo, el usuario da el contexto y Claude redacta con él un prompt con Contexto, Tarea, Restricciones, Formato y Verificación, usando solo las piezas que la tarea necesite. Si el resultado no es el esperado, primero se revisa qué pieza faltó.
+  - **Preguntas:** Si algo no queda del todo claro, Claude hace entre 3 y 10 preguntas antes de redactarlo. Si todo está claro, muestra el prompt sin preguntar.
+  - **Verificación:** Separa lo que revisa Claude (linter, diff) de lo que prueba el usuario en el IDE, con pasos concretos.
+  - **Aprobación:** Las specs y la planificación de OpenSpec empiezan solo cuando el usuario aprueba el prompt.
+  - **Excepción:** No aplica a consultas, commits ni tareas de git.
 - **Flujo Plan-First:** Ante cualquier requerimiento, define la propuesta técnica brevemente, consulta dudas aclaratorias y espera la confirmación antes de modificar archivos.
 
 ## 2. Estructura del Proyecto: Rutas por Defecto + Grupos (OBLIGATORIO)
