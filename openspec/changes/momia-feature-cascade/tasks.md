@@ -21,8 +21,14 @@ No se crean recursos nuevos de GameMaker ni se tocan los `.yy`. Los scripts y ob
 - [x] 3.1 El usuario repite en GameMaker la prueba de la tarea 1.1, según `specs/momia/pipeline/spec.md`; verificar que confirme que todo funciona igual.
 - [x] 3.2 Revisar con `git status` y `git diff` que solo cambiaron los archivos de `proposal.md`, y ejecutar `openspec validate momia-feature-cascade --strict`.
 
+## 4. Segunda tanda
+
+- [x] 4.1 Mover `Collision_obj_desp` de los 5 órganos a su padre `obj_organo` (archivo `.gml` y `eventList` de los 6 `.yy`); verificar que los 5 `.gml` eran idénticos y que ningún hijo conserva el evento.
+- [x] 4.2 Pasar el input de `objects/obj_cuerpo/Draw_0.gml` (líneas 1-22) a un evento Step nuevo, con `if (!layer_get_visible(layer)) exit;` para que no cuente clics en pausa, y registrarlo en `obj_cuerpo.yy`; verificar en el diff que el código movido es idéntico.
+- [x] 4.3 Ejecutar el linter sobre `scripts/` y los objetos tocados; verificar que no haya errores nuevos.
+- [x] 4.4 El usuario prueba en el IDE: los 5 órganos desaparecen en el agujero; la piel se retira igual con clic y con A, y un clic sobre el cuerpo con la pausa abierta no la cambia.
+
 ## Workflow follow-up
 
 - Un commit por punto, solo con autorización: Conventional Commits en español, sin coautor, con `git add -f openspec/changes/momia-feature-cascade`.
-- Segunda tanda, después de la 3.1: colisión con `obj_desp` en `obj_organo` y el input de `obj_cuerpo` del Draw al Step, en un cambio nuevo o como actualización de este.
 - Aparte: `fix` del límite `* 16` en `obj_inventario/Step_0:33`, si el usuario lo confirma.

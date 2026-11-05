@@ -17,7 +17,7 @@ Primera tanda, aprobada por el usuario. Es un refactor sin cambio de comportamie
 
 **Se descarta:** el constructor `MomiaEntrada` del plan anterior. Las globales del joystick ya están protegidas por `scr_momia_presiona` y `scr_momia_mantiene`, así que un constructor solo agregaría una capa (regla 4).
 
-**Segunda tanda, pendiente de la prueba de la primera:** la colisión con `obj_desp` en `obj_organo` y el input de `obj_cuerpo` del Draw al Step. Ambas tocan los `.yy`.
+**Segunda tanda, aprobada después de la prueba de la primera:** la colisión con `obj_desp` en `obj_organo` y el input de `obj_cuerpo` del Draw al Step. Ambas tocan los `.yy`; el Step de `obj_cuerpo` se salta cuando su capa está oculta (pausa), igual que hoy el Draw.
 
 **Fuera de alcance:** el posible bug del límite `* 16` en `obj_inventario/Step_0:33` (cambia comportamiento, va en un `fix` aparte) y la recompensa de `obj_mensaje/Other_10` (pertenece a `05_Inventario_Creacion`).
 

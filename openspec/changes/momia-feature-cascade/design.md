@@ -19,9 +19,9 @@ Auditoría SOLID de `06_Momia` del 2026-11-05: 21 recursos, unas 1.260 líneas. 
 - El juego se comporta igual, y el diff lo demuestra: cada número se reemplaza por una macro del mismo valor y el código movido es idéntico.
 
 **Non-Goals:**
-- Tocar los `.yy`, mover archivos o cambiar grupos.
+- Mover archivos o cambiar grupos. En la segunda tanda los `.yy` se tocan solo en su `eventList`.
 - Renombrar `global.controlsnap`, `can_snap` u otras variables existentes.
-- La segunda tanda y los puntos fuera de alcance de `proposal.md`.
+- Los puntos fuera de alcance de `proposal.md`.
 
 ## Decisions
 
