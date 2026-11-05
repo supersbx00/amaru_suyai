@@ -13,7 +13,7 @@ if (gamepad_is_connected(0))
         scr_boton_joy_sobre(spr_siguiente_xbox, 965, 780);
     }
     
-    if (global.numero == 3 || global.numero == 11)
+    if (global.numero == MOMIA_PASO_PIEL || global.numero == MOMIA_PASO_CRANEO)
     {
         draw_sprite(spr_botton_x_xbox, 0, 965, 780);
         scr_boton_joy_sobre(spr_botton_x_xbox, 965, 780);

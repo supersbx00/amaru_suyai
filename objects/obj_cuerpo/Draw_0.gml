@@ -1,7 +1,7 @@
 push_enter = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_face3);
 
 // Paso de retirar la piel: cada clic (o A) sobre el cuerpo cuenta como un Enter (uno a la vez, sin repetir al mantener)
-if (global.numero == 3 && (global.mouse_click || gamepad_button_check_pressed(0, gp_face1)) && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
+if (global.numero == MOMIA_PASO_PIEL && (global.mouse_click || gamepad_button_check_pressed(0, gp_face1)) && scr_mouse_sobre(spr_cuerpo, 544, 103, 1, 1))
 {
     push_enter = 1;
     global.mouse_click = 0;
@@ -32,10 +32,10 @@ shader_reset();
 // Indica dónde actuar en los pasos de retirar la piel (3) y fijar el cráneo (11): clic, o botón A con joystick
 var marcar = 0;
 
-if (global.numero == 3 && size < max_size)
+if (global.numero == MOMIA_PASO_PIEL && size < max_size)
     marcar = 1;
 
-if (global.numero == 11 && !(instance_exists(obj_craneo) && instance_exists(obj_esternon) && obj_craneo.x == 622 && obj_craneo.y == 123 && obj_esternon.x == 607 && obj_esternon.y == 253))
+if (global.numero == MOMIA_PASO_CRANEO && !scr_momia_craneo_cerrado())
     marcar = 1;
 
 if (marcar)
@@ -43,7 +43,7 @@ if (marcar)
 
 // Paso de quitar los órganos: primero se quitan el cráneo y el esternón con un clic, después se arrastran los órganos.
 // Se dibuja aquí porque obj_cuerpo es la capa de más arriba de la sala.
-if (global.numero == 4 && global.objeto_mouse == -4)
+if (global.numero == MOMIA_PASO_ORGANOS && global.objeto_mouse == -4)
 {
     var objetivo = noone;
     

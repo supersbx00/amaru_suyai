@@ -1,4 +1,4 @@
-if (global.numero >= 7)
+if (global.numero >= MOMIA_PASO_MADEROS)
 {
     if (scr_momia_presiona() && click == 1 && mouse_x < 80 && mouse_y > 0 && mouse_y < ((array_length(inventario) * 64) + 67))
     {
@@ -7,7 +7,7 @@ if (global.numero >= 7)
         alarm[0] = 30;
         
         // Paso de la arcilla: el terrón queda en la mano para untarlo (obj_arcilla_untar), no se arrastra como pieza
-        if (global.numero == 12 && inventario[posicion_h] == 9 && instance_exists(obj_arcilla_untar))
+        if (global.numero == MOMIA_PASO_ARCILLA && inventario[posicion_h] == 9 && instance_exists(obj_arcilla_untar))
         {
             inventario[posicion_h] = 0;
             obj_arcilla_untar.en_mano = 1;
@@ -15,8 +15,6 @@ if (global.numero >= 7)
         else
         {
             mouse_arrastrar = inventario[posicion_h];
-            show_debug_message("el mouse es");
-            show_debug_message("la posición es" + string(posicion_h));
             guardar_h = posicion_h;
             inventario[posicion_h] = 0;
         }
@@ -60,7 +58,6 @@ if (global.numero >= 7)
                     instance_destroy();
                 
                 objetofuera = -4;
-                show_debug_message("objetofuera=" + string(objetofuera));
             }
         }
         
@@ -68,63 +65,21 @@ if (global.numero >= 7)
         {
             objetofuera = instance_create(mouse_x, mouse_y, obj_pieza);
             
+            // El objeto 13 no es pieza: queda con el sprite de obj_pieza, como antes
+            var piezas = scr_momia_piezas();
+
+            if (mouse_arrastrar < array_length(piezas))
+                objetofuera.sprite_index = piezas[mouse_arrastrar];
+
+            // Profundidad de la pieza en la mano; las demás usan la de obj_pieza
             switch (mouse_arrastrar)
             {
-                case 1:
-                    objetofuera.sprite_index = spr_maderabrazoderecho;
-                    break;
-                
-                case 2:
-                    objetofuera.sprite_index = spr_maderohombro;
-                    break;
-                
-                case 3:
-                    objetofuera.sprite_index = spr_maderabrazoizquierdo;
-                    break;
-                
-                case 4:
-                    objetofuera.sprite_index = spr_maderacadera;
-                    break;
-                
-                case 5:
-                    objetofuera.sprite_index = spr_maderapiernaderecha;
-                    break;
-                
-                case 6:
-                    objetofuera.sprite_index = spr_maderapiernaizquierda;
-                    break;
-                
-                case 7:
-                    objetofuera.sprite_index = spr_paja;
-                    break;
-                
-                case 8:
-                    objetofuera.sprite_index = spr_pajacabeza;
-                    objetofuera.depth = -103;
-                    break;
-                
-                case 9:
-                    objetofuera.sprite_index = spr_barro;
-                    objetofuera.depth = -106;
-                    break;
-                
-                case 10:
-                    objetofuera.sprite_index = spr_faldellin;
-                    objetofuera.depth = -108;
-                    break;
-                
-                case 11:
-                    objetofuera.sprite_index = spr_pelo;
-                    objetofuera.depth = -110;
-                    break;
-                
-                case 12:
-                    objetofuera.sprite_index = spr_cara;
-                    objetofuera.depth = -112;
-                    break;
+                case 8: objetofuera.depth = -103; break;
+                case 9: objetofuera.depth = -106; break;
+                case 10: objetofuera.depth = -108; break;
+                case 11: objetofuera.depth = -110; break;
+                case 12: objetofuera.depth = -112; break;
             }
-            
-            show_debug_message("objetofuera=" + string(objetofuera));
         }
         
         if (mouse_x < 80 && mouse_y < ((array_length(inventario) * 67) + 16) && mouse_y > 0 && objetofuera != -4)

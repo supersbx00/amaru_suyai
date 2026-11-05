@@ -15,12 +15,12 @@ if (mouse_arrastrar == 0)
     
     switch (global.numero)
     {
-        case 7: desde = 1; hasta = 6; break;
-        case 10: desde = 7; hasta = 8; break;
-        case 12: desde = 9; hasta = 9; break;
-        case 14: desde = 10; hasta = 10; break;
-        case 15: desde = 11; hasta = 11; break;
-        case 16: desde = 12; hasta = 12; break;
+        case MOMIA_PASO_MADEROS: desde = 1; hasta = 6; break;
+        case MOMIA_PASO_RELLENO: desde = 7; hasta = 8; break;
+        case MOMIA_PASO_ARCILLA: desde = 9; hasta = 9; break;
+        case MOMIA_PASO_FALDELLIN: desde = 10; hasta = 10; break;
+        case MOMIA_PASO_PELO: desde = 11; hasta = 11; break;
+        case MOMIA_PASO_MASCARA: desde = 12; hasta = 12; break;
     }
     
     for (var i = 0; i < array_length(inventario); i++)

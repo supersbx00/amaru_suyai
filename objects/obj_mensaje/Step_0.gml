@@ -6,7 +6,7 @@ push_cont = global.texto_confirmar;
 
 switch (global.numero)
 {
-    case 3:
+    case MOMIA_PASO_PIEL:
         if (obj_cuerpo.size == obj_cuerpo.max_size)
         {
             condicion = 1;
@@ -15,7 +15,7 @@ switch (global.numero)
         
         break;
     
-    case 4:
+    case MOMIA_PASO_ORGANOS:
         if (instance_number(obj_organo) == 0)
         {
             condicion = 2;
@@ -24,7 +24,7 @@ switch (global.numero)
         
         break;
     
-    case 7:
+    case MOMIA_PASO_MADEROS:
         if (global.controlsnap == 6)
         {
             condicion = 3;
@@ -33,7 +33,7 @@ switch (global.numero)
         
         break;
     
-    case 10:
+    case MOMIA_PASO_RELLENO:
         if (global.controlsnap == 8)
         {
             condicion = 4;
@@ -42,19 +42,16 @@ switch (global.numero)
         
         break;
     
-    case 11:
-        if (instance_exists(obj_craneo) && instance_exists(obj_esternon))
+    case MOMIA_PASO_CRANEO:
+        if (scr_momia_craneo_cerrado())
         {
-            if (obj_craneo.x == 622 && obj_craneo.y == 123 && obj_esternon.x == 607 && obj_esternon.y == 253)
-            {
-                condicion = 5;
-                forzar_avanzar = 5;
-            }
+            condicion = 5;
+            forzar_avanzar = 5;
         }
         
         break;
     
-    case 12:
+    case MOMIA_PASO_ARCILLA:
         if (global.controlsnap == 9)
         {
             condicion = 6;
@@ -63,7 +60,7 @@ switch (global.numero)
         
         break;
     
-    case 14:
+    case MOMIA_PASO_FALDELLIN:
         if (global.controlsnap == 10)
         {
             condicion = 7;
@@ -72,7 +69,7 @@ switch (global.numero)
         
         break;
     
-    case 15:
+    case MOMIA_PASO_PELO:
         if (global.controlsnap == 11)
         {
             condicion = 8;
@@ -81,7 +78,7 @@ switch (global.numero)
         
         break;
     
-    case 16:
+    case MOMIA_PASO_MASCARA:
         if (global.controlsnap == 12)
         {
             condicion = 9;

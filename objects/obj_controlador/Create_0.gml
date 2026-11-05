@@ -1,5 +1,4 @@
 global.objeto_mouse = -4;
-global.inventario = 0;
 global.prioridad = -4;
 posicionX[0] = 569;
 posicionX[1] = 653;
@@ -25,4 +24,4 @@ posicionY[8] = 114;
 posicionY[9] = 464;
 posicionY[10] = 187;
 posicionY[11] = 176;
-can_snap = 6;
+can_snap = MOMIA_PASO_MADEROS_INICIO;

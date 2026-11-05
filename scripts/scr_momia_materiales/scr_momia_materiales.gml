@@ -18,6 +18,20 @@ return [
 ];
 }
 
+// Sprite de cada objeto del inventario de la momia, con el mismo índice que scr_momia_costos (0 = ninguno).
+// Lo usan el molde (obj_controlador) y la pieza en la mano (obj_inventario); cada uno pone su profundidad.
+function scr_momia_piezas() {
+return [
+    -1,
+    spr_maderabrazoderecho, spr_maderohombro, spr_maderabrazoizquierdo, spr_maderacadera, spr_maderapiernaderecha, spr_maderapiernaizquierda,
+    spr_paja, spr_pajacabeza,
+    spr_barro,
+    spr_faldellin,
+    spr_pelo,
+    spr_cara
+];
+}
+
 // Recetas de la pestaña Momificar de Creación: [nombre, sprite de la pieza, [[sprite del material, nombre, cantidad], ...], descripción]
 function scr_momia_recetas() {
 return [
