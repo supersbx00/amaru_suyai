@@ -1,10 +1,11 @@
 # Reglas de Workflow en Git & Claude Code
 
 ## 1. Estrategia de Ramas (Feature-Driven Branching)
-- **`dev`:** Rama de integración. Las ramas `feature/` y `fix/` salen de `dev` y vuelven a `dev`.
+- **`dev`:** Rama de integración. Las ramas `feature/`, `fix/` y `refactor/` salen de `dev` y vuelven a `dev`.
 - **`main`:** Código estable y testeado. Prohibidos los commits directos.
 - **`feature/<nombre-feature>`:** Ramas independientes para cada módulo de la arquitectura Feature Cascade (ej. `feature/ponytail-physics`, `feature/event-bus`).
 - **`fix/<descripcion-corta>`:** Ramas específicas para corrección de bugs.
+- **`refactor/<descripcion-corta>`:** Reestructuración sin cambiar el comportamiento (ej. `refactor/momia-solid`).
 
 ## 2. Prevención de Conflictos en GameMaker (CRÍTICO)
 - **Granularidad de Recursos:** No trabajes en el mismo objeto (`.yy`) o evento desde dos ramas distintas simultáneamente; los JSONs de GameMaker son propensos a conflictos complejos de merge.
