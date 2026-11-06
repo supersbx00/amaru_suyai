@@ -49,7 +49,7 @@ principal.vida_max = principal.barHealth;
 
 for (var i = 1; i < cantidad; i++)
 {
-    var acomp = instance_create(pos[i][0], pos[i][1], obj_enemigo);
+    var acomp = instance_create(pos[i][0], pos[i][1], obj_tojotojone);  // acompañante genérico
     acomp.barHealth = BATALLA_VIDA_ACOMP;
     acomp.vida_max = BATALLA_VIDA_ACOMP;
 }

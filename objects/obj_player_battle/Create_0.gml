@@ -51,7 +51,20 @@ with (instance_create(x, y, obj_card))
     instance_destroy();
 }
 
-// La carta de anulación ya no va en la mano: la reemplaza el escudo con recarga (scr_batalla_escudo)
+// Carta de anulación: convive con el escudo; tras 3 usos en la batalla la recarga ya no la devuelve (scr_batalla_ia)
+with (instance_create(x, y, obj_card))
+{
+    sprite_index = spr_cardsNull;
+    image_index = 0;
+    card_inDeck[0] = sprite_index;
+    card_inDeck[1] = image_index;
+    card_inDeck[2] = 99;
+    card_inDeck[3] = "anulacion";
+    ds_list_add(obj_player_battle.playerDeck, card_inDeck);
+    instance_destroy();
+}
+
+anulacion_usos = 0;
 
 ds_list_copy(aux_playerDeck, playerDeck);
 CANTMAXCARDS = ds_list_size(playerDeck);

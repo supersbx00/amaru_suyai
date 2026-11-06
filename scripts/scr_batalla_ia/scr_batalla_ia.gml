@@ -13,6 +13,17 @@ if (cartaPlayer[0] == spr_cardsNull) // carta null: paraliza al enemigo (antes Ã
         rival.player_cardBreaked = 1;
         rival.anulable = 0;
     }
+    
+    // Al tercer uso deja de volver con la recarga (aux_playerDeck es la mano que repone)
+    anulacion_usos += 1;
+    
+    if (anulacion_usos >= 3)
+    {
+        var p = ds_list_find_index(aux_playerDeck, cartaPlayer);
+        
+        if (p != -1)
+            ds_list_delete(aux_playerDeck, p);
+    }
 }
 
 if (cartaPlayer[3] == "rojo")
