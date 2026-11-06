@@ -6,12 +6,14 @@ danho = cartaPlayer[1];
 
 if (cartaPlayer[0] == spr_cardsNull) // carta null: paraliza al enemigo (antes índice GMS1 4)
 {
-    var rival = scr_batalla_enemigo_duelo();
-    
-    if (rival != noone)
+    // Aturde a todo el grupo: con uno solo, el que no tenía el turno seguía atacando
+    with (obj_enemigo)
     {
-        rival.player_cardBreaked = 1;
-        rival.anulable = 0;
+        if (barHealth > 0)
+        {
+            player_cardBreaked = 1;
+            anulable = 0;
+        }
     }
     
     // Al tercer uso deja de volver con la recarga (aux_playerDeck es la mano que repone)

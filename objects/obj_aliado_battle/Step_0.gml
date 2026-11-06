@@ -11,7 +11,7 @@ if (barHealth <= 0)
     phy_active = 0;
     sprite_index = spr_b_defeat;
     image_index = 0;
-    image_speed = 0.4;
+    image_speed = image_number / 15; // toda caída dura 0,5 s (Suyai tiene 33 cuadros, Amaru 6)
     exit;
 }
 

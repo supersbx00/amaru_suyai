@@ -32,7 +32,7 @@ if (sprite_index == spr_b_danho)
 if (sprite_index == spr_b_defeat)
 {
     phy_active = 0;
-    image_index = 5;
+    image_index = image_number - 1;
     image_speed = 0;
 }
 

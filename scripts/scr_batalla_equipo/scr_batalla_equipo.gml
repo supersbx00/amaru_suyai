@@ -18,16 +18,13 @@ personaje = p;
 
 if (p == "suyai")
 {
-    // La animación de recuperarse se usa para curar y para recargar
-    var cura = spr_suyai_battle_cura;
-    
     spr_b_stand = spr_suyai_battle_stand;
     spr_b_run = spr_suyai_battle_run;
     spr_b_atk = spr_suyai_battle_brillo;
     spr_b_danho = spr_suyai_battle_danho;
     spr_b_defeat = spr_suyai_battle_defeat;
-    spr_b_cura = cura;
-    spr_b_carga = cura;
+    spr_b_cura = spr_suyai_battle_cura;
+    spr_b_carga = spr_suyai_battle_carga;
     spr_b_break = spr_suyai_battle_danho;
 }
 else
@@ -159,7 +156,7 @@ with (a)
         phy_active = 0;
         sprite_index = spr_b_defeat;
         image_index = 0;
-        image_speed = 0.4;
+        image_speed = image_number / 15; // toda caída dura 0,5 s
     }
     else if (sprite_index != spr_b_danho && sprite_index != spr_b_cura)
     {

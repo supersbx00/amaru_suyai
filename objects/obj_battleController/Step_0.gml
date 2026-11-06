@@ -111,11 +111,22 @@ if (scr_batalla_equipo_vivo() == 0 || scr_batalla_vida_grupo() <= 0)
     phase3 = 1;
 }
 
+// Todo enemigo caído (tojotojón, espíritus, Khoru) se desvanece y deja de chocar; no se destruye porque turnos y victoria cuentan instancias
+with (obj_enemigo)
+{
+    if (barHealth <= 0)
+    {
+        phy_active = 0;
+        image_alpha = max(0, image_alpha - 0.03);
+    }
+}
+
 if (phase3)
 {
     if (scr_batalla_equipo_vivo() == 0 && alarm_trigger == 1)
     {
         obj_player_battle.sprite_index = obj_player_battle.spr_b_defeat;
+        obj_player_battle.image_speed = obj_player_battle.image_number / 15; // toda caída dura 0,5 s
         obj_player_battle.enable_battle = 0;
         obj_player_battle.enable_player = 0;
         

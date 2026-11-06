@@ -419,6 +419,7 @@
     {"id":{"name":"spr_agua","path":"sprites/spr_agua/spr_agua.yy",},},
     {"id":{"name":"spr_amaru_ancestral_run","path":"sprites/spr_amaru_ancestral_run/spr_amaru_ancestral_run.yy",},},
     {"id":{"name":"spr_amaru_battle_atk","path":"sprites/spr_amaru_battle_atk/spr_amaru_battle_atk.yy",},},
+    {"id":{"name":"spr_suyai_battle_carga","path":"sprites/spr_suyai_battle_carga/spr_suyai_battle_carga.yy",},},
     {"id":{"name":"spr_amaru_battle_brillo","path":"sprites/spr_amaru_battle_brillo/spr_amaru_battle_brillo.yy",},},
     {"id":{"name":"spr_amaru_battle_CardBreaker","path":"sprites/spr_amaru_battle_CardBreaker/spr_amaru_battle_CardBreaker.yy",},},
     {"id":{"name":"spr_amaru_battle_carga","path":"sprites/spr_amaru_battle_carga/spr_amaru_battle_carga.yy",},},
