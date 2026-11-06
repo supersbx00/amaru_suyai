@@ -11,4 +11,3 @@ openspec
 _recuperado
 .claude/*
 !.claude/rules/
-.devcontainer
