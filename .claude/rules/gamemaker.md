@@ -1,12 +1,17 @@
 # Reglas de Proyecto: GameMaker Studio 2 (GML) & Claude Code
 
-## 1. Protocolo de Aprobación y Modificaciones (OpenSpec Plan-First)
-- **Consulta Obligatoria:** NUNCA modifiques ni generes código (.gml), scripts (.py) ni documentación (.md) sin presentar un plan previo y obtener aprobación explícita.
-- **Prompt Acordado:** Ante un requerimiento nuevo, el usuario da el contexto y Claude redacta con él un prompt con Contexto, Tarea, Restricciones, Formato y Verificación, usando solo las piezas que la tarea necesite. Si el resultado no es el esperado, primero se revisa qué pieza faltó.
-  - **Preguntas:** Si algo no queda del todo claro, Claude hace entre 3 y 10 preguntas antes de redactarlo. Si todo está claro, muestra el prompt sin preguntar.
-  - **Verificación:** Separa lo que revisa Claude (linter, diff) de lo que prueba el usuario en el IDE, con pasos concretos.
-  - **Aprobación:** Las specs y la planificación de OpenSpec empiezan solo cuando el usuario aprueba el prompt.
-  - **Excepción:** No aplica a consultas, commits ni tareas de git.
+## 1. Protocolo de Aprobación y Modificaciones (OpenSpec Plan-First & Prompt en MD)
+- **Consulta Obligatoria:** NUNCA modifiques ni generes código (.gml), scripts (.py) ni documentación (.md) sin presentar un prompt previo y obtener aprobación explícita.
+- **Prompt en archivo:** Ante un requerimiento nuevo, Claude escribe el prompt (Contexto, Tarea, Restricciones, Formato y Verificación, solo las piezas necesarias) en `docs/prompts/<tarea>.md`, no en el chat. Si el resultado no es el esperado, primero se revisa qué pieza faltó.
+- **Respuesta en chat (corta):**
+  1. Primera línea: "No apliqué nada, falta tu aprobación."
+  2. Resumen de una línea y la ruta del `.md`.
+  3. Las preguntas (entre 3 y 10) si algo no está claro, y los riesgos que el usuario deba saber.
+  4. La pregunta de aprobación.
+- **Verificación:** El `.md` separa lo que revisa Claude (linter, diff) de lo que prueba el usuario en el IDE, con pasos concretos.
+- **Revisión:** El usuario puede editar el `.md` en su IDE o corregir por chat. Claude relee el archivo antes de aplicar.
+- **Aprobación:** OpenSpec y los cambios reales empiezan solo con aprobación explícita del prompt.
+- **Excepción:** No aplica a consultas, commits ni tareas de git.
 - **Flujo Plan-First:** Ante cualquier requerimiento, define la propuesta técnica brevemente, consulta dudas aclaratorias y espera la confirmación antes de modificar archivos.
 
 ## 2. Estructura del Proyecto: Rutas por Defecto + Grupos (OBLIGATORIO)
@@ -33,6 +38,8 @@
 ## 5. Optimización de Contexto con gms-mcp
 - **Consultas Ligeras:** Usa siempre las herramientas de `gms-mcp` para inspeccionar objetos, eventos y scripts. Queda prohibido leer archivos `.yy` o `.yyp` completos en la ventana de contexto.
 - **Indexación Selectiva:** Lee únicamente los eventos o scripts del grupo involucrado en la tarea actual.
+- **Subagentes con Medida:** No lanzar subagentes salvo que la tarea lo justifique (ej. una auditoría de todo el proyecto) y el usuario lo apruebe; cada uno parte de cero y gasta mucho.
+- **Búsquedas Puntuales:** Investigar con greps acotados y leer solo las líneas necesarias, no archivos completos.
 
 ## 6. Disciplina Clean Code (Ponytail) & Linter
 - **Built-in First:** Es obligatorio usar funciones nativas de GML (`instance_place`, `point_distance`, etc.) antes de construir algoritmos manuales.
