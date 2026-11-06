@@ -1,0 +1,51 @@
+{
+  "name": "GameMaker + Claude MCP Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+   "runArgs": [
+    "--name",
+    "amaru_suyai_container",
+    "--network",
+    "dagster-network"
+  ],
+
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "files.associations": {
+          "*.gml": "gml",
+          "*.yy": "json",
+          "*.yyp": "json"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "kalvinm.gml-support",
+        "anthropic.claude-code",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+
+  // Uso de sintaxis basada en array para evitar errores de parseo en Windows/DevContainer CLI
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3-pip nodejs npm && pip3 install --upgrade pip --break-system-packages && pip3 install anthropic graphifyy networkx matplotlib pandas pydantic requests mcp --break-system-packages && sudo npm install -g @petah/gamemaker-mcp @gamemaker/gm-cli",
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  },
+ "mounts": [
+  "source=${localEnv:USERPROFILE}/.claude,target=/home/vscode/.claude,type=bind"
+  ],
+  "remoteUser": "vscode",
+  "shutdownAction": "stopContainer"
+}
